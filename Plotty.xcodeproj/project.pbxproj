@@ -1,0 +1,1880 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		909DC3C22C4EE0EC004A5246 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3BF2C4EE0EC004A5246 /* main.c */; };
+		909DC5032C4EE243004A5246 /* NAApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3CB2C4EE243004A5246 /* NAApplication.c */; };
+		909DC5042C4EE243004A5246 /* NAButton.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3CC2C4EE243004A5246 /* NAButton.c */; };
+		909DC5052C4EE243004A5246 /* NACheckBox.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3CD2C4EE243004A5246 /* NACheckBox.c */; };
+		909DC5062C4EE243004A5246 /* NAFont.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3CE2C4EE243004A5246 /* NAFont.c */; };
+		909DC5072C4EE243004A5246 /* NAImageSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3CF2C4EE243004A5246 /* NAImageSpace.c */; };
+		909DC5082C4EE243004A5246 /* NAKeyboard.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D02C4EE243004A5246 /* NAKeyboard.c */; };
+		909DC5092C4EE243004A5246 /* NALabel.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D12C4EE243004A5246 /* NALabel.c */; };
+		909DC50A2C4EE243004A5246 /* NAMenu.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D22C4EE243004A5246 /* NAMenu.c */; };
+		909DC50B2C4EE243004A5246 /* NAMenuItem.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D32C4EE243004A5246 /* NAMenuItem.c */; };
+		909DC50C2C4EE243004A5246 /* NAMetalSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D42C4EE243004A5246 /* NAMetalSpace.c */; };
+		909DC50D2C4EE243004A5246 /* NAMouse.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D52C4EE243004A5246 /* NAMouse.c */; };
+		909DC50E2C4EE243004A5246 /* NAOpenGLSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D62C4EE243004A5246 /* NAOpenGLSpace.c */; };
+		909DC50F2C4EE243004A5246 /* NARadio.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D72C4EE243004A5246 /* NARadio.c */; };
+		909DC5102C4EE243004A5246 /* NAScreen.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D82C4EE243004A5246 /* NAScreen.c */; };
+		909DC5112C4EE243004A5246 /* NASelect.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3D92C4EE243004A5246 /* NASelect.c */; };
+		909DC5122C4EE243004A5246 /* NASlider.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3DA2C4EE243004A5246 /* NASlider.c */; };
+		909DC5132C4EE243004A5246 /* NASpace.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3DB2C4EE243004A5246 /* NASpace.c */; };
+		909DC5142C4EE243004A5246 /* NATextBox.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3DC2C4EE243004A5246 /* NATextBox.c */; };
+		909DC5152C4EE243004A5246 /* NATextField.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3DD2C4EE243004A5246 /* NATextField.c */; };
+		909DC5162C4EE243004A5246 /* NAUIElement.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3DE2C4EE243004A5246 /* NAUIElement.c */; };
+		909DC5172C4EE243004A5246 /* NAWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3DF2C4EE243004A5246 /* NAWindow.c */; };
+		909DC5182C4EE243004A5246 /* NAAppCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3E12C4EE243004A5246 /* NAAppCore.h */; };
+		909DC5192C4EE243004A5246 /* NAPreferences.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3E22C4EE243004A5246 /* NAPreferences.c */; };
+		909DC51A2C4EE243004A5246 /* NAPreferencesII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3E32C4EE243004A5246 /* NAPreferencesII.h */; };
+		909DC51B2C4EE243004A5246 /* NAUIImage.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3E42C4EE243004A5246 /* NAUIImage.c */; };
+		909DC51C2C4EE243004A5246 /* NAUIImageII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3E52C4EE243004A5246 /* NAUIImageII.h */; };
+		909DC51D2C4EE243004A5246 /* NAApplicationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3E72C4EE243004A5246 /* NAApplicationII.h */; };
+		909DC51E2C4EE243004A5246 /* NAButtonII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3E82C4EE243004A5246 /* NAButtonII.h */; };
+		909DC51F2C4EE243004A5246 /* NACheckBoxII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3E92C4EE243004A5246 /* NACheckBoxII.h */; };
+		909DC5202C4EE243004A5246 /* NAImageSpaceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3EA2C4EE243004A5246 /* NAImageSpaceII.h */; };
+		909DC5212C4EE243004A5246 /* NALabelII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3EB2C4EE243004A5246 /* NALabelII.h */; };
+		909DC5222C4EE243004A5246 /* NAMenuII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3EC2C4EE243004A5246 /* NAMenuII.h */; };
+		909DC5232C4EE243004A5246 /* NAMenuItemII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3ED2C4EE243004A5246 /* NAMenuItemII.h */; };
+		909DC5242C4EE243004A5246 /* NAMetalSpaceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3EE2C4EE243004A5246 /* NAMetalSpaceII.h */; };
+		909DC5252C4EE243004A5246 /* NAOpenGLSpaceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3EF2C4EE243004A5246 /* NAOpenGLSpaceII.h */; };
+		909DC5262C4EE243004A5246 /* NARadioII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F02C4EE243004A5246 /* NARadioII.h */; };
+		909DC5272C4EE243004A5246 /* NASelectII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F12C4EE243004A5246 /* NASelectII.h */; };
+		909DC5282C4EE243004A5246 /* NASliderII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F22C4EE243004A5246 /* NASliderII.h */; };
+		909DC5292C4EE243004A5246 /* NASpaceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F32C4EE243004A5246 /* NASpaceII.h */; };
+		909DC52A2C4EE243004A5246 /* NATextBoxII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F42C4EE243004A5246 /* NATextBoxII.h */; };
+		909DC52B2C4EE243004A5246 /* NATextFieldII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F52C4EE243004A5246 /* NATextFieldII.h */; };
+		909DC52C2C4EE243004A5246 /* NAUICocoaII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F62C4EE243004A5246 /* NAUICocoaII.h */; };
+		909DC52D2C4EE243004A5246 /* NAUICocoaInterfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F72C4EE243004A5246 /* NAUICocoaInterfaces.h */; };
+		909DC52E2C4EE243004A5246 /* NAUICocoaLegacy.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F82C4EE243004A5246 /* NAUICocoaLegacy.h */; };
+		909DC52F2C4EE243004A5246 /* NAUICocoaLegacyII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3F92C4EE243004A5246 /* NAUICocoaLegacyII.h */; };
+		909DC5302C4EE243004A5246 /* NAWindowII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3FA2C4EE243004A5246 /* NAWindowII.h */; };
+		909DC5312C4EE243004A5246 /* NACocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3FC2C4EE243004A5246 /* NACocoa.m */; };
+		909DC5322C4EE243004A5246 /* NAPreferencesCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 909DC3FD2C4EE243004A5246 /* NAPreferencesCocoa.m */; };
+		909DC5332C4EE243004A5246 /* NAUIImageCocoaII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC3FE2C4EE243004A5246 /* NAUIImageCocoaII.h */; };
+		909DC5342C4EE243004A5246 /* NAApplicationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4002C4EE243004A5246 /* NAApplicationII.h */; };
+		909DC5352C4EE243004A5246 /* NAButtonII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4012C4EE243004A5246 /* NAButtonII.h */; };
+		909DC5362C4EE243004A5246 /* NACheckBoxII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4022C4EE243004A5246 /* NACheckBoxII.h */; };
+		909DC5372C4EE243004A5246 /* NAImageSpaceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4032C4EE243004A5246 /* NAImageSpaceII.h */; };
+		909DC5382C4EE243004A5246 /* NALabelII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4042C4EE243004A5246 /* NALabelII.h */; };
+		909DC5392C4EE243004A5246 /* NAMenuII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4052C4EE243004A5246 /* NAMenuII.h */; };
+		909DC53A2C4EE243004A5246 /* NAMenuItemII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4062C4EE243004A5246 /* NAMenuItemII.h */; };
+		909DC53B2C4EE243004A5246 /* NAMetalSpaceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4072C4EE243004A5246 /* NAMetalSpaceII.h */; };
+		909DC53C2C4EE243004A5246 /* NAOpenGLSpaceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4082C4EE243004A5246 /* NAOpenGLSpaceII.h */; };
+		909DC53D2C4EE243004A5246 /* NARadioII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4092C4EE243004A5246 /* NARadioII.h */; };
+		909DC53E2C4EE243004A5246 /* NASelectII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC40A2C4EE243004A5246 /* NASelectII.h */; };
+		909DC53F2C4EE243004A5246 /* NASliderII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC40B2C4EE243004A5246 /* NASliderII.h */; };
+		909DC5402C4EE243004A5246 /* NASpaceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC40C2C4EE243004A5246 /* NASpaceII.h */; };
+		909DC5412C4EE243004A5246 /* NATextBoxII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC40D2C4EE243004A5246 /* NATextBoxII.h */; };
+		909DC5422C4EE243004A5246 /* NATextFieldII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC40E2C4EE243004A5246 /* NATextFieldII.h */; };
+		909DC5432C4EE243004A5246 /* NAUIWINAPIII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC40F2C4EE243004A5246 /* NAUIWINAPIII.h */; };
+		909DC5442C4EE243004A5246 /* NAUIWINAPIInterfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4102C4EE243004A5246 /* NAUIWINAPIInterfaces.h */; };
+		909DC5452C4EE243004A5246 /* NAWindowII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4112C4EE243004A5246 /* NAWindowII.h */; };
+		909DC5462C4EE243004A5246 /* NAPreferencesWINAPI.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4132C4EE243004A5246 /* NAPreferencesWINAPI.c */; };
+		909DC5472C4EE243004A5246 /* NAPreferencesWINAPIII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4142C4EE243004A5246 /* NAPreferencesWINAPIII.h */; };
+		909DC5482C4EE243004A5246 /* NAUIImageWINAPIII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4152C4EE243004A5246 /* NAUIImageWINAPIII.h */; };
+		909DC5492C4EE243004A5246 /* NAUIWINAPI.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4162C4EE243004A5246 /* NAUIWINAPI.c */; };
+		909DC54A2C4EE243004A5246 /* NAApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4192C4EE243004A5246 /* NAApp.h */; };
+		909DC54B2C4EE243004A5246 /* NAApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC41A2C4EE243004A5246 /* NAApplication.h */; };
+		909DC54C2C4EE243004A5246 /* NAButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC41B2C4EE243004A5246 /* NAButton.h */; };
+		909DC54D2C4EE243004A5246 /* NACheckBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC41C2C4EE243004A5246 /* NACheckBox.h */; };
+		909DC54E2C4EE243004A5246 /* NAFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC41D2C4EE243004A5246 /* NAFont.h */; };
+		909DC54F2C4EE243004A5246 /* NAImageSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC41E2C4EE243004A5246 /* NAImageSpace.h */; };
+		909DC5502C4EE243004A5246 /* NAKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC41F2C4EE243004A5246 /* NAKeyboard.h */; };
+		909DC5512C4EE243004A5246 /* NALabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4202C4EE243004A5246 /* NALabel.h */; };
+		909DC5522C4EE243004A5246 /* NAMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4212C4EE243004A5246 /* NAMenu.h */; };
+		909DC5532C4EE243004A5246 /* NAMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4222C4EE243004A5246 /* NAMenuItem.h */; };
+		909DC5542C4EE243004A5246 /* NAMetalSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4232C4EE243004A5246 /* NAMetalSpace.h */; };
+		909DC5552C4EE243004A5246 /* NAMouse.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4242C4EE243004A5246 /* NAMouse.h */; };
+		909DC5562C4EE243004A5246 /* NAOpenGLSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4252C4EE243004A5246 /* NAOpenGLSpace.h */; };
+		909DC5572C4EE243004A5246 /* NAPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4262C4EE243004A5246 /* NAPreferences.h */; };
+		909DC5582C4EE243004A5246 /* NARadio.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4272C4EE243004A5246 /* NARadio.h */; };
+		909DC5592C4EE243004A5246 /* NAReaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4282C4EE243004A5246 /* NAReaction.h */; };
+		909DC55A2C4EE243004A5246 /* NAScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4292C4EE243004A5246 /* NAScreen.h */; };
+		909DC55B2C4EE243004A5246 /* NASelect.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC42A2C4EE243004A5246 /* NASelect.h */; };
+		909DC55C2C4EE243004A5246 /* NASlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC42B2C4EE243004A5246 /* NASlider.h */; };
+		909DC55D2C4EE243004A5246 /* NASpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC42C2C4EE243004A5246 /* NASpace.h */; };
+		909DC55E2C4EE243004A5246 /* NATextBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC42D2C4EE243004A5246 /* NATextBox.h */; };
+		909DC55F2C4EE243004A5246 /* NATextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC42E2C4EE243004A5246 /* NATextField.h */; };
+		909DC5602C4EE243004A5246 /* NAUIElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC42F2C4EE243004A5246 /* NAUIElement.h */; };
+		909DC5612C4EE243004A5246 /* NAUIImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4302C4EE243004A5246 /* NAUIImage.h */; };
+		909DC5622C4EE243004A5246 /* NAWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4312C4EE243004A5246 /* NAWindow.h */; };
+		909DC5632C4EE243004A5246 /* NADebugging.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4332C4EE243004A5246 /* NADebugging.c */; };
+		909DC5642C4EE243004A5246 /* NADebuggingII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4342C4EE243004A5246 /* NADebuggingII.h */; };
+		909DC5652C4EE243004A5246 /* NAFloatingPointII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4352C4EE243004A5246 /* NAFloatingPointII.h */; };
+		909DC5662C4EE243004A5246 /* NAInt64II.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4362C4EE243004A5246 /* NAInt64II.h */; };
+		909DC5672C4EE243004A5246 /* NAInt128II.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4372C4EE243004A5246 /* NAInt128II.h */; };
+		909DC5682C4EE243004A5246 /* NAInt256II.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4382C4EE243004A5246 /* NAInt256II.h */; };
+		909DC5692C4EE243004A5246 /* NAMacrosII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4392C4EE243004A5246 /* NAMacrosII.h */; };
+		909DC56A2C4EE243004A5246 /* NANumericsII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC43A2C4EE243004A5246 /* NANumericsII.h */; };
+		909DC56B2C4EE243004A5246 /* NABase.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC43D2C4EE243004A5246 /* NABase.h */; };
+		909DC56C2C4EE243004A5246 /* NAChar.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC43E2C4EE243004A5246 /* NAChar.h */; };
+		909DC56D2C4EE243004A5246 /* NACompiler.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC43F2C4EE243004A5246 /* NACompiler.h */; };
+		909DC56E2C4EE243004A5246 /* NAConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4402C4EE243004A5246 /* NAConfiguration.h */; };
+		909DC56F2C4EE243004A5246 /* NADebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4412C4EE243004A5246 /* NADebugging.h */; };
+		909DC5702C4EE243004A5246 /* NAEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4422C4EE243004A5246 /* NAEncoding.h */; };
+		909DC5712C4EE243004A5246 /* NAEnvironment.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4432C4EE243004A5246 /* NAEnvironment.h */; };
+		909DC5722C4EE243004A5246 /* NAFloatingPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4442C4EE243004A5246 /* NAFloatingPoint.h */; };
+		909DC5732C4EE243004A5246 /* NAInt64.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4452C4EE243004A5246 /* NAInt64.h */; };
+		909DC5742C4EE243004A5246 /* NAInt128.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4462C4EE243004A5246 /* NAInt128.h */; };
+		909DC5752C4EE243004A5246 /* NAInt256.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4472C4EE243004A5246 /* NAInt256.h */; };
+		909DC5762C4EE243004A5246 /* NAInteger.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4482C4EE243004A5246 /* NAInteger.h */; };
+		909DC5772C4EE243004A5246 /* NALanguage.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4492C4EE243004A5246 /* NALanguage.h */; };
+		909DC5782C4EE243004A5246 /* NAMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC44A2C4EE243004A5246 /* NAMacros.h */; };
+		909DC5792C4EE243004A5246 /* NANumerics.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC44B2C4EE243004A5246 /* NANumerics.h */; };
+		909DC57A2C4EE243004A5246 /* NAPointerArithmetics.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC44C2C4EE243004A5246 /* NAPointerArithmetics.h */; };
+		909DC57B2C4EE243004A5246 /* NABorderII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC44E2C4EE243004A5246 /* NABorderII.h */; };
+		909DC57C2C4EE243004A5246 /* NABoxCombinationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC44F2C4EE243004A5246 /* NABoxCombinationII.h */; };
+		909DC57D2C4EE243004A5246 /* NABoxII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4502C4EE243004A5246 /* NABoxII.h */; };
+		909DC57E2C4EE243004A5246 /* NAContainsTesterII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4512C4EE243004A5246 /* NAContainsTesterII.h */; };
+		909DC57F2C4EE243004A5246 /* NACoordAlignII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4522C4EE243004A5246 /* NACoordAlignII.h */; };
+		909DC5802C4EE243004A5246 /* NACoordArithmeticII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4532C4EE243004A5246 /* NACoordArithmeticII.h */; };
+		909DC5812C4EE243004A5246 /* NACoordCalculationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4542C4EE243004A5246 /* NACoordCalculationII.h */; };
+		909DC5822C4EE243004A5246 /* NACoordClampingII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4552C4EE243004A5246 /* NACoordClampingII.h */; };
+		909DC5832C4EE243004A5246 /* NACoordComparisonII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4562C4EE243004A5246 /* NACoordComparisonII.h */; };
+		909DC5842C4EE243004A5246 /* NACoordEndMaxII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4572C4EE243004A5246 /* NACoordEndMaxII.h */; };
+		909DC5852C4EE243004A5246 /* NACoordII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4582C4EE243004A5246 /* NACoordII.h */; };
+		909DC5862C4EE243004A5246 /* NACoordIndexII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4592C4EE243004A5246 /* NACoordIndexII.h */; };
+		909DC5872C4EE243004A5246 /* NACoordMacOSII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC45A2C4EE243004A5246 /* NACoordMacOSII.h */; };
+		909DC5882C4EE243004A5246 /* NACoordTesterII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC45B2C4EE243004A5246 /* NACoordTesterII.h */; };
+		909DC5892C4EE243004A5246 /* NAPosII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC45C2C4EE243004A5246 /* NAPosII.h */; };
+		909DC58A2C4EE243004A5246 /* NARangeCombinationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC45D2C4EE243004A5246 /* NARangeCombinationII.h */; };
+		909DC58B2C4EE243004A5246 /* NARangeII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC45E2C4EE243004A5246 /* NARangeII.h */; };
+		909DC58C2C4EE243004A5246 /* NARectCombinationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC45F2C4EE243004A5246 /* NARectCombinationII.h */; };
+		909DC58D2C4EE243004A5246 /* NARectII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4602C4EE243004A5246 /* NARectII.h */; };
+		909DC58E2C4EE243004A5246 /* NASizeII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4612C4EE243004A5246 /* NASizeII.h */; };
+		909DC58F2C4EE243004A5246 /* NAVertexII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4622C4EE243004A5246 /* NAVertexII.h */; };
+		909DC5902C4EE243004A5246 /* NAVolumeII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4632C4EE243004A5246 /* NAVolumeII.h */; };
+		909DC5912C4EE243004A5246 /* NAHomogeneousCoordinatesII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4652C4EE243004A5246 /* NAHomogeneousCoordinatesII.h */; };
+		909DC5922C4EE243004A5246 /* NAMatrixAlgebraOperationsII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4662C4EE243004A5246 /* NAMatrixAlgebraOperationsII.h */; };
+		909DC5932C4EE243004A5246 /* NAMatrixBaseOperationsII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4672C4EE243004A5246 /* NAMatrixBaseOperationsII.h */; };
+		909DC5942C4EE243004A5246 /* NAMatrixComparisonII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4682C4EE243004A5246 /* NAMatrixComparisonII.h */; };
+		909DC5952C4EE243004A5246 /* NAMatrixComponentwiseII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4692C4EE243004A5246 /* NAMatrixComponentwiseII.h */; };
+		909DC5962C4EE243004A5246 /* NAMatrixFillerII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC46A2C4EE243004A5246 /* NAMatrixFillerII.h */; };
+		909DC5972C4EE243004A5246 /* NAMatrixMultiplicationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC46B2C4EE243004A5246 /* NAMatrixMultiplicationII.h */; };
+		909DC5982C4EE243004A5246 /* NAMatrixRotationsII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC46C2C4EE243004A5246 /* NAMatrixRotationsII.h */; };
+		909DC5992C4EE243004A5246 /* NAVectorAlgebraII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC46D2C4EE243004A5246 /* NAVectorAlgebraII.h */; };
+		909DC59A2C4EE243004A5246 /* NAVectorBaseOperationsII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC46E2C4EE243004A5246 /* NAVectorBaseOperationsII.h */; };
+		909DC59B2C4EE243004A5246 /* NAVectorComparisonII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC46F2C4EE243004A5246 /* NAVectorComparisonII.h */; };
+		909DC59C2C4EE243004A5246 /* NAVectorComponentwiseII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4702C4EE243004A5246 /* NAVectorComponentwiseII.h */; };
+		909DC59D2C4EE243004A5246 /* NAVectorFillerII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4712C4EE243004A5246 /* NAVectorFillerII.h */; };
+		909DC59E2C4EE243004A5246 /* NAVectorGeometryII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4722C4EE243004A5246 /* NAVectorGeometryII.h */; };
+		909DC59F2C4EE243004A5246 /* NAVectorProductsII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4732C4EE243004A5246 /* NAVectorProductsII.h */; };
+		909DC5A02C4EE243004A5246 /* NAComplexII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4752C4EE243004A5246 /* NAComplexII.h */; };
+		909DC5A12C4EE243004A5246 /* NAMathOperators.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4762C4EE243004A5246 /* NAMathOperators.c */; };
+		909DC5A22C4EE243004A5246 /* NAMathOperatorsII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4772C4EE243004A5246 /* NAMathOperatorsII.h */; };
+		909DC5A32C4EE243004A5246 /* NARandomII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4782C4EE243004A5246 /* NARandomII.h */; };
+		909DC5A42C4EE243004A5246 /* NAComplex.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC47B2C4EE243004A5246 /* NAComplex.h */; };
+		909DC5A52C4EE243004A5246 /* NACoord.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC47C2C4EE243004A5246 /* NACoord.h */; };
+		909DC5A62C4EE243004A5246 /* NAMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC47D2C4EE243004A5246 /* NAMath.h */; };
+		909DC5A72C4EE243004A5246 /* NAMathConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC47E2C4EE243004A5246 /* NAMathConstants.h */; };
+		909DC5A82C4EE243004A5246 /* NAMathOperators.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC47F2C4EE243004A5246 /* NAMathOperators.h */; };
+		909DC5A92C4EE243004A5246 /* NARandom.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4802C4EE243004A5246 /* NARandom.h */; };
+		909DC5AA2C4EE243004A5246 /* NAVectorAlgebra.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4812C4EE243004A5246 /* NAVectorAlgebra.h */; };
+		909DC5AB2C4EE243004A5246 /* NABuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4832C4EE243004A5246 /* NABuffer.c */; };
+		909DC5AC2C4EE243004A5246 /* NABufferHelperII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4842C4EE243004A5246 /* NABufferHelperII.h */; };
+		909DC5AD2C4EE243004A5246 /* NABufferII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4852C4EE243004A5246 /* NABufferII.h */; };
+		909DC5AE2C4EE243004A5246 /* NABufferIteration.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4862C4EE243004A5246 /* NABufferIteration.c */; };
+		909DC5AF2C4EE243004A5246 /* NABufferIterationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4872C4EE243004A5246 /* NABufferIterationII.h */; };
+		909DC5B02C4EE243004A5246 /* NABufferManipulation.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4882C4EE243004A5246 /* NABufferManipulation.c */; };
+		909DC5B12C4EE243004A5246 /* NABufferParse.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4892C4EE243004A5246 /* NABufferParse.c */; };
+		909DC5B22C4EE243004A5246 /* NABufferParseII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC48A2C4EE243004A5246 /* NABufferParseII.h */; };
+		909DC5B32C4EE243004A5246 /* NABufferPart.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC48B2C4EE243004A5246 /* NABufferPart.c */; };
+		909DC5B42C4EE243004A5246 /* NABufferPartII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC48C2C4EE243004A5246 /* NABufferPartII.h */; };
+		909DC5B52C4EE243004A5246 /* NABufferRead.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC48D2C4EE243004A5246 /* NABufferRead.c */; };
+		909DC5B62C4EE243004A5246 /* NABufferReadII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC48E2C4EE243004A5246 /* NABufferReadII.h */; };
+		909DC5B72C4EE243004A5246 /* NABufferSource.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC48F2C4EE243004A5246 /* NABufferSource.c */; };
+		909DC5B82C4EE243004A5246 /* NABufferSourceII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4902C4EE243004A5246 /* NABufferSourceII.h */; };
+		909DC5B92C4EE243004A5246 /* NABufferWrite.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4912C4EE243004A5246 /* NABufferWrite.c */; };
+		909DC5BA2C4EE243004A5246 /* NABufferWriteII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4922C4EE243004A5246 /* NABufferWriteII.h */; };
+		909DC5BB2C4EE243004A5246 /* NAMemoryBlock.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4932C4EE243004A5246 /* NAMemoryBlock.c */; };
+		909DC5BC2C4EE243004A5246 /* NAMemoryBlockII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4942C4EE243004A5246 /* NAMemoryBlockII.h */; };
+		909DC5BD2C4EE243004A5246 /* NAHeap.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4962C4EE243004A5246 /* NAHeap.c */; };
+		909DC5BE2C4EE243004A5246 /* NAHeapII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4972C4EE243004A5246 /* NAHeapII.h */; };
+		909DC5BF2C4EE243004A5246 /* NAHeapT.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4982C4EE243004A5246 /* NAHeapT.h */; };
+		909DC5C02C4EE243004A5246 /* NAStack.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC49A2C4EE243004A5246 /* NAStack.c */; };
+		909DC5C12C4EE243004A5246 /* NAStackII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC49B2C4EE243004A5246 /* NAStackII.h */; };
+		909DC5C22C4EE243004A5246 /* NATree.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC49D2C4EE243004A5246 /* NATree.c */; };
+		909DC5C32C4EE243004A5246 /* NATreeAVL.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC49E2C4EE243004A5246 /* NATreeAVL.c */; };
+		909DC5C42C4EE243004A5246 /* NATreeBin.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC49F2C4EE243004A5246 /* NATreeBin.c */; };
+		909DC5C52C4EE243004A5246 /* NATreeBin.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4A02C4EE243004A5246 /* NATreeBin.h */; };
+		909DC5C62C4EE243004A5246 /* NATreeConfiguration.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4A12C4EE243004A5246 /* NATreeConfiguration.c */; };
+		909DC5C72C4EE243004A5246 /* NATreeConfigurationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4A22C4EE243004A5246 /* NATreeConfigurationII.h */; };
+		909DC5C82C4EE243004A5246 /* NATreeII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4A32C4EE243004A5246 /* NATreeII.h */; };
+		909DC5C92C4EE243004A5246 /* NATreeItemII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4A42C4EE243004A5246 /* NATreeItemII.h */; };
+		909DC5CA2C4EE243004A5246 /* NATreeIteration.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4A52C4EE243004A5246 /* NATreeIteration.c */; };
+		909DC5CB2C4EE243004A5246 /* NATreeIterationII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4A62C4EE243004A5246 /* NATreeIterationII.h */; };
+		909DC5CC2C4EE243004A5246 /* NATreeOct.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4A72C4EE243004A5246 /* NATreeOct.c */; };
+		909DC5CD2C4EE243004A5246 /* NATreeOct.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4A82C4EE243004A5246 /* NATreeOct.h */; };
+		909DC5CE2C4EE243004A5246 /* NATreeQuad.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4A92C4EE243004A5246 /* NATreeQuad.c */; };
+		909DC5CF2C4EE243004A5246 /* NATreeQuad.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4AA2C4EE243004A5246 /* NATreeQuad.h */; };
+		909DC5D02C4EE243004A5246 /* NATreeUtilitiesII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4AB2C4EE243004A5246 /* NATreeUtilitiesII.h */; };
+		909DC5D12C4EE243004A5246 /* NAArrayII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4AD2C4EE243004A5246 /* NAArrayII.h */; };
+		909DC5D22C4EE243004A5246 /* NACircularBufferII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4AE2C4EE243004A5246 /* NACircularBufferII.h */; };
+		909DC5D32C4EE243004A5246 /* NAList.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4AF2C4EE243004A5246 /* NAList.c */; };
+		909DC5D42C4EE243004A5246 /* NAListII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4B02C4EE243004A5246 /* NAListII.h */; };
+		909DC5D52C4EE243004A5246 /* NAPoolII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4B12C4EE243004A5246 /* NAPoolII.h */; };
+		909DC5D62C4EE243004A5246 /* NAArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4B42C4EE243004A5246 /* NAArray.h */; };
+		909DC5D72C4EE243004A5246 /* NABuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4B52C4EE243004A5246 /* NABuffer.h */; };
+		909DC5D82C4EE243004A5246 /* NACircularBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4B62C4EE243004A5246 /* NACircularBuffer.h */; };
+		909DC5D92C4EE243004A5246 /* NAHeap.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4B72C4EE243004A5246 /* NAHeap.h */; };
+		909DC5DA2C4EE243004A5246 /* NAList.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4B82C4EE243004A5246 /* NAList.h */; };
+		909DC5DB2C4EE243004A5246 /* NAPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4B92C4EE243004A5246 /* NAPool.h */; };
+		909DC5DC2C4EE243004A5246 /* NAStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4BA2C4EE243004A5246 /* NAStack.h */; };
+		909DC5DD2C4EE243004A5246 /* NAStruct.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4BB2C4EE243004A5246 /* NAStruct.h */; };
+		909DC5DE2C4EE243004A5246 /* NATree.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4BC2C4EE243004A5246 /* NATree.h */; };
+		909DC5DF2C4EE243004A5246 /* NAKeyII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4BE2C4EE243004A5246 /* NAKeyII.h */; };
+		909DC5E02C4EE243004A5246 /* NAThreadingII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4BF2C4EE243004A5246 /* NAThreadingII.h */; };
+		909DC5E12C4EE243004A5246 /* NATranslator.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4C02C4EE243004A5246 /* NATranslator.c */; };
+		909DC5E22C4EE243004A5246 /* NAValueHelperII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4C12C4EE243004A5246 /* NAValueHelperII.h */; };
+		909DC5E32C4EE243004A5246 /* NABinaryData.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4C32C4EE243004A5246 /* NABinaryData.c */; };
+		909DC5E42C4EE243004A5246 /* NABinaryDataII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4C42C4EE243004A5246 /* NABinaryDataII.h */; };
+		909DC5E52C4EE243004A5246 /* NAEndiannessII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4C52C4EE243004A5246 /* NAEndiannessII.h */; };
+		909DC5E62C4EE243004A5246 /* NADateTime.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4C72C4EE243004A5246 /* NADateTime.c */; };
+		909DC5E72C4EE243004A5246 /* NADateTimeII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4C82C4EE243004A5246 /* NADateTimeII.h */; };
+		909DC5E82C4EE243004A5246 /* NAFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4CA2C4EE243004A5246 /* NAFile.c */; };
+		909DC5E92C4EE243004A5246 /* NAFileII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4CB2C4EE243004A5246 /* NAFileII.h */; };
+		909DC5EA2C4EE243004A5246 /* NAJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4CD2C4EE243004A5246 /* NAJSON.c */; };
+		909DC5EB2C4EE243004A5246 /* NAMallocFreeII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4CF2C4EE243004A5246 /* NAMallocFreeII.h */; };
+		909DC5EC2C4EE243004A5246 /* NAMemoryII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4D02C4EE243004A5246 /* NAMemoryII.h */; };
+		909DC5ED2C4EE243004A5246 /* NAPointerII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4D12C4EE243004A5246 /* NAPointerII.h */; };
+		909DC5EE2C4EE243004A5246 /* NAPtrII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4D22C4EE243004A5246 /* NAPtrII.h */; };
+		909DC5EF2C4EE243004A5246 /* NARefCountII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4D32C4EE243004A5246 /* NARefCountII.h */; };
+		909DC5F02C4EE243004A5246 /* NARuntime.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4D42C4EE243004A5246 /* NARuntime.c */; };
+		909DC5F12C4EE243004A5246 /* NARuntimeII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4D52C4EE243004A5246 /* NARuntimeII.h */; };
+		909DC5F22C4EE243004A5246 /* NASmartPtrII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4D62C4EE243004A5246 /* NASmartPtrII.h */; };
+		909DC5F32C4EE243004A5246 /* NANotifier.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4D82C4EE243004A5246 /* NANotifier.c */; };
+		909DC5F42C4EE243004A5246 /* NAString.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4DA2C4EE243004A5246 /* NAString.c */; };
+		909DC5F52C4EE243004A5246 /* NAStringII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4DB2C4EE243004A5246 /* NAStringII.h */; };
+		909DC5F62C4EE243004A5246 /* NAURL.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4DD2C4EE243004A5246 /* NAURL.c */; };
+		909DC5F72C4EE243004A5246 /* NAURLII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4DE2C4EE243004A5246 /* NAURLII.h */; };
+		909DC5F82C4EE243004A5246 /* NABinaryData.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E12C4EE243004A5246 /* NABinaryData.h */; };
+		909DC5F92C4EE243004A5246 /* NADateTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E22C4EE243004A5246 /* NADateTime.h */; };
+		909DC5FA2C4EE243004A5246 /* NAFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E32C4EE243004A5246 /* NAFile.h */; };
+		909DC5FB2C4EE243004A5246 /* NAJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E42C4EE243004A5246 /* NAJSON.h */; };
+		909DC5FC2C4EE243004A5246 /* NAKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E52C4EE243004A5246 /* NAKey.h */; };
+		909DC5FD2C4EE243004A5246 /* NAMemory.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E62C4EE243004A5246 /* NAMemory.h */; };
+		909DC5FE2C4EE243004A5246 /* NANotifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E72C4EE243004A5246 /* NANotifier.h */; };
+		909DC5FF2C4EE243004A5246 /* NAString.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E82C4EE243004A5246 /* NAString.h */; };
+		909DC6002C4EE243004A5246 /* NAThreading.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4E92C4EE243004A5246 /* NAThreading.h */; };
+		909DC6012C4EE243004A5246 /* NATranslator.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4EA2C4EE243004A5246 /* NATranslator.h */; };
+		909DC6022C4EE243004A5246 /* NAURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4EB2C4EE243004A5246 /* NAURL.h */; };
+		909DC6032C4EE243004A5246 /* NAUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4EC2C4EE243004A5246 /* NAUtility.h */; };
+		909DC6042C4EE243004A5246 /* NAValueHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4ED2C4EE243004A5246 /* NAValueHelper.h */; };
+		909DC6052C4EE243004A5246 /* NA3DHelper.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4EF2C4EE243004A5246 /* NA3DHelper.c */; };
+		909DC6062C4EE243004A5246 /* NAColor.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4F02C4EE243004A5246 /* NAColor.c */; };
+		909DC6072C4EE243004A5246 /* NAColorII.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4F12C4EE243004A5246 /* NAColorII.h */; };
+		909DC6082C4EE243004A5246 /* NAColorOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4F22C4EE243004A5246 /* NAColorOperations.c */; };
+		909DC6092C4EE243004A5246 /* NADeflate.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4F32C4EE243004A5246 /* NADeflate.c */; };
+		909DC60A2C4EE243004A5246 /* NAImage.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4F42C4EE243004A5246 /* NAImage.c */; };
+		909DC60B2C4EE243004A5246 /* NAPNG.c in Sources */ = {isa = PBXBuildFile; fileRef = 909DC4F52C4EE243004A5246 /* NAPNG.c */; };
+		909DC60C2C4EE243004A5246 /* NA3DHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4F82C4EE243004A5246 /* NA3DHelper.h */; };
+		909DC60D2C4EE243004A5246 /* NAColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4F92C4EE243004A5246 /* NAColor.h */; };
+		909DC60E2C4EE243004A5246 /* NADeflate.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4FA2C4EE243004A5246 /* NADeflate.h */; };
+		909DC60F2C4EE243004A5246 /* NAImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4FB2C4EE243004A5246 /* NAImage.h */; };
+		909DC6102C4EE243004A5246 /* NAPNG.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4FC2C4EE243004A5246 /* NAPNG.h */; };
+		909DC6112C4EE243004A5246 /* NAVisual.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4FD2C4EE243004A5246 /* NAVisual.h */; };
+		909DC6122C4EE243004A5246 /* NALib.h in Headers */ = {isa = PBXBuildFile; fileRef = 909DC4FF2C4EE243004A5246 /* NALib.h */; };
+		909DC6142C4EE254004A5246 /* libNALib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 909DC3C72C4EE227004A5246 /* libNALib.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		909DC6152C4EE25D004A5246 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 909DC3AD2C4EE083004A5246 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 909DC3C62C4EE227004A5246;
+			remoteInfo = NALib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		909DC3B52C4EE0A9004A5246 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		909DC3B72C4EE0A9004A5246 /* Plotty */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Plotty; sourceTree = BUILT_PRODUCTS_DIR; };
+		909DC3BF2C4EE0EC004A5246 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		909DC3C72C4EE227004A5246 /* libNALib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNALib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		909DC3CB2C4EE243004A5246 /* NAApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAApplication.c; sourceTree = "<group>"; };
+		909DC3CC2C4EE243004A5246 /* NAButton.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAButton.c; sourceTree = "<group>"; };
+		909DC3CD2C4EE243004A5246 /* NACheckBox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NACheckBox.c; sourceTree = "<group>"; };
+		909DC3CE2C4EE243004A5246 /* NAFont.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAFont.c; sourceTree = "<group>"; };
+		909DC3CF2C4EE243004A5246 /* NAImageSpace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAImageSpace.c; sourceTree = "<group>"; };
+		909DC3D02C4EE243004A5246 /* NAKeyboard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAKeyboard.c; sourceTree = "<group>"; };
+		909DC3D12C4EE243004A5246 /* NALabel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NALabel.c; sourceTree = "<group>"; };
+		909DC3D22C4EE243004A5246 /* NAMenu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAMenu.c; sourceTree = "<group>"; };
+		909DC3D32C4EE243004A5246 /* NAMenuItem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAMenuItem.c; sourceTree = "<group>"; };
+		909DC3D42C4EE243004A5246 /* NAMetalSpace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAMetalSpace.c; sourceTree = "<group>"; };
+		909DC3D52C4EE243004A5246 /* NAMouse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAMouse.c; sourceTree = "<group>"; };
+		909DC3D62C4EE243004A5246 /* NAOpenGLSpace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAOpenGLSpace.c; sourceTree = "<group>"; };
+		909DC3D72C4EE243004A5246 /* NARadio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NARadio.c; sourceTree = "<group>"; };
+		909DC3D82C4EE243004A5246 /* NAScreen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAScreen.c; sourceTree = "<group>"; };
+		909DC3D92C4EE243004A5246 /* NASelect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NASelect.c; sourceTree = "<group>"; };
+		909DC3DA2C4EE243004A5246 /* NASlider.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NASlider.c; sourceTree = "<group>"; };
+		909DC3DB2C4EE243004A5246 /* NASpace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NASpace.c; sourceTree = "<group>"; };
+		909DC3DC2C4EE243004A5246 /* NATextBox.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATextBox.c; sourceTree = "<group>"; };
+		909DC3DD2C4EE243004A5246 /* NATextField.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATextField.c; sourceTree = "<group>"; };
+		909DC3DE2C4EE243004A5246 /* NAUIElement.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAUIElement.c; sourceTree = "<group>"; };
+		909DC3DF2C4EE243004A5246 /* NAWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAWindow.c; sourceTree = "<group>"; };
+		909DC3E12C4EE243004A5246 /* NAAppCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAAppCore.h; sourceTree = "<group>"; };
+		909DC3E22C4EE243004A5246 /* NAPreferences.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAPreferences.c; sourceTree = "<group>"; };
+		909DC3E32C4EE243004A5246 /* NAPreferencesII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPreferencesII.h; sourceTree = "<group>"; };
+		909DC3E42C4EE243004A5246 /* NAUIImage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAUIImage.c; sourceTree = "<group>"; };
+		909DC3E52C4EE243004A5246 /* NAUIImageII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUIImageII.h; sourceTree = "<group>"; };
+		909DC3E72C4EE243004A5246 /* NAApplicationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAApplicationII.h; sourceTree = "<group>"; };
+		909DC3E82C4EE243004A5246 /* NAButtonII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAButtonII.h; sourceTree = "<group>"; };
+		909DC3E92C4EE243004A5246 /* NACheckBoxII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACheckBoxII.h; sourceTree = "<group>"; };
+		909DC3EA2C4EE243004A5246 /* NAImageSpaceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAImageSpaceII.h; sourceTree = "<group>"; };
+		909DC3EB2C4EE243004A5246 /* NALabelII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NALabelII.h; sourceTree = "<group>"; };
+		909DC3EC2C4EE243004A5246 /* NAMenuII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMenuII.h; sourceTree = "<group>"; };
+		909DC3ED2C4EE243004A5246 /* NAMenuItemII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMenuItemII.h; sourceTree = "<group>"; };
+		909DC3EE2C4EE243004A5246 /* NAMetalSpaceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMetalSpaceII.h; sourceTree = "<group>"; };
+		909DC3EF2C4EE243004A5246 /* NAOpenGLSpaceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAOpenGLSpaceII.h; sourceTree = "<group>"; };
+		909DC3F02C4EE243004A5246 /* NARadioII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARadioII.h; sourceTree = "<group>"; };
+		909DC3F12C4EE243004A5246 /* NASelectII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASelectII.h; sourceTree = "<group>"; };
+		909DC3F22C4EE243004A5246 /* NASliderII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASliderII.h; sourceTree = "<group>"; };
+		909DC3F32C4EE243004A5246 /* NASpaceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASpaceII.h; sourceTree = "<group>"; };
+		909DC3F42C4EE243004A5246 /* NATextBoxII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATextBoxII.h; sourceTree = "<group>"; };
+		909DC3F52C4EE243004A5246 /* NATextFieldII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATextFieldII.h; sourceTree = "<group>"; };
+		909DC3F62C4EE243004A5246 /* NAUICocoaII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUICocoaII.h; sourceTree = "<group>"; };
+		909DC3F72C4EE243004A5246 /* NAUICocoaInterfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUICocoaInterfaces.h; sourceTree = "<group>"; };
+		909DC3F82C4EE243004A5246 /* NAUICocoaLegacy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUICocoaLegacy.h; sourceTree = "<group>"; };
+		909DC3F92C4EE243004A5246 /* NAUICocoaLegacyII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUICocoaLegacyII.h; sourceTree = "<group>"; };
+		909DC3FA2C4EE243004A5246 /* NAWindowII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAWindowII.h; sourceTree = "<group>"; };
+		909DC3FC2C4EE243004A5246 /* NACocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NACocoa.m; sourceTree = "<group>"; };
+		909DC3FD2C4EE243004A5246 /* NAPreferencesCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NAPreferencesCocoa.m; sourceTree = "<group>"; };
+		909DC3FE2C4EE243004A5246 /* NAUIImageCocoaII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUIImageCocoaII.h; sourceTree = "<group>"; };
+		909DC4002C4EE243004A5246 /* NAApplicationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAApplicationII.h; sourceTree = "<group>"; };
+		909DC4012C4EE243004A5246 /* NAButtonII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAButtonII.h; sourceTree = "<group>"; };
+		909DC4022C4EE243004A5246 /* NACheckBoxII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACheckBoxII.h; sourceTree = "<group>"; };
+		909DC4032C4EE243004A5246 /* NAImageSpaceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAImageSpaceII.h; sourceTree = "<group>"; };
+		909DC4042C4EE243004A5246 /* NALabelII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NALabelII.h; sourceTree = "<group>"; };
+		909DC4052C4EE243004A5246 /* NAMenuII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMenuII.h; sourceTree = "<group>"; };
+		909DC4062C4EE243004A5246 /* NAMenuItemII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMenuItemII.h; sourceTree = "<group>"; };
+		909DC4072C4EE243004A5246 /* NAMetalSpaceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMetalSpaceII.h; sourceTree = "<group>"; };
+		909DC4082C4EE243004A5246 /* NAOpenGLSpaceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAOpenGLSpaceII.h; sourceTree = "<group>"; };
+		909DC4092C4EE243004A5246 /* NARadioII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARadioII.h; sourceTree = "<group>"; };
+		909DC40A2C4EE243004A5246 /* NASelectII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASelectII.h; sourceTree = "<group>"; };
+		909DC40B2C4EE243004A5246 /* NASliderII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASliderII.h; sourceTree = "<group>"; };
+		909DC40C2C4EE243004A5246 /* NASpaceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASpaceII.h; sourceTree = "<group>"; };
+		909DC40D2C4EE243004A5246 /* NATextBoxII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATextBoxII.h; sourceTree = "<group>"; };
+		909DC40E2C4EE243004A5246 /* NATextFieldII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATextFieldII.h; sourceTree = "<group>"; };
+		909DC40F2C4EE243004A5246 /* NAUIWINAPIII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUIWINAPIII.h; sourceTree = "<group>"; };
+		909DC4102C4EE243004A5246 /* NAUIWINAPIInterfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUIWINAPIInterfaces.h; sourceTree = "<group>"; };
+		909DC4112C4EE243004A5246 /* NAWindowII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAWindowII.h; sourceTree = "<group>"; };
+		909DC4132C4EE243004A5246 /* NAPreferencesWINAPI.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAPreferencesWINAPI.c; sourceTree = "<group>"; };
+		909DC4142C4EE243004A5246 /* NAPreferencesWINAPIII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPreferencesWINAPIII.h; sourceTree = "<group>"; };
+		909DC4152C4EE243004A5246 /* NAUIImageWINAPIII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUIImageWINAPIII.h; sourceTree = "<group>"; };
+		909DC4162C4EE243004A5246 /* NAUIWINAPI.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAUIWINAPI.c; sourceTree = "<group>"; };
+		909DC4182C4EE243004A5246 /* CMakeSrcList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeSrcList.txt; sourceTree = "<group>"; };
+		909DC4192C4EE243004A5246 /* NAApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAApp.h; sourceTree = "<group>"; };
+		909DC41A2C4EE243004A5246 /* NAApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAApplication.h; sourceTree = "<group>"; };
+		909DC41B2C4EE243004A5246 /* NAButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAButton.h; sourceTree = "<group>"; };
+		909DC41C2C4EE243004A5246 /* NACheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACheckBox.h; sourceTree = "<group>"; };
+		909DC41D2C4EE243004A5246 /* NAFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAFont.h; sourceTree = "<group>"; };
+		909DC41E2C4EE243004A5246 /* NAImageSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAImageSpace.h; sourceTree = "<group>"; };
+		909DC41F2C4EE243004A5246 /* NAKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKeyboard.h; sourceTree = "<group>"; };
+		909DC4202C4EE243004A5246 /* NALabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NALabel.h; sourceTree = "<group>"; };
+		909DC4212C4EE243004A5246 /* NAMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMenu.h; sourceTree = "<group>"; };
+		909DC4222C4EE243004A5246 /* NAMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMenuItem.h; sourceTree = "<group>"; };
+		909DC4232C4EE243004A5246 /* NAMetalSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMetalSpace.h; sourceTree = "<group>"; };
+		909DC4242C4EE243004A5246 /* NAMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMouse.h; sourceTree = "<group>"; };
+		909DC4252C4EE243004A5246 /* NAOpenGLSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAOpenGLSpace.h; sourceTree = "<group>"; };
+		909DC4262C4EE243004A5246 /* NAPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPreferences.h; sourceTree = "<group>"; };
+		909DC4272C4EE243004A5246 /* NARadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARadio.h; sourceTree = "<group>"; };
+		909DC4282C4EE243004A5246 /* NAReaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAReaction.h; sourceTree = "<group>"; };
+		909DC4292C4EE243004A5246 /* NAScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAScreen.h; sourceTree = "<group>"; };
+		909DC42A2C4EE243004A5246 /* NASelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASelect.h; sourceTree = "<group>"; };
+		909DC42B2C4EE243004A5246 /* NASlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASlider.h; sourceTree = "<group>"; };
+		909DC42C2C4EE243004A5246 /* NASpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASpace.h; sourceTree = "<group>"; };
+		909DC42D2C4EE243004A5246 /* NATextBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATextBox.h; sourceTree = "<group>"; };
+		909DC42E2C4EE243004A5246 /* NATextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATextField.h; sourceTree = "<group>"; };
+		909DC42F2C4EE243004A5246 /* NAUIElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUIElement.h; sourceTree = "<group>"; };
+		909DC4302C4EE243004A5246 /* NAUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUIImage.h; sourceTree = "<group>"; };
+		909DC4312C4EE243004A5246 /* NAWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAWindow.h; sourceTree = "<group>"; };
+		909DC4332C4EE243004A5246 /* NADebugging.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NADebugging.c; sourceTree = "<group>"; };
+		909DC4342C4EE243004A5246 /* NADebuggingII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADebuggingII.h; sourceTree = "<group>"; };
+		909DC4352C4EE243004A5246 /* NAFloatingPointII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAFloatingPointII.h; sourceTree = "<group>"; };
+		909DC4362C4EE243004A5246 /* NAInt64II.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAInt64II.h; sourceTree = "<group>"; };
+		909DC4372C4EE243004A5246 /* NAInt128II.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAInt128II.h; sourceTree = "<group>"; };
+		909DC4382C4EE243004A5246 /* NAInt256II.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAInt256II.h; sourceTree = "<group>"; };
+		909DC4392C4EE243004A5246 /* NAMacrosII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMacrosII.h; sourceTree = "<group>"; };
+		909DC43A2C4EE243004A5246 /* NANumericsII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NANumericsII.h; sourceTree = "<group>"; };
+		909DC43C2C4EE243004A5246 /* CMakeSrcList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeSrcList.txt; sourceTree = "<group>"; };
+		909DC43D2C4EE243004A5246 /* NABase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABase.h; sourceTree = "<group>"; };
+		909DC43E2C4EE243004A5246 /* NAChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAChar.h; sourceTree = "<group>"; };
+		909DC43F2C4EE243004A5246 /* NACompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACompiler.h; sourceTree = "<group>"; };
+		909DC4402C4EE243004A5246 /* NAConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAConfiguration.h; sourceTree = "<group>"; };
+		909DC4412C4EE243004A5246 /* NADebugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADebugging.h; sourceTree = "<group>"; };
+		909DC4422C4EE243004A5246 /* NAEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAEncoding.h; sourceTree = "<group>"; };
+		909DC4432C4EE243004A5246 /* NAEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAEnvironment.h; sourceTree = "<group>"; };
+		909DC4442C4EE243004A5246 /* NAFloatingPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAFloatingPoint.h; sourceTree = "<group>"; };
+		909DC4452C4EE243004A5246 /* NAInt64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAInt64.h; sourceTree = "<group>"; };
+		909DC4462C4EE243004A5246 /* NAInt128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAInt128.h; sourceTree = "<group>"; };
+		909DC4472C4EE243004A5246 /* NAInt256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAInt256.h; sourceTree = "<group>"; };
+		909DC4482C4EE243004A5246 /* NAInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAInteger.h; sourceTree = "<group>"; };
+		909DC4492C4EE243004A5246 /* NALanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NALanguage.h; sourceTree = "<group>"; };
+		909DC44A2C4EE243004A5246 /* NAMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMacros.h; sourceTree = "<group>"; };
+		909DC44B2C4EE243004A5246 /* NANumerics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NANumerics.h; sourceTree = "<group>"; };
+		909DC44C2C4EE243004A5246 /* NAPointerArithmetics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPointerArithmetics.h; sourceTree = "<group>"; };
+		909DC44E2C4EE243004A5246 /* NABorderII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABorderII.h; sourceTree = "<group>"; };
+		909DC44F2C4EE243004A5246 /* NABoxCombinationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABoxCombinationII.h; sourceTree = "<group>"; };
+		909DC4502C4EE243004A5246 /* NABoxII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABoxII.h; sourceTree = "<group>"; };
+		909DC4512C4EE243004A5246 /* NAContainsTesterII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAContainsTesterII.h; sourceTree = "<group>"; };
+		909DC4522C4EE243004A5246 /* NACoordAlignII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordAlignII.h; sourceTree = "<group>"; };
+		909DC4532C4EE243004A5246 /* NACoordArithmeticII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordArithmeticII.h; sourceTree = "<group>"; };
+		909DC4542C4EE243004A5246 /* NACoordCalculationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordCalculationII.h; sourceTree = "<group>"; };
+		909DC4552C4EE243004A5246 /* NACoordClampingII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordClampingII.h; sourceTree = "<group>"; };
+		909DC4562C4EE243004A5246 /* NACoordComparisonII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordComparisonII.h; sourceTree = "<group>"; };
+		909DC4572C4EE243004A5246 /* NACoordEndMaxII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordEndMaxII.h; sourceTree = "<group>"; };
+		909DC4582C4EE243004A5246 /* NACoordII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordII.h; sourceTree = "<group>"; };
+		909DC4592C4EE243004A5246 /* NACoordIndexII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordIndexII.h; sourceTree = "<group>"; };
+		909DC45A2C4EE243004A5246 /* NACoordMacOSII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordMacOSII.h; sourceTree = "<group>"; };
+		909DC45B2C4EE243004A5246 /* NACoordTesterII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoordTesterII.h; sourceTree = "<group>"; };
+		909DC45C2C4EE243004A5246 /* NAPosII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPosII.h; sourceTree = "<group>"; };
+		909DC45D2C4EE243004A5246 /* NARangeCombinationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARangeCombinationII.h; sourceTree = "<group>"; };
+		909DC45E2C4EE243004A5246 /* NARangeII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARangeII.h; sourceTree = "<group>"; };
+		909DC45F2C4EE243004A5246 /* NARectCombinationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARectCombinationII.h; sourceTree = "<group>"; };
+		909DC4602C4EE243004A5246 /* NARectII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARectII.h; sourceTree = "<group>"; };
+		909DC4612C4EE243004A5246 /* NASizeII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASizeII.h; sourceTree = "<group>"; };
+		909DC4622C4EE243004A5246 /* NAVertexII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVertexII.h; sourceTree = "<group>"; };
+		909DC4632C4EE243004A5246 /* NAVolumeII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVolumeII.h; sourceTree = "<group>"; };
+		909DC4652C4EE243004A5246 /* NAHomogeneousCoordinatesII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAHomogeneousCoordinatesII.h; sourceTree = "<group>"; };
+		909DC4662C4EE243004A5246 /* NAMatrixAlgebraOperationsII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMatrixAlgebraOperationsII.h; sourceTree = "<group>"; };
+		909DC4672C4EE243004A5246 /* NAMatrixBaseOperationsII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMatrixBaseOperationsII.h; sourceTree = "<group>"; };
+		909DC4682C4EE243004A5246 /* NAMatrixComparisonII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMatrixComparisonII.h; sourceTree = "<group>"; };
+		909DC4692C4EE243004A5246 /* NAMatrixComponentwiseII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMatrixComponentwiseII.h; sourceTree = "<group>"; };
+		909DC46A2C4EE243004A5246 /* NAMatrixFillerII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMatrixFillerII.h; sourceTree = "<group>"; };
+		909DC46B2C4EE243004A5246 /* NAMatrixMultiplicationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMatrixMultiplicationII.h; sourceTree = "<group>"; };
+		909DC46C2C4EE243004A5246 /* NAMatrixRotationsII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMatrixRotationsII.h; sourceTree = "<group>"; };
+		909DC46D2C4EE243004A5246 /* NAVectorAlgebraII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorAlgebraII.h; sourceTree = "<group>"; };
+		909DC46E2C4EE243004A5246 /* NAVectorBaseOperationsII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorBaseOperationsII.h; sourceTree = "<group>"; };
+		909DC46F2C4EE243004A5246 /* NAVectorComparisonII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorComparisonII.h; sourceTree = "<group>"; };
+		909DC4702C4EE243004A5246 /* NAVectorComponentwiseII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorComponentwiseII.h; sourceTree = "<group>"; };
+		909DC4712C4EE243004A5246 /* NAVectorFillerII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorFillerII.h; sourceTree = "<group>"; };
+		909DC4722C4EE243004A5246 /* NAVectorGeometryII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorGeometryII.h; sourceTree = "<group>"; };
+		909DC4732C4EE243004A5246 /* NAVectorProductsII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorProductsII.h; sourceTree = "<group>"; };
+		909DC4752C4EE243004A5246 /* NAComplexII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAComplexII.h; sourceTree = "<group>"; };
+		909DC4762C4EE243004A5246 /* NAMathOperators.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAMathOperators.c; sourceTree = "<group>"; };
+		909DC4772C4EE243004A5246 /* NAMathOperatorsII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMathOperatorsII.h; sourceTree = "<group>"; };
+		909DC4782C4EE243004A5246 /* NARandomII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARandomII.h; sourceTree = "<group>"; };
+		909DC47A2C4EE243004A5246 /* CMakeSrcList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeSrcList.txt; sourceTree = "<group>"; };
+		909DC47B2C4EE243004A5246 /* NAComplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAComplex.h; sourceTree = "<group>"; };
+		909DC47C2C4EE243004A5246 /* NACoord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACoord.h; sourceTree = "<group>"; };
+		909DC47D2C4EE243004A5246 /* NAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMath.h; sourceTree = "<group>"; };
+		909DC47E2C4EE243004A5246 /* NAMathConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMathConstants.h; sourceTree = "<group>"; };
+		909DC47F2C4EE243004A5246 /* NAMathOperators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMathOperators.h; sourceTree = "<group>"; };
+		909DC4802C4EE243004A5246 /* NARandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARandom.h; sourceTree = "<group>"; };
+		909DC4812C4EE243004A5246 /* NAVectorAlgebra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVectorAlgebra.h; sourceTree = "<group>"; };
+		909DC4832C4EE243004A5246 /* NABuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABuffer.c; sourceTree = "<group>"; };
+		909DC4842C4EE243004A5246 /* NABufferHelperII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABufferHelperII.h; sourceTree = "<group>"; };
+		909DC4852C4EE243004A5246 /* NABufferII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABufferII.h; sourceTree = "<group>"; };
+		909DC4862C4EE243004A5246 /* NABufferIteration.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABufferIteration.c; sourceTree = "<group>"; };
+		909DC4872C4EE243004A5246 /* NABufferIterationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABufferIterationII.h; sourceTree = "<group>"; };
+		909DC4882C4EE243004A5246 /* NABufferManipulation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABufferManipulation.c; sourceTree = "<group>"; };
+		909DC4892C4EE243004A5246 /* NABufferParse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABufferParse.c; sourceTree = "<group>"; };
+		909DC48A2C4EE243004A5246 /* NABufferParseII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABufferParseII.h; sourceTree = "<group>"; };
+		909DC48B2C4EE243004A5246 /* NABufferPart.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABufferPart.c; sourceTree = "<group>"; };
+		909DC48C2C4EE243004A5246 /* NABufferPartII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABufferPartII.h; sourceTree = "<group>"; };
+		909DC48D2C4EE243004A5246 /* NABufferRead.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABufferRead.c; sourceTree = "<group>"; };
+		909DC48E2C4EE243004A5246 /* NABufferReadII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABufferReadII.h; sourceTree = "<group>"; };
+		909DC48F2C4EE243004A5246 /* NABufferSource.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABufferSource.c; sourceTree = "<group>"; };
+		909DC4902C4EE243004A5246 /* NABufferSourceII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABufferSourceII.h; sourceTree = "<group>"; };
+		909DC4912C4EE243004A5246 /* NABufferWrite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABufferWrite.c; sourceTree = "<group>"; };
+		909DC4922C4EE243004A5246 /* NABufferWriteII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABufferWriteII.h; sourceTree = "<group>"; };
+		909DC4932C4EE243004A5246 /* NAMemoryBlock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAMemoryBlock.c; sourceTree = "<group>"; };
+		909DC4942C4EE243004A5246 /* NAMemoryBlockII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMemoryBlockII.h; sourceTree = "<group>"; };
+		909DC4962C4EE243004A5246 /* NAHeap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAHeap.c; sourceTree = "<group>"; };
+		909DC4972C4EE243004A5246 /* NAHeapII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAHeapII.h; sourceTree = "<group>"; };
+		909DC4982C4EE243004A5246 /* NAHeapT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAHeapT.h; sourceTree = "<group>"; };
+		909DC49A2C4EE243004A5246 /* NAStack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAStack.c; sourceTree = "<group>"; };
+		909DC49B2C4EE243004A5246 /* NAStackII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAStackII.h; sourceTree = "<group>"; };
+		909DC49D2C4EE243004A5246 /* NATree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATree.c; sourceTree = "<group>"; };
+		909DC49E2C4EE243004A5246 /* NATreeAVL.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATreeAVL.c; sourceTree = "<group>"; };
+		909DC49F2C4EE243004A5246 /* NATreeBin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATreeBin.c; sourceTree = "<group>"; };
+		909DC4A02C4EE243004A5246 /* NATreeBin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATreeBin.h; sourceTree = "<group>"; };
+		909DC4A12C4EE243004A5246 /* NATreeConfiguration.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATreeConfiguration.c; sourceTree = "<group>"; };
+		909DC4A22C4EE243004A5246 /* NATreeConfigurationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATreeConfigurationII.h; sourceTree = "<group>"; };
+		909DC4A32C4EE243004A5246 /* NATreeII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATreeII.h; sourceTree = "<group>"; };
+		909DC4A42C4EE243004A5246 /* NATreeItemII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATreeItemII.h; sourceTree = "<group>"; };
+		909DC4A52C4EE243004A5246 /* NATreeIteration.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATreeIteration.c; sourceTree = "<group>"; };
+		909DC4A62C4EE243004A5246 /* NATreeIterationII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATreeIterationII.h; sourceTree = "<group>"; };
+		909DC4A72C4EE243004A5246 /* NATreeOct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATreeOct.c; sourceTree = "<group>"; };
+		909DC4A82C4EE243004A5246 /* NATreeOct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATreeOct.h; sourceTree = "<group>"; };
+		909DC4A92C4EE243004A5246 /* NATreeQuad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATreeQuad.c; sourceTree = "<group>"; };
+		909DC4AA2C4EE243004A5246 /* NATreeQuad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATreeQuad.h; sourceTree = "<group>"; };
+		909DC4AB2C4EE243004A5246 /* NATreeUtilitiesII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATreeUtilitiesII.h; sourceTree = "<group>"; };
+		909DC4AD2C4EE243004A5246 /* NAArrayII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAArrayII.h; sourceTree = "<group>"; };
+		909DC4AE2C4EE243004A5246 /* NACircularBufferII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACircularBufferII.h; sourceTree = "<group>"; };
+		909DC4AF2C4EE243004A5246 /* NAList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAList.c; sourceTree = "<group>"; };
+		909DC4B02C4EE243004A5246 /* NAListII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAListII.h; sourceTree = "<group>"; };
+		909DC4B12C4EE243004A5246 /* NAPoolII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPoolII.h; sourceTree = "<group>"; };
+		909DC4B32C4EE243004A5246 /* CMakeSrcList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeSrcList.txt; sourceTree = "<group>"; };
+		909DC4B42C4EE243004A5246 /* NAArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAArray.h; sourceTree = "<group>"; };
+		909DC4B52C4EE243004A5246 /* NABuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABuffer.h; sourceTree = "<group>"; };
+		909DC4B62C4EE243004A5246 /* NACircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NACircularBuffer.h; sourceTree = "<group>"; };
+		909DC4B72C4EE243004A5246 /* NAHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAHeap.h; sourceTree = "<group>"; };
+		909DC4B82C4EE243004A5246 /* NAList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAList.h; sourceTree = "<group>"; };
+		909DC4B92C4EE243004A5246 /* NAPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPool.h; sourceTree = "<group>"; };
+		909DC4BA2C4EE243004A5246 /* NAStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAStack.h; sourceTree = "<group>"; };
+		909DC4BB2C4EE243004A5246 /* NAStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAStruct.h; sourceTree = "<group>"; };
+		909DC4BC2C4EE243004A5246 /* NATree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATree.h; sourceTree = "<group>"; };
+		909DC4BE2C4EE243004A5246 /* NAKeyII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKeyII.h; sourceTree = "<group>"; };
+		909DC4BF2C4EE243004A5246 /* NAThreadingII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAThreadingII.h; sourceTree = "<group>"; };
+		909DC4C02C4EE243004A5246 /* NATranslator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NATranslator.c; sourceTree = "<group>"; };
+		909DC4C12C4EE243004A5246 /* NAValueHelperII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAValueHelperII.h; sourceTree = "<group>"; };
+		909DC4C32C4EE243004A5246 /* NABinaryData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NABinaryData.c; sourceTree = "<group>"; };
+		909DC4C42C4EE243004A5246 /* NABinaryDataII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABinaryDataII.h; sourceTree = "<group>"; };
+		909DC4C52C4EE243004A5246 /* NAEndiannessII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAEndiannessII.h; sourceTree = "<group>"; };
+		909DC4C72C4EE243004A5246 /* NADateTime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NADateTime.c; sourceTree = "<group>"; };
+		909DC4C82C4EE243004A5246 /* NADateTimeII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADateTimeII.h; sourceTree = "<group>"; };
+		909DC4CA2C4EE243004A5246 /* NAFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAFile.c; sourceTree = "<group>"; };
+		909DC4CB2C4EE243004A5246 /* NAFileII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAFileII.h; sourceTree = "<group>"; };
+		909DC4CD2C4EE243004A5246 /* NAJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAJSON.c; sourceTree = "<group>"; };
+		909DC4CF2C4EE243004A5246 /* NAMallocFreeII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMallocFreeII.h; sourceTree = "<group>"; };
+		909DC4D02C4EE243004A5246 /* NAMemoryII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMemoryII.h; sourceTree = "<group>"; };
+		909DC4D12C4EE243004A5246 /* NAPointerII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPointerII.h; sourceTree = "<group>"; };
+		909DC4D22C4EE243004A5246 /* NAPtrII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPtrII.h; sourceTree = "<group>"; };
+		909DC4D32C4EE243004A5246 /* NARefCountII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARefCountII.h; sourceTree = "<group>"; };
+		909DC4D42C4EE243004A5246 /* NARuntime.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NARuntime.c; sourceTree = "<group>"; };
+		909DC4D52C4EE243004A5246 /* NARuntimeII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NARuntimeII.h; sourceTree = "<group>"; };
+		909DC4D62C4EE243004A5246 /* NASmartPtrII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NASmartPtrII.h; sourceTree = "<group>"; };
+		909DC4D82C4EE243004A5246 /* NANotifier.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NANotifier.c; sourceTree = "<group>"; };
+		909DC4DA2C4EE243004A5246 /* NAString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAString.c; sourceTree = "<group>"; };
+		909DC4DB2C4EE243004A5246 /* NAStringII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAStringII.h; sourceTree = "<group>"; };
+		909DC4DD2C4EE243004A5246 /* NAURL.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAURL.c; sourceTree = "<group>"; };
+		909DC4DE2C4EE243004A5246 /* NAURLII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAURLII.h; sourceTree = "<group>"; };
+		909DC4E02C4EE243004A5246 /* CMakeSrcList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeSrcList.txt; sourceTree = "<group>"; };
+		909DC4E12C4EE243004A5246 /* NABinaryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NABinaryData.h; sourceTree = "<group>"; };
+		909DC4E22C4EE243004A5246 /* NADateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADateTime.h; sourceTree = "<group>"; };
+		909DC4E32C4EE243004A5246 /* NAFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAFile.h; sourceTree = "<group>"; };
+		909DC4E42C4EE243004A5246 /* NAJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAJSON.h; sourceTree = "<group>"; };
+		909DC4E52C4EE243004A5246 /* NAKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAKey.h; sourceTree = "<group>"; };
+		909DC4E62C4EE243004A5246 /* NAMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAMemory.h; sourceTree = "<group>"; };
+		909DC4E72C4EE243004A5246 /* NANotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NANotifier.h; sourceTree = "<group>"; };
+		909DC4E82C4EE243004A5246 /* NAString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAString.h; sourceTree = "<group>"; };
+		909DC4E92C4EE243004A5246 /* NAThreading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAThreading.h; sourceTree = "<group>"; };
+		909DC4EA2C4EE243004A5246 /* NATranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NATranslator.h; sourceTree = "<group>"; };
+		909DC4EB2C4EE243004A5246 /* NAURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAURL.h; sourceTree = "<group>"; };
+		909DC4EC2C4EE243004A5246 /* NAUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAUtility.h; sourceTree = "<group>"; };
+		909DC4ED2C4EE243004A5246 /* NAValueHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAValueHelper.h; sourceTree = "<group>"; };
+		909DC4EF2C4EE243004A5246 /* NA3DHelper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NA3DHelper.c; sourceTree = "<group>"; };
+		909DC4F02C4EE243004A5246 /* NAColor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAColor.c; sourceTree = "<group>"; };
+		909DC4F12C4EE243004A5246 /* NAColorII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAColorII.h; sourceTree = "<group>"; };
+		909DC4F22C4EE243004A5246 /* NAColorOperations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAColorOperations.c; sourceTree = "<group>"; };
+		909DC4F32C4EE243004A5246 /* NADeflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NADeflate.c; sourceTree = "<group>"; };
+		909DC4F42C4EE243004A5246 /* NAImage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAImage.c; sourceTree = "<group>"; };
+		909DC4F52C4EE243004A5246 /* NAPNG.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NAPNG.c; sourceTree = "<group>"; };
+		909DC4F72C4EE243004A5246 /* CMakeSrcList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeSrcList.txt; sourceTree = "<group>"; };
+		909DC4F82C4EE243004A5246 /* NA3DHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NA3DHelper.h; sourceTree = "<group>"; };
+		909DC4F92C4EE243004A5246 /* NAColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAColor.h; sourceTree = "<group>"; };
+		909DC4FA2C4EE243004A5246 /* NADeflate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NADeflate.h; sourceTree = "<group>"; };
+		909DC4FB2C4EE243004A5246 /* NAImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAImage.h; sourceTree = "<group>"; };
+		909DC4FC2C4EE243004A5246 /* NAPNG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAPNG.h; sourceTree = "<group>"; };
+		909DC4FD2C4EE243004A5246 /* NAVisual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NAVisual.h; sourceTree = "<group>"; };
+		909DC4FF2C4EE243004A5246 /* NALib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NALib.h; sourceTree = "<group>"; };
+		909DC5012C4EE243004A5246 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		909DC3B42C4EE0A9004A5246 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909DC6142C4EE254004A5246 /* libNALib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		909DC3C52C4EE227004A5246 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		909DC3AC2C4EE083004A5246 = {
+			isa = PBXGroup;
+			children = (
+				909DC5022C4EE243004A5246 /* NALib */,
+				909DC3C12C4EE0EC004A5246 /* Plotty */,
+				909DC3B82C4EE0A9004A5246 /* Products */,
+				909DC6132C4EE254004A5246 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		909DC3B82C4EE0A9004A5246 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				909DC3B72C4EE0A9004A5246 /* Plotty */,
+				909DC3C72C4EE227004A5246 /* libNALib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		909DC3C02C4EE0EC004A5246 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				909DC3BF2C4EE0EC004A5246 /* main.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		909DC3C12C4EE0EC004A5246 /* Plotty */ = {
+			isa = PBXGroup;
+			children = (
+				909DC3C02C4EE0EC004A5246 /* src */,
+			);
+			name = Plotty;
+			path = code/Plotty;
+			sourceTree = "<group>";
+		};
+		909DC3E02C4EE243004A5246 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				909DC3CB2C4EE243004A5246 /* NAApplication.c */,
+				909DC3CC2C4EE243004A5246 /* NAButton.c */,
+				909DC3CD2C4EE243004A5246 /* NACheckBox.c */,
+				909DC3CE2C4EE243004A5246 /* NAFont.c */,
+				909DC3CF2C4EE243004A5246 /* NAImageSpace.c */,
+				909DC3D02C4EE243004A5246 /* NAKeyboard.c */,
+				909DC3D12C4EE243004A5246 /* NALabel.c */,
+				909DC3D22C4EE243004A5246 /* NAMenu.c */,
+				909DC3D32C4EE243004A5246 /* NAMenuItem.c */,
+				909DC3D42C4EE243004A5246 /* NAMetalSpace.c */,
+				909DC3D52C4EE243004A5246 /* NAMouse.c */,
+				909DC3D62C4EE243004A5246 /* NAOpenGLSpace.c */,
+				909DC3D72C4EE243004A5246 /* NARadio.c */,
+				909DC3D82C4EE243004A5246 /* NAScreen.c */,
+				909DC3D92C4EE243004A5246 /* NASelect.c */,
+				909DC3DA2C4EE243004A5246 /* NASlider.c */,
+				909DC3DB2C4EE243004A5246 /* NASpace.c */,
+				909DC3DC2C4EE243004A5246 /* NATextBox.c */,
+				909DC3DD2C4EE243004A5246 /* NATextField.c */,
+				909DC3DE2C4EE243004A5246 /* NAUIElement.c */,
+				909DC3DF2C4EE243004A5246 /* NAWindow.c */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		909DC3E62C4EE243004A5246 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				909DC3E02C4EE243004A5246 /* UI */,
+				909DC3E12C4EE243004A5246 /* NAAppCore.h */,
+				909DC3E22C4EE243004A5246 /* NAPreferences.c */,
+				909DC3E32C4EE243004A5246 /* NAPreferencesII.h */,
+				909DC3E42C4EE243004A5246 /* NAUIImage.c */,
+				909DC3E52C4EE243004A5246 /* NAUIImageII.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		909DC3FB2C4EE243004A5246 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				909DC3E72C4EE243004A5246 /* NAApplicationII.h */,
+				909DC3E82C4EE243004A5246 /* NAButtonII.h */,
+				909DC3E92C4EE243004A5246 /* NACheckBoxII.h */,
+				909DC3EA2C4EE243004A5246 /* NAImageSpaceII.h */,
+				909DC3EB2C4EE243004A5246 /* NALabelII.h */,
+				909DC3EC2C4EE243004A5246 /* NAMenuII.h */,
+				909DC3ED2C4EE243004A5246 /* NAMenuItemII.h */,
+				909DC3EE2C4EE243004A5246 /* NAMetalSpaceII.h */,
+				909DC3EF2C4EE243004A5246 /* NAOpenGLSpaceII.h */,
+				909DC3F02C4EE243004A5246 /* NARadioII.h */,
+				909DC3F12C4EE243004A5246 /* NASelectII.h */,
+				909DC3F22C4EE243004A5246 /* NASliderII.h */,
+				909DC3F32C4EE243004A5246 /* NASpaceII.h */,
+				909DC3F42C4EE243004A5246 /* NATextBoxII.h */,
+				909DC3F52C4EE243004A5246 /* NATextFieldII.h */,
+				909DC3F62C4EE243004A5246 /* NAUICocoaII.h */,
+				909DC3F72C4EE243004A5246 /* NAUICocoaInterfaces.h */,
+				909DC3F82C4EE243004A5246 /* NAUICocoaLegacy.h */,
+				909DC3F92C4EE243004A5246 /* NAUICocoaLegacyII.h */,
+				909DC3FA2C4EE243004A5246 /* NAWindowII.h */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		909DC3FF2C4EE243004A5246 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				909DC3FB2C4EE243004A5246 /* UI */,
+				909DC3FC2C4EE243004A5246 /* NACocoa.m */,
+				909DC3FD2C4EE243004A5246 /* NAPreferencesCocoa.m */,
+				909DC3FE2C4EE243004A5246 /* NAUIImageCocoaII.h */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		909DC4122C4EE243004A5246 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4002C4EE243004A5246 /* NAApplicationII.h */,
+				909DC4012C4EE243004A5246 /* NAButtonII.h */,
+				909DC4022C4EE243004A5246 /* NACheckBoxII.h */,
+				909DC4032C4EE243004A5246 /* NAImageSpaceII.h */,
+				909DC4042C4EE243004A5246 /* NALabelII.h */,
+				909DC4052C4EE243004A5246 /* NAMenuII.h */,
+				909DC4062C4EE243004A5246 /* NAMenuItemII.h */,
+				909DC4072C4EE243004A5246 /* NAMetalSpaceII.h */,
+				909DC4082C4EE243004A5246 /* NAOpenGLSpaceII.h */,
+				909DC4092C4EE243004A5246 /* NARadioII.h */,
+				909DC40A2C4EE243004A5246 /* NASelectII.h */,
+				909DC40B2C4EE243004A5246 /* NASliderII.h */,
+				909DC40C2C4EE243004A5246 /* NASpaceII.h */,
+				909DC40D2C4EE243004A5246 /* NATextBoxII.h */,
+				909DC40E2C4EE243004A5246 /* NATextFieldII.h */,
+				909DC40F2C4EE243004A5246 /* NAUIWINAPIII.h */,
+				909DC4102C4EE243004A5246 /* NAUIWINAPIInterfaces.h */,
+				909DC4112C4EE243004A5246 /* NAWindowII.h */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		909DC4172C4EE243004A5246 /* winAPI */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4122C4EE243004A5246 /* UI */,
+				909DC4132C4EE243004A5246 /* NAPreferencesWINAPI.c */,
+				909DC4142C4EE243004A5246 /* NAPreferencesWINAPIII.h */,
+				909DC4152C4EE243004A5246 /* NAUIImageWINAPIII.h */,
+				909DC4162C4EE243004A5246 /* NAUIWINAPI.c */,
+			);
+			path = winAPI;
+			sourceTree = "<group>";
+		};
+		909DC4322C4EE243004A5246 /* NAApp */ = {
+			isa = PBXGroup;
+			children = (
+				909DC3E62C4EE243004A5246 /* Core */,
+				909DC3FF2C4EE243004A5246 /* macOS */,
+				909DC4172C4EE243004A5246 /* winAPI */,
+				909DC4182C4EE243004A5246 /* CMakeSrcList.txt */,
+				909DC4192C4EE243004A5246 /* NAApp.h */,
+				909DC41A2C4EE243004A5246 /* NAApplication.h */,
+				909DC41B2C4EE243004A5246 /* NAButton.h */,
+				909DC41C2C4EE243004A5246 /* NACheckBox.h */,
+				909DC41D2C4EE243004A5246 /* NAFont.h */,
+				909DC41E2C4EE243004A5246 /* NAImageSpace.h */,
+				909DC41F2C4EE243004A5246 /* NAKeyboard.h */,
+				909DC4202C4EE243004A5246 /* NALabel.h */,
+				909DC4212C4EE243004A5246 /* NAMenu.h */,
+				909DC4222C4EE243004A5246 /* NAMenuItem.h */,
+				909DC4232C4EE243004A5246 /* NAMetalSpace.h */,
+				909DC4242C4EE243004A5246 /* NAMouse.h */,
+				909DC4252C4EE243004A5246 /* NAOpenGLSpace.h */,
+				909DC4262C4EE243004A5246 /* NAPreferences.h */,
+				909DC4272C4EE243004A5246 /* NARadio.h */,
+				909DC4282C4EE243004A5246 /* NAReaction.h */,
+				909DC4292C4EE243004A5246 /* NAScreen.h */,
+				909DC42A2C4EE243004A5246 /* NASelect.h */,
+				909DC42B2C4EE243004A5246 /* NASlider.h */,
+				909DC42C2C4EE243004A5246 /* NASpace.h */,
+				909DC42D2C4EE243004A5246 /* NATextBox.h */,
+				909DC42E2C4EE243004A5246 /* NATextField.h */,
+				909DC42F2C4EE243004A5246 /* NAUIElement.h */,
+				909DC4302C4EE243004A5246 /* NAUIImage.h */,
+				909DC4312C4EE243004A5246 /* NAWindow.h */,
+			);
+			path = NAApp;
+			sourceTree = "<group>";
+		};
+		909DC43B2C4EE243004A5246 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4332C4EE243004A5246 /* NADebugging.c */,
+				909DC4342C4EE243004A5246 /* NADebuggingII.h */,
+				909DC4352C4EE243004A5246 /* NAFloatingPointII.h */,
+				909DC4362C4EE243004A5246 /* NAInt64II.h */,
+				909DC4372C4EE243004A5246 /* NAInt128II.h */,
+				909DC4382C4EE243004A5246 /* NAInt256II.h */,
+				909DC4392C4EE243004A5246 /* NAMacrosII.h */,
+				909DC43A2C4EE243004A5246 /* NANumericsII.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		909DC44D2C4EE243004A5246 /* NABase */ = {
+			isa = PBXGroup;
+			children = (
+				909DC43B2C4EE243004A5246 /* Core */,
+				909DC43C2C4EE243004A5246 /* CMakeSrcList.txt */,
+				909DC43D2C4EE243004A5246 /* NABase.h */,
+				909DC43E2C4EE243004A5246 /* NAChar.h */,
+				909DC43F2C4EE243004A5246 /* NACompiler.h */,
+				909DC4402C4EE243004A5246 /* NAConfiguration.h */,
+				909DC4412C4EE243004A5246 /* NADebugging.h */,
+				909DC4422C4EE243004A5246 /* NAEncoding.h */,
+				909DC4432C4EE243004A5246 /* NAEnvironment.h */,
+				909DC4442C4EE243004A5246 /* NAFloatingPoint.h */,
+				909DC4452C4EE243004A5246 /* NAInt64.h */,
+				909DC4462C4EE243004A5246 /* NAInt128.h */,
+				909DC4472C4EE243004A5246 /* NAInt256.h */,
+				909DC4482C4EE243004A5246 /* NAInteger.h */,
+				909DC4492C4EE243004A5246 /* NALanguage.h */,
+				909DC44A2C4EE243004A5246 /* NAMacros.h */,
+				909DC44B2C4EE243004A5246 /* NANumerics.h */,
+				909DC44C2C4EE243004A5246 /* NAPointerArithmetics.h */,
+			);
+			path = NABase;
+			sourceTree = "<group>";
+		};
+		909DC4642C4EE243004A5246 /* NACoord */ = {
+			isa = PBXGroup;
+			children = (
+				909DC44E2C4EE243004A5246 /* NABorderII.h */,
+				909DC44F2C4EE243004A5246 /* NABoxCombinationII.h */,
+				909DC4502C4EE243004A5246 /* NABoxII.h */,
+				909DC4512C4EE243004A5246 /* NAContainsTesterII.h */,
+				909DC4522C4EE243004A5246 /* NACoordAlignII.h */,
+				909DC4532C4EE243004A5246 /* NACoordArithmeticII.h */,
+				909DC4542C4EE243004A5246 /* NACoordCalculationII.h */,
+				909DC4552C4EE243004A5246 /* NACoordClampingII.h */,
+				909DC4562C4EE243004A5246 /* NACoordComparisonII.h */,
+				909DC4572C4EE243004A5246 /* NACoordEndMaxII.h */,
+				909DC4582C4EE243004A5246 /* NACoordII.h */,
+				909DC4592C4EE243004A5246 /* NACoordIndexII.h */,
+				909DC45A2C4EE243004A5246 /* NACoordMacOSII.h */,
+				909DC45B2C4EE243004A5246 /* NACoordTesterII.h */,
+				909DC45C2C4EE243004A5246 /* NAPosII.h */,
+				909DC45D2C4EE243004A5246 /* NARangeCombinationII.h */,
+				909DC45E2C4EE243004A5246 /* NARangeII.h */,
+				909DC45F2C4EE243004A5246 /* NARectCombinationII.h */,
+				909DC4602C4EE243004A5246 /* NARectII.h */,
+				909DC4612C4EE243004A5246 /* NASizeII.h */,
+				909DC4622C4EE243004A5246 /* NAVertexII.h */,
+				909DC4632C4EE243004A5246 /* NAVolumeII.h */,
+			);
+			path = NACoord;
+			sourceTree = "<group>";
+		};
+		909DC4742C4EE243004A5246 /* NAVectorAlgebra */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4652C4EE243004A5246 /* NAHomogeneousCoordinatesII.h */,
+				909DC4662C4EE243004A5246 /* NAMatrixAlgebraOperationsII.h */,
+				909DC4672C4EE243004A5246 /* NAMatrixBaseOperationsII.h */,
+				909DC4682C4EE243004A5246 /* NAMatrixComparisonII.h */,
+				909DC4692C4EE243004A5246 /* NAMatrixComponentwiseII.h */,
+				909DC46A2C4EE243004A5246 /* NAMatrixFillerII.h */,
+				909DC46B2C4EE243004A5246 /* NAMatrixMultiplicationII.h */,
+				909DC46C2C4EE243004A5246 /* NAMatrixRotationsII.h */,
+				909DC46D2C4EE243004A5246 /* NAVectorAlgebraII.h */,
+				909DC46E2C4EE243004A5246 /* NAVectorBaseOperationsII.h */,
+				909DC46F2C4EE243004A5246 /* NAVectorComparisonII.h */,
+				909DC4702C4EE243004A5246 /* NAVectorComponentwiseII.h */,
+				909DC4712C4EE243004A5246 /* NAVectorFillerII.h */,
+				909DC4722C4EE243004A5246 /* NAVectorGeometryII.h */,
+				909DC4732C4EE243004A5246 /* NAVectorProductsII.h */,
+			);
+			path = NAVectorAlgebra;
+			sourceTree = "<group>";
+		};
+		909DC4792C4EE243004A5246 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4642C4EE243004A5246 /* NACoord */,
+				909DC4742C4EE243004A5246 /* NAVectorAlgebra */,
+				909DC4752C4EE243004A5246 /* NAComplexII.h */,
+				909DC4762C4EE243004A5246 /* NAMathOperators.c */,
+				909DC4772C4EE243004A5246 /* NAMathOperatorsII.h */,
+				909DC4782C4EE243004A5246 /* NARandomII.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		909DC4822C4EE243004A5246 /* NAMath */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4792C4EE243004A5246 /* Core */,
+				909DC47A2C4EE243004A5246 /* CMakeSrcList.txt */,
+				909DC47B2C4EE243004A5246 /* NAComplex.h */,
+				909DC47C2C4EE243004A5246 /* NACoord.h */,
+				909DC47D2C4EE243004A5246 /* NAMath.h */,
+				909DC47E2C4EE243004A5246 /* NAMathConstants.h */,
+				909DC47F2C4EE243004A5246 /* NAMathOperators.h */,
+				909DC4802C4EE243004A5246 /* NARandom.h */,
+				909DC4812C4EE243004A5246 /* NAVectorAlgebra.h */,
+			);
+			path = NAMath;
+			sourceTree = "<group>";
+		};
+		909DC4952C4EE243004A5246 /* NABuffer */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4832C4EE243004A5246 /* NABuffer.c */,
+				909DC4842C4EE243004A5246 /* NABufferHelperII.h */,
+				909DC4852C4EE243004A5246 /* NABufferII.h */,
+				909DC4862C4EE243004A5246 /* NABufferIteration.c */,
+				909DC4872C4EE243004A5246 /* NABufferIterationII.h */,
+				909DC4882C4EE243004A5246 /* NABufferManipulation.c */,
+				909DC4892C4EE243004A5246 /* NABufferParse.c */,
+				909DC48A2C4EE243004A5246 /* NABufferParseII.h */,
+				909DC48B2C4EE243004A5246 /* NABufferPart.c */,
+				909DC48C2C4EE243004A5246 /* NABufferPartII.h */,
+				909DC48D2C4EE243004A5246 /* NABufferRead.c */,
+				909DC48E2C4EE243004A5246 /* NABufferReadII.h */,
+				909DC48F2C4EE243004A5246 /* NABufferSource.c */,
+				909DC4902C4EE243004A5246 /* NABufferSourceII.h */,
+				909DC4912C4EE243004A5246 /* NABufferWrite.c */,
+				909DC4922C4EE243004A5246 /* NABufferWriteII.h */,
+				909DC4932C4EE243004A5246 /* NAMemoryBlock.c */,
+				909DC4942C4EE243004A5246 /* NAMemoryBlockII.h */,
+			);
+			path = NABuffer;
+			sourceTree = "<group>";
+		};
+		909DC4992C4EE243004A5246 /* NAHeap */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4962C4EE243004A5246 /* NAHeap.c */,
+				909DC4972C4EE243004A5246 /* NAHeapII.h */,
+				909DC4982C4EE243004A5246 /* NAHeapT.h */,
+			);
+			path = NAHeap;
+			sourceTree = "<group>";
+		};
+		909DC49C2C4EE243004A5246 /* NAStack */ = {
+			isa = PBXGroup;
+			children = (
+				909DC49A2C4EE243004A5246 /* NAStack.c */,
+				909DC49B2C4EE243004A5246 /* NAStackII.h */,
+			);
+			path = NAStack;
+			sourceTree = "<group>";
+		};
+		909DC4AC2C4EE243004A5246 /* NATree */ = {
+			isa = PBXGroup;
+			children = (
+				909DC49D2C4EE243004A5246 /* NATree.c */,
+				909DC49E2C4EE243004A5246 /* NATreeAVL.c */,
+				909DC49F2C4EE243004A5246 /* NATreeBin.c */,
+				909DC4A02C4EE243004A5246 /* NATreeBin.h */,
+				909DC4A12C4EE243004A5246 /* NATreeConfiguration.c */,
+				909DC4A22C4EE243004A5246 /* NATreeConfigurationII.h */,
+				909DC4A32C4EE243004A5246 /* NATreeII.h */,
+				909DC4A42C4EE243004A5246 /* NATreeItemII.h */,
+				909DC4A52C4EE243004A5246 /* NATreeIteration.c */,
+				909DC4A62C4EE243004A5246 /* NATreeIterationII.h */,
+				909DC4A72C4EE243004A5246 /* NATreeOct.c */,
+				909DC4A82C4EE243004A5246 /* NATreeOct.h */,
+				909DC4A92C4EE243004A5246 /* NATreeQuad.c */,
+				909DC4AA2C4EE243004A5246 /* NATreeQuad.h */,
+				909DC4AB2C4EE243004A5246 /* NATreeUtilitiesII.h */,
+			);
+			path = NATree;
+			sourceTree = "<group>";
+		};
+		909DC4B22C4EE243004A5246 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4952C4EE243004A5246 /* NABuffer */,
+				909DC4992C4EE243004A5246 /* NAHeap */,
+				909DC49C2C4EE243004A5246 /* NAStack */,
+				909DC4AC2C4EE243004A5246 /* NATree */,
+				909DC4AD2C4EE243004A5246 /* NAArrayII.h */,
+				909DC4AE2C4EE243004A5246 /* NACircularBufferII.h */,
+				909DC4AF2C4EE243004A5246 /* NAList.c */,
+				909DC4B02C4EE243004A5246 /* NAListII.h */,
+				909DC4B12C4EE243004A5246 /* NAPoolII.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		909DC4BD2C4EE243004A5246 /* NAStruct */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4B22C4EE243004A5246 /* Core */,
+				909DC4B32C4EE243004A5246 /* CMakeSrcList.txt */,
+				909DC4B42C4EE243004A5246 /* NAArray.h */,
+				909DC4B52C4EE243004A5246 /* NABuffer.h */,
+				909DC4B62C4EE243004A5246 /* NACircularBuffer.h */,
+				909DC4B72C4EE243004A5246 /* NAHeap.h */,
+				909DC4B82C4EE243004A5246 /* NAList.h */,
+				909DC4B92C4EE243004A5246 /* NAPool.h */,
+				909DC4BA2C4EE243004A5246 /* NAStack.h */,
+				909DC4BB2C4EE243004A5246 /* NAStruct.h */,
+				909DC4BC2C4EE243004A5246 /* NATree.h */,
+			);
+			path = NAStruct;
+			sourceTree = "<group>";
+		};
+		909DC4C22C4EE243004A5246 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4BE2C4EE243004A5246 /* NAKeyII.h */,
+				909DC4BF2C4EE243004A5246 /* NAThreadingII.h */,
+				909DC4C02C4EE243004A5246 /* NATranslator.c */,
+				909DC4C12C4EE243004A5246 /* NAValueHelperII.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		909DC4C62C4EE243004A5246 /* NABinaryData */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4C32C4EE243004A5246 /* NABinaryData.c */,
+				909DC4C42C4EE243004A5246 /* NABinaryDataII.h */,
+				909DC4C52C4EE243004A5246 /* NAEndiannessII.h */,
+			);
+			path = NABinaryData;
+			sourceTree = "<group>";
+		};
+		909DC4C92C4EE243004A5246 /* NADateTime */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4C72C4EE243004A5246 /* NADateTime.c */,
+				909DC4C82C4EE243004A5246 /* NADateTimeII.h */,
+			);
+			path = NADateTime;
+			sourceTree = "<group>";
+		};
+		909DC4CC2C4EE243004A5246 /* NAFile */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4CA2C4EE243004A5246 /* NAFile.c */,
+				909DC4CB2C4EE243004A5246 /* NAFileII.h */,
+			);
+			path = NAFile;
+			sourceTree = "<group>";
+		};
+		909DC4CE2C4EE243004A5246 /* NAJSON */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4CD2C4EE243004A5246 /* NAJSON.c */,
+			);
+			path = NAJSON;
+			sourceTree = "<group>";
+		};
+		909DC4D72C4EE243004A5246 /* NAMemory */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4CF2C4EE243004A5246 /* NAMallocFreeII.h */,
+				909DC4D02C4EE243004A5246 /* NAMemoryII.h */,
+				909DC4D12C4EE243004A5246 /* NAPointerII.h */,
+				909DC4D22C4EE243004A5246 /* NAPtrII.h */,
+				909DC4D32C4EE243004A5246 /* NARefCountII.h */,
+				909DC4D42C4EE243004A5246 /* NARuntime.c */,
+				909DC4D52C4EE243004A5246 /* NARuntimeII.h */,
+				909DC4D62C4EE243004A5246 /* NASmartPtrII.h */,
+			);
+			path = NAMemory;
+			sourceTree = "<group>";
+		};
+		909DC4D92C4EE243004A5246 /* NANotifier */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4D82C4EE243004A5246 /* NANotifier.c */,
+			);
+			path = NANotifier;
+			sourceTree = "<group>";
+		};
+		909DC4DC2C4EE243004A5246 /* NAString */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4DA2C4EE243004A5246 /* NAString.c */,
+				909DC4DB2C4EE243004A5246 /* NAStringII.h */,
+			);
+			path = NAString;
+			sourceTree = "<group>";
+		};
+		909DC4DF2C4EE243004A5246 /* NAURL */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4DD2C4EE243004A5246 /* NAURL.c */,
+				909DC4DE2C4EE243004A5246 /* NAURLII.h */,
+			);
+			path = NAURL;
+			sourceTree = "<group>";
+		};
+		909DC4EE2C4EE243004A5246 /* NAUtility */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4C22C4EE243004A5246 /* Core */,
+				909DC4C62C4EE243004A5246 /* NABinaryData */,
+				909DC4C92C4EE243004A5246 /* NADateTime */,
+				909DC4CC2C4EE243004A5246 /* NAFile */,
+				909DC4CE2C4EE243004A5246 /* NAJSON */,
+				909DC4D72C4EE243004A5246 /* NAMemory */,
+				909DC4D92C4EE243004A5246 /* NANotifier */,
+				909DC4DC2C4EE243004A5246 /* NAString */,
+				909DC4DF2C4EE243004A5246 /* NAURL */,
+				909DC4E02C4EE243004A5246 /* CMakeSrcList.txt */,
+				909DC4E12C4EE243004A5246 /* NABinaryData.h */,
+				909DC4E22C4EE243004A5246 /* NADateTime.h */,
+				909DC4E32C4EE243004A5246 /* NAFile.h */,
+				909DC4E42C4EE243004A5246 /* NAJSON.h */,
+				909DC4E52C4EE243004A5246 /* NAKey.h */,
+				909DC4E62C4EE243004A5246 /* NAMemory.h */,
+				909DC4E72C4EE243004A5246 /* NANotifier.h */,
+				909DC4E82C4EE243004A5246 /* NAString.h */,
+				909DC4E92C4EE243004A5246 /* NAThreading.h */,
+				909DC4EA2C4EE243004A5246 /* NATranslator.h */,
+				909DC4EB2C4EE243004A5246 /* NAURL.h */,
+				909DC4EC2C4EE243004A5246 /* NAUtility.h */,
+				909DC4ED2C4EE243004A5246 /* NAValueHelper.h */,
+			);
+			path = NAUtility;
+			sourceTree = "<group>";
+		};
+		909DC4F62C4EE243004A5246 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4EF2C4EE243004A5246 /* NA3DHelper.c */,
+				909DC4F02C4EE243004A5246 /* NAColor.c */,
+				909DC4F12C4EE243004A5246 /* NAColorII.h */,
+				909DC4F22C4EE243004A5246 /* NAColorOperations.c */,
+				909DC4F32C4EE243004A5246 /* NADeflate.c */,
+				909DC4F42C4EE243004A5246 /* NAImage.c */,
+				909DC4F52C4EE243004A5246 /* NAPNG.c */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		909DC4FE2C4EE243004A5246 /* NAVisual */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4F62C4EE243004A5246 /* Core */,
+				909DC4F72C4EE243004A5246 /* CMakeSrcList.txt */,
+				909DC4F82C4EE243004A5246 /* NA3DHelper.h */,
+				909DC4F92C4EE243004A5246 /* NAColor.h */,
+				909DC4FA2C4EE243004A5246 /* NADeflate.h */,
+				909DC4FB2C4EE243004A5246 /* NAImage.h */,
+				909DC4FC2C4EE243004A5246 /* NAPNG.h */,
+				909DC4FD2C4EE243004A5246 /* NAVisual.h */,
+			);
+			path = NAVisual;
+			sourceTree = "<group>";
+		};
+		909DC5002C4EE243004A5246 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				909DC4322C4EE243004A5246 /* NAApp */,
+				909DC44D2C4EE243004A5246 /* NABase */,
+				909DC4822C4EE243004A5246 /* NAMath */,
+				909DC4BD2C4EE243004A5246 /* NAStruct */,
+				909DC4EE2C4EE243004A5246 /* NAUtility */,
+				909DC4FE2C4EE243004A5246 /* NAVisual */,
+				909DC4FF2C4EE243004A5246 /* NALib.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		909DC5022C4EE243004A5246 /* NALib */ = {
+			isa = PBXGroup;
+			children = (
+				909DC5002C4EE243004A5246 /* src */,
+				909DC5012C4EE243004A5246 /* CMakeLists.txt */,
+			);
+			name = NALib;
+			path = lib/NALib/code/NALib;
+			sourceTree = "<group>";
+		};
+		909DC6132C4EE254004A5246 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		909DC3C32C4EE227004A5246 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909DC5442C4EE243004A5246 /* NAUIWINAPIInterfaces.h in Headers */,
+				909DC5242C4EE243004A5246 /* NAMetalSpaceII.h in Headers */,
+				909DC53E2C4EE243004A5246 /* NASelectII.h in Headers */,
+				909DC6122C4EE243004A5246 /* NALib.h in Headers */,
+				909DC5732C4EE243004A5246 /* NAInt64.h in Headers */,
+				909DC5712C4EE243004A5246 /* NAEnvironment.h in Headers */,
+				909DC54A2C4EE243004A5246 /* NAApp.h in Headers */,
+				909DC5762C4EE243004A5246 /* NAInteger.h in Headers */,
+				909DC54B2C4EE243004A5246 /* NAApplication.h in Headers */,
+				909DC5612C4EE243004A5246 /* NAUIImage.h in Headers */,
+				909DC5C52C4EE243004A5246 /* NATreeBin.h in Headers */,
+				909DC58A2C4EE243004A5246 /* NARangeCombinationII.h in Headers */,
+				909DC59E2C4EE243004A5246 /* NAVectorGeometryII.h in Headers */,
+				909DC5832C4EE243004A5246 /* NACoordComparisonII.h in Headers */,
+				909DC5482C4EE243004A5246 /* NAUIImageWINAPIII.h in Headers */,
+				909DC5FF2C4EE243004A5246 /* NAString.h in Headers */,
+				909DC5472C4EE243004A5246 /* NAPreferencesWINAPIII.h in Headers */,
+				909DC5A92C4EE243004A5246 /* NARandom.h in Headers */,
+				909DC5A22C4EE243004A5246 /* NAMathOperatorsII.h in Headers */,
+				909DC57C2C4EE243004A5246 /* NABoxCombinationII.h in Headers */,
+				909DC6072C4EE243004A5246 /* NAColorII.h in Headers */,
+				909DC5852C4EE243004A5246 /* NACoordII.h in Headers */,
+				909DC59D2C4EE243004A5246 /* NAVectorFillerII.h in Headers */,
+				909DC5822C4EE243004A5246 /* NACoordClampingII.h in Headers */,
+				909DC5BC2C4EE243004A5246 /* NAMemoryBlockII.h in Headers */,
+				909DC5872C4EE243004A5246 /* NACoordMacOSII.h in Headers */,
+				909DC56F2C4EE243004A5246 /* NADebugging.h in Headers */,
+				909DC5F22C4EE243004A5246 /* NASmartPtrII.h in Headers */,
+				909DC5DB2C4EE243004A5246 /* NAPool.h in Headers */,
+				909DC5A02C4EE243004A5246 /* NAComplexII.h in Headers */,
+				909DC5DC2C4EE243004A5246 /* NAStack.h in Headers */,
+				909DC5D92C4EE243004A5246 /* NAHeap.h in Headers */,
+				909DC53F2C4EE243004A5246 /* NASliderII.h in Headers */,
+				909DC58B2C4EE243004A5246 /* NARangeII.h in Headers */,
+				909DC60C2C4EE243004A5246 /* NA3DHelper.h in Headers */,
+				909DC52D2C4EE243004A5246 /* NAUICocoaInterfaces.h in Headers */,
+				909DC60F2C4EE243004A5246 /* NAImage.h in Headers */,
+				909DC5602C4EE243004A5246 /* NAUIElement.h in Headers */,
+				909DC5EC2C4EE243004A5246 /* NAMemoryII.h in Headers */,
+				909DC5A82C4EE243004A5246 /* NAMathOperators.h in Headers */,
+				909DC6022C4EE243004A5246 /* NAURL.h in Headers */,
+				909DC5DE2C4EE243004A5246 /* NATree.h in Headers */,
+				909DC55C2C4EE243004A5246 /* NASlider.h in Headers */,
+				909DC5F12C4EE243004A5246 /* NARuntimeII.h in Headers */,
+				909DC5532C4EE243004A5246 /* NAMenuItem.h in Headers */,
+				909DC5562C4EE243004A5246 /* NAOpenGLSpace.h in Headers */,
+				909DC6102C4EE243004A5246 /* NAPNG.h in Headers */,
+				909DC5AC2C4EE243004A5246 /* NABufferHelperII.h in Headers */,
+				909DC5DF2C4EE243004A5246 /* NAKeyII.h in Headers */,
+				909DC5A72C4EE243004A5246 /* NAMathConstants.h in Headers */,
+				909DC5342C4EE243004A5246 /* NAApplicationII.h in Headers */,
+				909DC5522C4EE243004A5246 /* NAMenu.h in Headers */,
+				909DC5AD2C4EE243004A5246 /* NABufferII.h in Headers */,
+				909DC6002C4EE243004A5246 /* NAThreading.h in Headers */,
+				909DC5782C4EE243004A5246 /* NAMacros.h in Headers */,
+				909DC5A32C4EE243004A5246 /* NARandomII.h in Headers */,
+				909DC58E2C4EE243004A5246 /* NASizeII.h in Headers */,
+				909DC5CB2C4EE243004A5246 /* NATreeIterationII.h in Headers */,
+				909DC5FE2C4EE243004A5246 /* NANotifier.h in Headers */,
+				909DC5942C4EE243004A5246 /* NAMatrixComparisonII.h in Headers */,
+				909DC5932C4EE243004A5246 /* NAMatrixBaseOperationsII.h in Headers */,
+				909DC5512C4EE243004A5246 /* NALabel.h in Headers */,
+				909DC57D2C4EE243004A5246 /* NABoxII.h in Headers */,
+				909DC5902C4EE243004A5246 /* NAVolumeII.h in Headers */,
+				909DC5B82C4EE243004A5246 /* NABufferSourceII.h in Headers */,
+				909DC5582C4EE243004A5246 /* NARadio.h in Headers */,
+				909DC57F2C4EE243004A5246 /* NACoordAlignII.h in Headers */,
+				909DC52F2C4EE243004A5246 /* NAUICocoaLegacyII.h in Headers */,
+				909DC5272C4EE243004A5246 /* NASelectII.h in Headers */,
+				909DC51D2C4EE243004A5246 /* NAApplicationII.h in Headers */,
+				909DC5802C4EE243004A5246 /* NACoordArithmeticII.h in Headers */,
+				909DC5FD2C4EE243004A5246 /* NAMemory.h in Headers */,
+				909DC59C2C4EE243004A5246 /* NAVectorComponentwiseII.h in Headers */,
+				909DC5FA2C4EE243004A5246 /* NAFile.h in Headers */,
+				909DC57B2C4EE243004A5246 /* NABorderII.h in Headers */,
+				909DC5B22C4EE243004A5246 /* NABufferParseII.h in Headers */,
+				909DC53B2C4EE243004A5246 /* NAMetalSpaceII.h in Headers */,
+				909DC5BA2C4EE243004A5246 /* NABufferWriteII.h in Headers */,
+				909DC5AA2C4EE243004A5246 /* NAVectorAlgebra.h in Headers */,
+				909DC5202C4EE243004A5246 /* NAImageSpaceII.h in Headers */,
+				909DC55F2C4EE243004A5246 /* NATextField.h in Headers */,
+				909DC5F82C4EE243004A5246 /* NABinaryData.h in Headers */,
+				909DC5972C4EE243004A5246 /* NAMatrixMultiplicationII.h in Headers */,
+				909DC5212C4EE243004A5246 /* NALabelII.h in Headers */,
+				909DC5FC2C4EE243004A5246 /* NAKey.h in Headers */,
+				909DC5622C4EE243004A5246 /* NAWindow.h in Headers */,
+				909DC5F92C4EE243004A5246 /* NADateTime.h in Headers */,
+				909DC5D12C4EE243004A5246 /* NAArrayII.h in Headers */,
+				909DC5752C4EE243004A5246 /* NAInt256.h in Headers */,
+				909DC6032C4EE243004A5246 /* NAUtility.h in Headers */,
+				909DC5362C4EE243004A5246 /* NACheckBoxII.h in Headers */,
+				909DC5652C4EE243004A5246 /* NAFloatingPointII.h in Headers */,
+				909DC5912C4EE243004A5246 /* NAHomogeneousCoordinatesII.h in Headers */,
+				909DC52A2C4EE243004A5246 /* NATextBoxII.h in Headers */,
+				909DC5502C4EE243004A5246 /* NAKeyboard.h in Headers */,
+				909DC53D2C4EE243004A5246 /* NARadioII.h in Headers */,
+				909DC5D62C4EE243004A5246 /* NAArray.h in Headers */,
+				909DC5F52C4EE243004A5246 /* NAStringII.h in Headers */,
+				909DC57A2C4EE243004A5246 /* NAPointerArithmetics.h in Headers */,
+				909DC5792C4EE243004A5246 /* NANumerics.h in Headers */,
+				909DC5702C4EE243004A5246 /* NAEncoding.h in Headers */,
+				909DC5E02C4EE243004A5246 /* NAThreadingII.h in Headers */,
+				909DC5A52C4EE243004A5246 /* NACoord.h in Headers */,
+				909DC5992C4EE243004A5246 /* NAVectorAlgebraII.h in Headers */,
+				909DC5B42C4EE243004A5246 /* NABufferPartII.h in Headers */,
+				909DC5DA2C4EE243004A5246 /* NAList.h in Headers */,
+				909DC58D2C4EE243004A5246 /* NARectII.h in Headers */,
+				909DC55E2C4EE243004A5246 /* NATextBox.h in Headers */,
+				909DC5EB2C4EE243004A5246 /* NAMallocFreeII.h in Headers */,
+				909DC5B62C4EE243004A5246 /* NABufferReadII.h in Headers */,
+				909DC5DD2C4EE243004A5246 /* NAStruct.h in Headers */,
+				909DC55D2C4EE243004A5246 /* NASpace.h in Headers */,
+				909DC5CF2C4EE243004A5246 /* NATreeQuad.h in Headers */,
+				909DC5692C4EE243004A5246 /* NAMacrosII.h in Headers */,
+				909DC5882C4EE243004A5246 /* NACoordTesterII.h in Headers */,
+				909DC53C2C4EE243004A5246 /* NAOpenGLSpaceII.h in Headers */,
+				909DC5E52C4EE243004A5246 /* NAEndiannessII.h in Headers */,
+				909DC52E2C4EE243004A5246 /* NAUICocoaLegacy.h in Headers */,
+				909DC5A42C4EE243004A5246 /* NAComplex.h in Headers */,
+				909DC5282C4EE243004A5246 /* NASliderII.h in Headers */,
+				909DC51A2C4EE243004A5246 /* NAPreferencesII.h in Headers */,
+				909DC60E2C4EE243004A5246 /* NADeflate.h in Headers */,
+				909DC5D22C4EE243004A5246 /* NACircularBufferII.h in Headers */,
+				909DC5642C4EE243004A5246 /* NADebuggingII.h in Headers */,
+				909DC5742C4EE243004A5246 /* NAInt128.h in Headers */,
+				909DC56A2C4EE243004A5246 /* NANumericsII.h in Headers */,
+				909DC5262C4EE243004A5246 /* NARadioII.h in Headers */,
+				909DC5A62C4EE243004A5246 /* NAMath.h in Headers */,
+				909DC5C72C4EE243004A5246 /* NATreeConfigurationII.h in Headers */,
+				909DC5D52C4EE243004A5246 /* NAPoolII.h in Headers */,
+				909DC52B2C4EE243004A5246 /* NATextFieldII.h in Headers */,
+				909DC53A2C4EE243004A5246 /* NAMenuItemII.h in Headers */,
+				909DC54C2C4EE243004A5246 /* NAButton.h in Headers */,
+				909DC60D2C4EE243004A5246 /* NAColor.h in Headers */,
+				909DC5E92C4EE243004A5246 /* NAFileII.h in Headers */,
+				909DC5D42C4EE243004A5246 /* NAListII.h in Headers */,
+				909DC5252C4EE243004A5246 /* NAOpenGLSpaceII.h in Headers */,
+				909DC5412C4EE243004A5246 /* NATextBoxII.h in Headers */,
+				909DC5D82C4EE243004A5246 /* NACircularBuffer.h in Headers */,
+				909DC5E72C4EE243004A5246 /* NADateTimeII.h in Headers */,
+				909DC5CD2C4EE243004A5246 /* NATreeOct.h in Headers */,
+				909DC51F2C4EE243004A5246 /* NACheckBoxII.h in Headers */,
+				909DC5422C4EE243004A5246 /* NATextFieldII.h in Headers */,
+				909DC5402C4EE243004A5246 /* NASpaceII.h in Headers */,
+				909DC5592C4EE243004A5246 /* NAReaction.h in Headers */,
+				909DC5672C4EE243004A5246 /* NAInt128II.h in Headers */,
+				909DC5C92C4EE243004A5246 /* NATreeItemII.h in Headers */,
+				909DC5182C4EE243004A5246 /* NAAppCore.h in Headers */,
+				909DC57E2C4EE243004A5246 /* NAContainsTesterII.h in Headers */,
+				909DC5EE2C4EE243004A5246 /* NAPtrII.h in Headers */,
+				909DC5432C4EE243004A5246 /* NAUIWINAPIII.h in Headers */,
+				909DC55A2C4EE243004A5246 /* NAScreen.h in Headers */,
+				909DC5842C4EE243004A5246 /* NACoordEndMaxII.h in Headers */,
+				909DC51C2C4EE243004A5246 /* NAUIImageII.h in Headers */,
+				909DC5922C4EE243004A5246 /* NAMatrixAlgebraOperationsII.h in Headers */,
+				909DC5682C4EE243004A5246 /* NAInt256II.h in Headers */,
+				909DC5952C4EE243004A5246 /* NAMatrixComponentwiseII.h in Headers */,
+				909DC58F2C4EE243004A5246 /* NAVertexII.h in Headers */,
+				909DC5552C4EE243004A5246 /* NAMouse.h in Headers */,
+				909DC5232C4EE243004A5246 /* NAMenuItemII.h in Headers */,
+				909DC5ED2C4EE243004A5246 /* NAPointerII.h in Headers */,
+				909DC5E42C4EE243004A5246 /* NABinaryDataII.h in Headers */,
+				909DC55B2C4EE243004A5246 /* NASelect.h in Headers */,
+				909DC5BE2C4EE243004A5246 /* NAHeapII.h in Headers */,
+				909DC5452C4EE243004A5246 /* NAWindowII.h in Headers */,
+				909DC59F2C4EE243004A5246 /* NAVectorProductsII.h in Headers */,
+				909DC56B2C4EE243004A5246 /* NABase.h in Headers */,
+				909DC5EF2C4EE243004A5246 /* NARefCountII.h in Headers */,
+				909DC5392C4EE243004A5246 /* NAMenuII.h in Headers */,
+				909DC5D02C4EE243004A5246 /* NATreeUtilitiesII.h in Headers */,
+				909DC6012C4EE243004A5246 /* NATranslator.h in Headers */,
+				909DC54E2C4EE243004A5246 /* NAFont.h in Headers */,
+				909DC5772C4EE243004A5246 /* NALanguage.h in Headers */,
+				909DC52C2C4EE243004A5246 /* NAUICocoaII.h in Headers */,
+				909DC56D2C4EE243004A5246 /* NACompiler.h in Headers */,
+				909DC5862C4EE243004A5246 /* NACoordIndexII.h in Headers */,
+				909DC5302C4EE243004A5246 /* NAWindowII.h in Headers */,
+				909DC59A2C4EE243004A5246 /* NAVectorBaseOperationsII.h in Headers */,
+				909DC54D2C4EE243004A5246 /* NACheckBox.h in Headers */,
+				909DC5542C4EE243004A5246 /* NAMetalSpace.h in Headers */,
+				909DC54F2C4EE243004A5246 /* NAImageSpace.h in Headers */,
+				909DC5E22C4EE243004A5246 /* NAValueHelperII.h in Headers */,
+				909DC5FB2C4EE243004A5246 /* NAJSON.h in Headers */,
+				909DC5382C4EE243004A5246 /* NALabelII.h in Headers */,
+				909DC5C82C4EE243004A5246 /* NATreeII.h in Headers */,
+				909DC5372C4EE243004A5246 /* NAImageSpaceII.h in Headers */,
+				909DC5BF2C4EE243004A5246 /* NAHeapT.h in Headers */,
+				909DC5AF2C4EE243004A5246 /* NABufferIterationII.h in Headers */,
+				909DC51E2C4EE243004A5246 /* NAButtonII.h in Headers */,
+				909DC5C12C4EE243004A5246 /* NAStackII.h in Headers */,
+				909DC56C2C4EE243004A5246 /* NAChar.h in Headers */,
+				909DC5962C4EE243004A5246 /* NAMatrixFillerII.h in Headers */,
+				909DC6042C4EE243004A5246 /* NAValueHelper.h in Headers */,
+				909DC5982C4EE243004A5246 /* NAMatrixRotationsII.h in Headers */,
+				909DC5812C4EE243004A5246 /* NACoordCalculationII.h in Headers */,
+				909DC5292C4EE243004A5246 /* NASpaceII.h in Headers */,
+				909DC6112C4EE243004A5246 /* NAVisual.h in Headers */,
+				909DC5892C4EE243004A5246 /* NAPosII.h in Headers */,
+				909DC5D72C4EE243004A5246 /* NABuffer.h in Headers */,
+				909DC5352C4EE243004A5246 /* NAButtonII.h in Headers */,
+				909DC5222C4EE243004A5246 /* NAMenuII.h in Headers */,
+				909DC59B2C4EE243004A5246 /* NAVectorComparisonII.h in Headers */,
+				909DC5572C4EE243004A5246 /* NAPreferences.h in Headers */,
+				909DC5722C4EE243004A5246 /* NAFloatingPoint.h in Headers */,
+				909DC5332C4EE243004A5246 /* NAUIImageCocoaII.h in Headers */,
+				909DC56E2C4EE243004A5246 /* NAConfiguration.h in Headers */,
+				909DC5662C4EE243004A5246 /* NAInt64II.h in Headers */,
+				909DC58C2C4EE243004A5246 /* NARectCombinationII.h in Headers */,
+				909DC5F72C4EE243004A5246 /* NAURLII.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		909DC3B62C4EE0A9004A5246 /* Plotty */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 909DC3BC2C4EE0A9004A5246 /* Build configuration list for PBXNativeTarget "Plotty" */;
+			buildPhases = (
+				909DC3B32C4EE0A9004A5246 /* Sources */,
+				909DC3B42C4EE0A9004A5246 /* Frameworks */,
+				909DC3B52C4EE0A9004A5246 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				909DC6162C4EE25D004A5246 /* PBXTargetDependency */,
+			);
+			name = Plotty;
+			productName = Plotty;
+			productReference = 909DC3B72C4EE0A9004A5246 /* Plotty */;
+			productType = "com.apple.product-type.tool";
+		};
+		909DC3C62C4EE227004A5246 /* NALib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 909DC3C82C4EE227004A5246 /* Build configuration list for PBXNativeTarget "NALib" */;
+			buildPhases = (
+				909DC3C32C4EE227004A5246 /* Headers */,
+				909DC3C42C4EE227004A5246 /* Sources */,
+				909DC3C52C4EE227004A5246 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NALib;
+			productName = NALib;
+			productReference = 909DC3C72C4EE227004A5246 /* libNALib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		909DC3AD2C4EE083004A5246 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					909DC3B62C4EE0A9004A5246 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					909DC3C62C4EE227004A5246 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 909DC3B02C4EE083004A5246 /* Build configuration list for PBXProject "Plotty" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 909DC3AC2C4EE083004A5246;
+			productRefGroup = 909DC3B82C4EE0A9004A5246 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				909DC3B62C4EE0A9004A5246 /* Plotty */,
+				909DC3C62C4EE227004A5246 /* NALib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		909DC3B32C4EE0A9004A5246 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909DC3C22C4EE0EC004A5246 /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		909DC3C42C4EE227004A5246 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				909DC5312C4EE243004A5246 /* NACocoa.m in Sources */,
+				909DC5B02C4EE243004A5246 /* NABufferManipulation.c in Sources */,
+				909DC5052C4EE243004A5246 /* NACheckBox.c in Sources */,
+				909DC5B92C4EE243004A5246 /* NABufferWrite.c in Sources */,
+				909DC5492C4EE243004A5246 /* NAUIWINAPI.c in Sources */,
+				909DC50C2C4EE243004A5246 /* NAMetalSpace.c in Sources */,
+				909DC5A12C4EE243004A5246 /* NAMathOperators.c in Sources */,
+				909DC5042C4EE243004A5246 /* NAButton.c in Sources */,
+				909DC5632C4EE243004A5246 /* NADebugging.c in Sources */,
+				909DC5072C4EE243004A5246 /* NAImageSpace.c in Sources */,
+				909DC5132C4EE243004A5246 /* NASpace.c in Sources */,
+				909DC5102C4EE243004A5246 /* NAScreen.c in Sources */,
+				909DC5C32C4EE243004A5246 /* NATreeAVL.c in Sources */,
+				909DC5AB2C4EE243004A5246 /* NABuffer.c in Sources */,
+				909DC6082C4EE243004A5246 /* NAColorOperations.c in Sources */,
+				909DC51B2C4EE243004A5246 /* NAUIImage.c in Sources */,
+				909DC5B32C4EE243004A5246 /* NABufferPart.c in Sources */,
+				909DC50F2C4EE243004A5246 /* NARadio.c in Sources */,
+				909DC5142C4EE243004A5246 /* NATextBox.c in Sources */,
+				909DC5B52C4EE243004A5246 /* NABufferRead.c in Sources */,
+				909DC6062C4EE243004A5246 /* NAColor.c in Sources */,
+				909DC50E2C4EE243004A5246 /* NAOpenGLSpace.c in Sources */,
+				909DC5EA2C4EE243004A5246 /* NAJSON.c in Sources */,
+				909DC5F62C4EE243004A5246 /* NAURL.c in Sources */,
+				909DC6092C4EE243004A5246 /* NADeflate.c in Sources */,
+				909DC5D32C4EE243004A5246 /* NAList.c in Sources */,
+				909DC5162C4EE243004A5246 /* NAUIElement.c in Sources */,
+				909DC5C62C4EE243004A5246 /* NATreeConfiguration.c in Sources */,
+				909DC5032C4EE243004A5246 /* NAApplication.c in Sources */,
+				909DC5E62C4EE243004A5246 /* NADateTime.c in Sources */,
+				909DC5CA2C4EE243004A5246 /* NATreeIteration.c in Sources */,
+				909DC5092C4EE243004A5246 /* NALabel.c in Sources */,
+				909DC5112C4EE243004A5246 /* NASelect.c in Sources */,
+				909DC50D2C4EE243004A5246 /* NAMouse.c in Sources */,
+				909DC5C42C4EE243004A5246 /* NATreeBin.c in Sources */,
+				909DC5BD2C4EE243004A5246 /* NAHeap.c in Sources */,
+				909DC5B72C4EE243004A5246 /* NABufferSource.c in Sources */,
+				909DC5BB2C4EE243004A5246 /* NAMemoryBlock.c in Sources */,
+				909DC50A2C4EE243004A5246 /* NAMenu.c in Sources */,
+				909DC5F32C4EE243004A5246 /* NANotifier.c in Sources */,
+				909DC60A2C4EE243004A5246 /* NAImage.c in Sources */,
+				909DC5CE2C4EE243004A5246 /* NATreeQuad.c in Sources */,
+				909DC5062C4EE243004A5246 /* NAFont.c in Sources */,
+				909DC5E32C4EE243004A5246 /* NABinaryData.c in Sources */,
+				909DC5C22C4EE243004A5246 /* NATree.c in Sources */,
+				909DC5122C4EE243004A5246 /* NASlider.c in Sources */,
+				909DC5F42C4EE243004A5246 /* NAString.c in Sources */,
+				909DC5CC2C4EE243004A5246 /* NATreeOct.c in Sources */,
+				909DC60B2C4EE243004A5246 /* NAPNG.c in Sources */,
+				909DC5E82C4EE243004A5246 /* NAFile.c in Sources */,
+				909DC5192C4EE243004A5246 /* NAPreferences.c in Sources */,
+				909DC5F02C4EE243004A5246 /* NARuntime.c in Sources */,
+				909DC5C02C4EE243004A5246 /* NAStack.c in Sources */,
+				909DC5E12C4EE243004A5246 /* NATranslator.c in Sources */,
+				909DC5082C4EE243004A5246 /* NAKeyboard.c in Sources */,
+				909DC5AE2C4EE243004A5246 /* NABufferIteration.c in Sources */,
+				909DC6052C4EE243004A5246 /* NA3DHelper.c in Sources */,
+				909DC5B12C4EE243004A5246 /* NABufferParse.c in Sources */,
+				909DC5172C4EE243004A5246 /* NAWindow.c in Sources */,
+				909DC5322C4EE243004A5246 /* NAPreferencesCocoa.m in Sources */,
+				909DC50B2C4EE243004A5246 /* NAMenuItem.c in Sources */,
+				909DC5152C4EE243004A5246 /* NATextField.c in Sources */,
+				909DC5462C4EE243004A5246 /* NAPreferencesWINAPI.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		909DC6162C4EE25D004A5246 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 909DC3C62C4EE227004A5246 /* NALib */;
+			targetProxy = 909DC6152C4EE25D004A5246 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		909DC3B12C4EE083004A5246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NA_COMPILE_GUI=1",
+					"NA_COMPILE_OPENGL=1",
+				);
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+			};
+			name = Debug;
+		};
+		909DC3B22C4EE083004A5246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"NA_COMPILE_GUI=1",
+					"NA_COMPILE_OPENGL=1",
+				);
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+			};
+			name = Release;
+		};
+		909DC3BD2C4EE0A9004A5246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = YH3QFD54JB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		909DC3BE2C4EE0A9004A5246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YH3QFD54JB;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		909DC3C92C4EE227004A5246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = YH3QFD54JB;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		909DC3CA2C4EE227004A5246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = YH3QFD54JB;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		909DC3B02C4EE083004A5246 /* Build configuration list for PBXProject "Plotty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				909DC3B12C4EE083004A5246 /* Debug */,
+				909DC3B22C4EE083004A5246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		909DC3BC2C4EE0A9004A5246 /* Build configuration list for PBXNativeTarget "Plotty" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				909DC3BD2C4EE0A9004A5246 /* Debug */,
+				909DC3BE2C4EE0A9004A5246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		909DC3C82C4EE227004A5246 /* Build configuration list for PBXNativeTarget "NALib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				909DC3C92C4EE227004A5246 /* Debug */,
+				909DC3CA2C4EE227004A5246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 909DC3AD2C4EE083004A5246 /* Project object */;
+}
