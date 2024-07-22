@@ -6,15 +6,29 @@
 
 
 
-NAOpenGLSpace* openGLSpace;
-double zoom = 20.;
+typedef struct Controller Controller;
+struct Controller {
+  NAWindow* win;
+  NAOpenGLSpace* openGLSpace;
+  double zoom;
+};
 
 
-void drawFunction() {
+
+double evaluate(double t) {
+  return 10. * sin(t);
+//  return a * t^2 + b * t + c;
+}
+
+
+
+void drawFunction(const Controller* con) {
+  NARect viewRect = naGetUIElementRect(con->openGLSpace);
+
   glBegin(GL_LINE_STRIP);
-    for(size_t i = 0; i < 100; ++i) {
-      double t = (double)i / 10. - 5.;
-      glVertex2d(t, 5. * sin(t));
+    for(size_t i = 0; i < viewRect.size.width; ++i) {
+      double t = ((double)i - viewRect.size.width * .5) / con->zoom;
+      glVertex2d(t, evaluate(t));
     }
   glEnd();
 }
@@ -22,7 +36,9 @@ void drawFunction() {
 
 
 void drawScene(NAReaction reaction) {
-  NARect viewRect = naGetUIElementRect(openGLSpace);
+  const Controller* con = reaction.controller; 
+
+  NARect viewRect = naGetUIElementRect(con->openGLSpace);
   glViewport(
     (GLint)0,
     (GLint)0,
@@ -35,10 +51,10 @@ void drawScene(NAReaction reaction) {
   NAMat44d ortho;
   naFillMatrixOrtho(
     ortho,
-    -viewRect.size.width * .5 / zoom,
-    +viewRect.size.width * .5 / zoom,
-    -viewRect.size.height * .5 / zoom,
-    +viewRect.size.height * .5 / zoom,
+    -viewRect.size.width * .5 / con->zoom,
+    +viewRect.size.width * .5 / con->zoom,
+    -viewRect.size.height * .5 / con->zoom,
+    +viewRect.size.height * .5 / con->zoom,
     -1, 1);
   glMultMatrixd(ortho);
   
@@ -57,31 +73,57 @@ void drawScene(NAReaction reaction) {
     glVertex2d(0., +100.);
   glEnd();
   
-  drawFunction();
+  drawFunction(con);
   
-  naSwapOpenGLSpaceBuffer(openGLSpace);
+  naSwapOpenGLSpaceBuffer(con->openGLSpace);
 }
 
 
 
 void postStartup(void* arg) {
+  Controller* con = arg;
+  
   NASize spaceSize = naMakeSize(600, 400);
-  NAWindow* win = naNewWindow("Plotty", naMakeRect(naMakePos(100, 100), spaceSize), 0, 0);
-  NASpace* contentSpace = naGetWindowContentSpace(win);
   
-  openGLSpace = naNewOpenGLSpace(spaceSize, NA_NULL, NA_NULL);
-  naAddSpaceChild(contentSpace, openGLSpace, naMakePos(0, 0));
+  con->win = naNewWindow(
+    "Plotty",
+    naMakeRect(
+      naMakePos(100, 100),
+      naMakeSize(spaceSize.width + 200, spaceSize.height)),
+    0,
+    0);
+  NASpace* contentSpace = naGetWindowContentSpace(con->win);
   
-  naAddUIReaction(openGLSpace, NA_UI_COMMAND_REDRAW, drawScene, NA_NULL);
+  // Add the drawing region.
+  con->openGLSpace = naNewOpenGLSpace(
+    spaceSize,
+    NA_NULL,
+    NA_NULL);
+  naAddSpaceChild(
+    contentSpace,
+    con->openGLSpace,
+    naMakePos(200, 0));
   
-  naShowWindow(win);
+  naAddUIReaction(
+    con->openGLSpace,
+    NA_UI_COMMAND_REDRAW,
+    drawScene,
+    con);
+  
+  // Put the window onscreen.
+  naShowWindow(con->win);
 }
 
 
 
 int main(int argc, const char * argv[]) {
+  // Create global controller and initialize it.
+  static Controller globalController;
+  globalController.openGLSpace = NA_NULL;
+  globalController.zoom = 15.;
+  
   naStartRuntime();
-  naStartApplication(NA_NULL, postStartup, NA_NULL, NA_NULL);
+  naStartApplication(NA_NULL, postStartup, NA_NULL, &globalController);
   naStopRuntime();
   return 0;
 }
