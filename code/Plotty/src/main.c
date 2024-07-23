@@ -1,23 +1,32 @@
 #include <stdio.h>
 
-#include "NAApp.h"
-#include "NA3DHelper.h"
-#include "NAVectorAlgebra.h"
+#include "NAApp/NAApp.h"
+#include "NAVisual/NA3DHelper.h"
+#include "NAMath/NAVectorAlgebra.h"
 
+
+
+#define PARAMS_COUNT 4
 
 
 typedef struct Controller Controller;
 struct Controller {
   NAWindow* win;
   NAOpenGLSpace* openGLSpace;
+  NASlider* sliders[PARAMS_COUNT];
+  
+  double params[PARAMS_COUNT];
   double zoom;
 };
 
+void updateController(const Controller* con);
 
 
-double evaluate(double t) {
-  return 10. * sin(t);
-//  return a * t^2 + b * t + c;
+
+double evaluate(double t, const double* params) {
+  return 10. * params[0] * sin(t) / t;
+  //return params[0] * 10. * sin(t);
+  //return params[0] * t*t*t + params[1] * t*t + params[2] * t + params[3];
 }
 
 
@@ -28,7 +37,7 @@ void drawFunction(const Controller* con) {
   glBegin(GL_LINE_STRIP);
     for(size_t i = 0; i < viewRect.size.width; ++i) {
       double t = ((double)i - viewRect.size.width * .5) / con->zoom;
-      glVertex2d(t, evaluate(t));
+      glVertex2d(t, evaluate(t, con->params));
     }
   glEnd();
 }
@@ -80,6 +89,43 @@ void drawScene(NAReaction reaction) {
 
 
 
+void reshapeWindow(NAReaction reaction) {
+  const Controller* con = reaction.controller; 
+
+  NARect rect = naGetUIElementRect(con->win);
+  rect.pos.x = 200.;
+  rect.pos.y = 0.;
+  rect.size.width -= 200;
+  naSetUIElementRect(con->openGLSpace, rect);
+}
+
+
+
+void paramChanged(NAReaction reaction) {
+  Controller* con = reaction.controller; 
+  
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    if(reaction.uiElement == con->sliders[i]) {
+      con->params[i] = naGetSliderValue(con->sliders[i]);
+      break;
+    }
+  }
+  
+  updateController(con);
+}
+
+
+
+void updateController(const Controller* con) {
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    naSetSliderValue(con->sliders[i], con->params[i]);
+  }
+  
+  naRefreshUIElement(con->openGLSpace, 0.);
+}
+
+
+
 void postStartup(void* arg) {
   Controller* con = arg;
   
@@ -90,28 +136,43 @@ void postStartup(void* arg) {
     naMakeRect(
       naMakePos(100, 100),
       naMakeSize(spaceSize.width + 200, spaceSize.height)),
-    0,
+    NA_WINDOW_RESIZEABLE,
     0);
-  NASpace* contentSpace = naGetWindowContentSpace(con->win);
-  
+  naAddUIReaction(con->win, NA_UI_COMMAND_RESHAPE, reshapeWindow, con);
+
+  // Add parameters
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    con->sliders[i] = naNewSlider(160);
+    naAddUIReaction(con->sliders[i], NA_UI_COMMAND_EDITED, paramChanged, con);
+  }
+
   // Add the drawing region.
   con->openGLSpace = naNewOpenGLSpace(
     spaceSize,
     NA_NULL,
-    NA_NULL);
-  naAddSpaceChild(
-    contentSpace,
-    con->openGLSpace,
-    naMakePos(200, 0));
+    NA_NULL);  
+  naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_REDRAW, drawScene, con);
   
-  naAddUIReaction(
-    con->openGLSpace,
-    NA_UI_COMMAND_REDRAW,
-    drawScene,
-    con);
-  
+  // Setup the UI.
+  double yOffset = 200;
+  NASpace* contentSpace = naGetWindowContentSpace(con->win);
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    naAddSpaceChild(contentSpace, con->sliders[i], naMakePos(20, yOffset - i * 25));
+  }
+  naAddSpaceChild(contentSpace, con->openGLSpace, naMakePos(200, 0));
+
   // Put the window onscreen.
   naShowWindow(con->win);
+}
+
+
+
+void initController(Controller* con) {
+  con->openGLSpace = NA_NULL;
+  con->zoom = 15.;
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    con->params[i] = 0.;
+  }
 }
 
 
@@ -119,8 +180,7 @@ void postStartup(void* arg) {
 int main(int argc, const char * argv[]) {
   // Create global controller and initialize it.
   static Controller globalController;
-  globalController.openGLSpace = NA_NULL;
-  globalController.zoom = 15.;
+  initController(&globalController);
   
   naStartRuntime();
   naStartApplication(NA_NULL, postStartup, NA_NULL, &globalController);
