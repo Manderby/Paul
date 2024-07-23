@@ -96,7 +96,11 @@ void reshapeWindow(NAReaction reaction) {
   rect.pos.x = 200.;
   rect.pos.y = 0.;
   rect.size.width -= 200;
-  naSetUIElementRect(con->openGLSpace, rect);
+  NARect oldRect = naGetUIElementRect(con->openGLSpace);
+  if(!naEqualRect(oldRect, rect)) {
+    naSetUIElementRect(con->openGLSpace, rect);
+    naRefreshUIElement(con->openGLSpace, 0.);
+  }
 }
 
 
