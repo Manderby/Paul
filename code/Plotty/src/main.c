@@ -8,12 +8,22 @@
 
 #define PARAMS_COUNT 4
 
+#define MARGIN 20.
+#define SIDEBAR_WIDTH 256.
+
 
 typedef struct Controller Controller;
 struct Controller {
+  NAFont* mathFont;
+  
   NAWindow* win;
   NAOpenGLSpace* openGLSpace;
-  NASlider* sliders[PARAMS_COUNT];
+  
+  struct {
+    NALabel* label;
+    NATextField* textField;
+    NASlider* slider;
+  } inputs[PARAMS_COUNT];
   
   double params[PARAMS_COUNT];
   double zoom;
@@ -24,9 +34,9 @@ void updateController(const Controller* con);
 
 
 double evaluate(double t, const double* params) {
-  return 10. * params[0] * sin(t) / t;
+  //return 10. * params[0] * sin(t) / t;
   //return params[0] * 10. * sin(t);
-  //return params[0] * t*t*t + params[1] * t*t + params[2] * t + params[3];
+  return params[0] * t*t*t + params[1] * t*t + params[2] * t + params[3];
 }
 
 
@@ -93,9 +103,9 @@ void reshapeWindow(NAReaction reaction) {
   const Controller* con = reaction.controller; 
 
   NARect rect = naGetUIElementRect(con->win);
-  rect.pos.x = 200.;
+  rect.pos.x = SIDEBAR_WIDTH;
   rect.pos.y = 0.;
-  rect.size.width -= 200;
+  rect.size.width -= SIDEBAR_WIDTH;
   NARect oldRect = naGetUIElementRect(con->openGLSpace);
   if(!naEqualRect(oldRect, rect)) {
     naSetUIElementRect(con->openGLSpace, rect);
@@ -109,8 +119,11 @@ void paramChanged(NAReaction reaction) {
   Controller* con = reaction.controller; 
   
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    if(reaction.uiElement == con->sliders[i]) {
-      con->params[i] = naGetSliderValue(con->sliders[i]);
+    if(reaction.uiElement == con->inputs[i].slider) {
+      con->params[i] = naGetSliderValue(con->inputs[i].slider);
+      break;
+    }else if(reaction.uiElement == con->inputs[i].textField) {
+      con->params[i] = naGetTextFieldDouble(con->inputs[i].textField);
       break;
     }
   }
@@ -122,7 +135,8 @@ void paramChanged(NAReaction reaction) {
 
 void updateController(const Controller* con) {
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    naSetSliderValue(con->sliders[i], con->params[i]);
+    naSetTextFieldText(con->inputs[i].textField, naAllocSprintf(NA_TRUE, "%f", con->params[i]));
+    naSetSliderValue(con->inputs[i].slider, con->params[i]);
   }
   
   naRefreshUIElement(con->openGLSpace, 0.);
@@ -135,19 +149,25 @@ void postStartup(void* arg) {
   
   NASize spaceSize = naMakeSize(600, 400);
   
+  con->mathFont = naCreateFontWithPreset(NA_FONT_KIND_MATH, NA_FONT_SIZE_BIG);
+  
   con->win = naNewWindow(
     "Plotty",
     naMakeRect(
       naMakePos(100, 100),
-      naMakeSize(spaceSize.width + 200, spaceSize.height)),
+      naMakeSize(spaceSize.width + SIDEBAR_WIDTH, spaceSize.height)),
     NA_WINDOW_RESIZEABLE,
     0);
   naAddUIReaction(con->win, NA_UI_COMMAND_RESHAPE, reshapeWindow, con);
 
   // Add parameters
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    con->sliders[i] = naNewSlider(160);
-    naAddUIReaction(con->sliders[i], NA_UI_COMMAND_EDITED, paramChanged, con);
+    con->inputs[i].label = naNewLabel(naAllocSprintf(NA_TRUE, "%c", 'a' + i), 20.);
+    naSetLabelFont(con->inputs[i].label, con->mathFont);
+    con->inputs[i].textField = naNewTextField(100.);
+    con->inputs[i].slider = naNewSlider(SIDEBAR_WIDTH - 2. * MARGIN);
+    naAddUIReaction(con->inputs[i].textField, NA_UI_COMMAND_EDIT_FINISHED, paramChanged, con);
+    naAddUIReaction(con->inputs[i].slider, NA_UI_COMMAND_EDITED, paramChanged, con);
   }
 
   // Add the drawing region.
@@ -161,12 +181,27 @@ void postStartup(void* arg) {
   double yOffset = 200;
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    naAddSpaceChild(contentSpace, con->sliders[i], naMakePos(20, yOffset - i * 25));
+    naAddSpaceChild(
+      contentSpace,
+      con->inputs[i].label,
+      naMakePos(MARGIN, yOffset - (2 * i + 0) * 25));
+    naAddSpaceChild(
+      contentSpace,
+      con->inputs[i].textField,
+      naMakePos(MARGIN + 20., yOffset - (2 * i + 0) * 25));
+    naAddSpaceChild(
+      contentSpace,
+      con->inputs[i].slider,
+      naMakePos(MARGIN, yOffset - (2 * i + 1) * 25));
   }
-  naAddSpaceChild(contentSpace, con->openGLSpace, naMakePos(200, 0));
+  naAddSpaceChild(
+    contentSpace,
+    con->openGLSpace,
+    naMakePos(SIDEBAR_WIDTH, 0));
 
   // Put the window onscreen.
   naShowWindow(con->win);
+  updateController(con);
 }
 
 
@@ -181,13 +216,20 @@ void initController(Controller* con) {
 
 
 
+void cleanup(void* arg) {
+  Controller* con = arg;
+  naRelease(con->mathFont);
+}
+
+
+
 int main(int argc, const char * argv[]) {
   // Create global controller and initialize it.
   static Controller globalController;
   initController(&globalController);
   
   naStartRuntime();
-  naStartApplication(NA_NULL, postStartup, NA_NULL, &globalController);
+  naStartApplication(NA_NULL, postStartup, cleanup, &globalController);
   naStopRuntime();
   return 0;
 }
