@@ -14,7 +14,3 @@
 #define TEXTFIELD_WIDTH 100.
 #define LABEL_WIDTH (SIDEBAR_WIDTH - 2 * MARGIN - TEXTFIELD_WIDTH - HSPACER)
 
-
-PLOTTY_PROTOTYPE(Controller);
-Controller* getGlobalController();
-void drawGlobalScene(void);

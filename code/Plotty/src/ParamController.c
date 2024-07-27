@@ -1,6 +1,7 @@
 
 #include "ParamController.h"
 
+#include "Application.h"
 #include "Param.h"
 #include "ParamEditorController.h"
 
