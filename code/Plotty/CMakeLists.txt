@@ -36,6 +36,8 @@ endif()
 set(sourceFiles
   src/Application.c
   src/Application.h
+  src/FunctionDefinition.c
+  src/FunctionDefinition.h
   src/main.c
   src/main.h
   src/Param.c
@@ -44,6 +46,8 @@ set(sourceFiles
   src/ParamController.h
   src/ParamEditorController.c
   src/ParamEditorController.h
+  src/PlottyUser.c
+  src/PlottyUser.h
   src/WindowController.c
   src/WindowController.h
 )

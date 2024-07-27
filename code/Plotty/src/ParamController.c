@@ -104,7 +104,7 @@ ParamController* allocParamController(Param* param, size_t index) {
 }
 
 void deallocParamController(ParamController* con) {
-  // do nothing
+  naFree(con);
 }
 
 

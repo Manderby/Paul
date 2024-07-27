@@ -25,7 +25,7 @@ Param* allocParam(void) {
 
 
 void deallocParam(Param* con) {
-  // do nothing
+  naFree(con);
 }
 
 

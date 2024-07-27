@@ -74,7 +74,7 @@ ParamEditorController* allocParamEditorController() {
 }
 
 void deallocParamEditorController(ParamEditorController* con) {
-  // do nothing
+  naFree(con);
 }
 
 void showParamEditorController(ParamEditorController* con, NAWindow* parentWindow) {

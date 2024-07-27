@@ -16,3 +16,11 @@
 #define PREF_BUTTON_WIDTH 30.
 #define LABEL_WIDTH (SIDEBAR_WIDTH - 2 * MARGIN - TEXTFIELD_WIDTH - HSPACER)
 
+
+
+
+//  NOPI
+//  NoPl
+//  Paul
+//  NAP (network access protocol)
+//  NumCraft

@@ -188,4 +188,6 @@ void deallocWindowController(WindowController* con) {
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
     deallocParamController(con->paramControllers[i]);
   }
+  
+  naFree(con);
 }

@@ -1,7 +1,9 @@
 
 #include "Application.h"
 
+#include "FunctionDefinition.h"
 #include "Param.h"
+#include "PlottyUser.h"
 #include "WindowController.h"
 
 #include "NAApp/NAApp.h"
@@ -9,7 +11,7 @@
 
 
 struct Application {
-  Param* params[PARAMS_COUNT];
+  FunctionDefinition* fun;
 
   NAFont* mathFont;
   WindowController* windowController;
@@ -21,10 +23,8 @@ Application* _app = NA_NULL;
 
 Application* allocApplication(void) {
   Application* app = naAlloc(Application);
-  
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    app->params[i] = allocParam();
-  }
+
+  app->fun = allocFunctionDefinition();
 
   app->mathFont = NA_NULL;
   app->windowController = NA_NULL;
@@ -32,18 +32,25 @@ Application* allocApplication(void) {
   return app;
 }
 
+
+
 void startupApplicationGUI(Application* app) {
   app->mathFont = naCreateFontWithPreset(NA_FONT_KIND_MATH, NA_FONT_SIZE_BIG);
   app->windowController = allocWindowController();
 }
 
+
+
 void deallocApplication(Application* app) {
+  deallocFunctionDefinition(app->fun);
   deallocWindowController(app->windowController);
   naRelease(app->mathFont);
 
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    deallocParam(app->params[i]);
-  }
+//  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+//    deallocParam(app->params[i]);
+//  }
+  
+  naFree(app);
 }
 
 
@@ -53,21 +60,27 @@ void startupApplication(void* arg) {
 }
 
 void startupGUI(void* arg) {
+  plottyUserStartup();
   startupApplicationGUI(_app);
 }
 
 void shutdownApplication(void* arg) {
+  plottyUserShutdown();
   deallocApplication(_app);
 }
 
 
+
+FunctionDefinition* getGlobalFunctionDefinition() {
+  return _app->fun;
+}
 
 NAFont* getGlobalMathFont() {
   return _app->mathFont;
 }
 
 Param* getGlobalParam(size_t index) {
-  return _app->params[index];
+  return getFunctionDefinitionParameter(_app->fun, index);
 }
 
 void drawGlobalScene() {
