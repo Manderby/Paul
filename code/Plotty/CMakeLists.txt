@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
-project(Plotty)
+project(Paul)
 
-set(TARGET_NAME Plotty)
+set(TARGET_NAME Paul)
 
 add_executable(${TARGET_NAME})
 
@@ -34,22 +34,21 @@ endif()
 # ######### Sources ################
 
 set(sourceFiles
-  src/Application.c
-  src/Application.h
-  src/Function.c
-  src/Function.h
+  src/PLApplication.c
+  src/PLApplication.h
+  src/PLFunction.c
+  src/PLFunction.h
+  src/PLParam.c
+  src/PLParam.h
+  src/PLParamController.c
+  src/PLParamController.h
+  src/PLParamEditorController.c
+  src/PLParamEditorController.h
   src/main.c
   src/main.h
-  src/Param.c
-  src/Param.h
-  src/ParamController.c
-  src/ParamController.h
-  src/ParamEditorController.c
-  src/ParamEditorController.h
-  src/PlottyUser.c
-  src/PlottyUser.h
-  src/WindowController.c
-  src/WindowController.h
+  src/PLUser.c
+  src/PLWindowController.c
+  src/PLWindowController.h
 )
 
 source_group("src" FILES ${sourceFiles})

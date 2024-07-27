@@ -1,41 +1,41 @@
 
-#include "WindowController.h"
+#include "PLWindowController.h"
 
-#include "Application.h"
-#include "Function.h"
-#include "Param.h"
-#include "ParamController.h"
+#include "PLApplication.h"
+#include "PLFunction.h"
+#include "PLParam.h"
+#include "PLParamController.h"
 
 #include "NAApp/NAApp.h"
 #include "NAVisual/NA3DHelper.h"
 
 
 
-struct WindowController {
+struct PLWindowController {
   double zoom;
 
   NAWindow* win;
   NAOpenGLSpace* openGLSpace;
-  ParamController** paramControllers;
+  PLParamController** paramControllers;
 };
 
 
 
-void drawFunction(const WindowController* con) {
+void pl_DrawFunction(const PLWindowController* con) {
   NARect viewRect = naGetUIElementRect(con->openGLSpace);
 
-  Function* fun = getGlobalFunction();
-  size_t paramCount = getFunctionParamCount(fun);
+  PLFunction* func = plGetGlobalFunction();
+  size_t paramCount = plGetFunctionParamCount(func);
 
   double* params = naMalloc(sizeof(double) * paramCount);
   for(size_t i = 0; i < paramCount; ++i) {
-    params[i] = getParamValue(getFunctionParameter(fun, i));
+    params[i] = plGetParamValue(plGetFunctionParameter(func, i));
   }
   
   glBegin(GL_LINE_STRIP);
     for(size_t i = 0; i < viewRect.size.width; ++i) {
       double t = ((double)i - viewRect.size.width * .5) / con->zoom;
-      glVertex2d(t, evaluateFunction(fun, t, params));
+      glVertex2d(t, plEvaluateFunction(func, t, params));
     }
   glEnd();
   
@@ -44,14 +44,14 @@ void drawFunction(const WindowController* con) {
 
 
 
-void repositionParameters(const WindowController* con) {
-  Function* fun = getGlobalFunction();
-  size_t paramCount = getFunctionParamCount(fun);
+void pl_repositionParameters(const PLWindowController* con) {
+  PLFunction* func = plGetGlobalFunction();
+  size_t paramCount = plGetFunctionParamCount(func);
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
 
   double yOffset = naGetUIElementRect(contentSpace).size.height - MARGIN;
   for(size_t i = 0; i < paramCount; ++i) {
-    NASpace* space = getParamControllerSpace(con->paramControllers[i]);
+    NASpace* space = plGetParamControllerSpace(con->paramControllers[i]);
     NARect spaceRect = naGetUIElementRect(space);
     yOffset -= spaceRect.size.height;
     naAddSpaceChild(
@@ -61,8 +61,10 @@ void repositionParameters(const WindowController* con) {
   }
 }
 
-void reshapeWindow(NAReaction reaction) {
-  const WindowController* con = reaction.controller; 
+
+
+void pl_reshapeWindow(NAReaction reaction) {
+  const PLWindowController* con = reaction.controller; 
 
   NARect rect = naGetUIElementRect(con->win);
   rect.pos.x = SIDEBAR_WIDTH;
@@ -70,7 +72,7 @@ void reshapeWindow(NAReaction reaction) {
   rect.size.width -= SIDEBAR_WIDTH;
   NARect oldRect = naGetUIElementRect(con->openGLSpace);
   if(!naEqualRect(oldRect, rect)) {
-    repositionParameters(con);
+    pl_repositionParameters(con);
     naSetUIElementRect(con->openGLSpace, rect);
     naRefreshUIElement(con->openGLSpace, 0.);
   }
@@ -78,8 +80,8 @@ void reshapeWindow(NAReaction reaction) {
 
 
 
-void drawScene(NAReaction reaction) {
-  const WindowController* con = reaction.controller; 
+void pl_drawScene(NAReaction reaction) {
+  const PLWindowController* con = reaction.controller; 
 
   double uiScale = naGetUIElementResolutionScale(con->win);
   NARect viewRect = naGetUIElementRect(con->openGLSpace);
@@ -117,64 +119,64 @@ void drawScene(NAReaction reaction) {
     glVertex2d(0., +100.);
   glEnd();
   
-  drawFunction(con);
+  pl_DrawFunction(con);
   
   naSwapOpenGLSpaceBuffer(con->openGLSpace);
 }
 
 
 
-void updateWindowControllerScene(const WindowController* con) {
+void plUpdateWindowControllerScene(const PLWindowController* con) {
   naRefreshUIElement(con->openGLSpace, 0.);
 }
 
 
 
-void updateWindowController(const WindowController* con) {
-  Function* fun = getGlobalFunction();
-  size_t paramCount = getFunctionParamCount(fun);
+void plUpdateWindowController(const PLWindowController* con) {
+  PLFunction* func = plGetGlobalFunction();
+  size_t paramCount = plGetFunctionParamCount(func);
 
   for(size_t i = 0; i < paramCount; ++i) {
-    updateParamController(con->paramControllers[i]);
+    plUpdateParamController(con->paramControllers[i]);
   }
   
-  updateWindowControllerScene(con);
+  plUpdateWindowControllerScene(con);
 }
 
 
 
-WindowController* allocWindowController(void) {
-  WindowController* con = naAlloc(WindowController);
+PLWindowController* plAllocWindowController(void) {
+  PLWindowController* con = naAlloc(PLWindowController);
 
   con->zoom = 15.;
 
   NASize spaceSize = naMakeSize(600, 400);
 
   con->win = naNewWindow(
-    "Plotty",
+    "Paul",
     naMakeRect(
       naMakePos(100, 100),
       naMakeSize(spaceSize.width + SIDEBAR_WIDTH, spaceSize.height)),
     NA_WINDOW_RESIZEABLE,
     0);
-  naAddUIReaction(con->win, NA_UI_COMMAND_RESHAPE, reshapeWindow, con);
+  naAddUIReaction(con->win, NA_UI_COMMAND_RESHAPE, pl_reshapeWindow, con);
 
-  Function* fun = getGlobalFunction();
-  size_t paramCount = getFunctionParamCount(fun);
-  con->paramControllers = naMalloc(sizeof(ParamController*) * paramCount);
+  PLFunction* func = plGetGlobalFunction();
+  size_t paramCount = plGetFunctionParamCount(func);
+  con->paramControllers = naMalloc(sizeof(PLParamController*) * paramCount);
 
   // Add parameters
   for(size_t i = 0; i < paramCount; ++i) {
-    con->paramControllers[i] = allocParamController(getFunctionParameter(fun, i), i);
+    con->paramControllers[i] = plAllocParamController(plGetFunctionParameter(func, i), i);
   }
-  repositionParameters(con);
+  pl_repositionParameters(con);
 
   // Add the drawing region.
   con->openGLSpace = naNewOpenGLSpace(
     spaceSize,
     NA_NULL,
     NA_NULL);  
-  naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_REDRAW, drawScene, con);
+  naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_REDRAW, pl_drawScene, con);
   
   // Setup the UI.
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
@@ -186,19 +188,19 @@ WindowController* allocWindowController(void) {
 
   // Put the window onscreen.
   naShowWindow(con->win);
-  updateWindowController(con);
+  plUpdateWindowController(con);
   
   return con;
 }
 
 
 
-void deallocWindowController(WindowController* con) {
-  Function* fun = getGlobalFunction();
-  size_t paramCount = getFunctionParamCount(fun);
+void plDeallocWindowController(PLWindowController* con) {
+  PLFunction* func = plGetGlobalFunction();
+  size_t paramCount = plGetFunctionParamCount(func);
 
   for(size_t i = 0; i < paramCount; ++i) {
-    deallocParamController(con->paramControllers[i]);
+    plDeallocParamController(con->paramControllers[i]);
   }
   naFree(con->paramControllers);
   

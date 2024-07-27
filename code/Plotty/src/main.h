@@ -1,7 +1,7 @@
 
 #include "NABase/NABase.h"
 
-#define PLOTTY_PROTOTYPE(type) typedef struct type type
+#define PL_PROTOTYPE(type) typedef struct type type
 
 // Layout:
 #define UI_ELEMENT_HEIGHT 25.
@@ -15,10 +15,8 @@
 #define LABEL_WIDTH (SIDEBAR_WIDTH - 2 * MARGIN - TEXTFIELD_WIDTH - HSPACER)
 
 
-
-
-//  NOPI
-//  NoPl
-//  Paul
-//  NAP (network access protocol)
-//  NumCraft
+// PlotE
+// NoPl
+// Paul
+// NAP (network access protocol)
+// NumCraft
