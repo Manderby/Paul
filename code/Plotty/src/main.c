@@ -1,15 +1,18 @@
 #include <stdio.h>
 
+#include "main.h"
+
 #include "NAApp/NAApp.h"
 #include "NAVisual/NA3DHelper.h"
 #include "NAMath/NAVectorAlgebra.h"
+
+#include "Param.h"
+#include "ParamEditorController.h"
 
 
 
 #define PARAMS_COUNT 4
 
-#define MARGIN 20.
-#define SIDEBAR_WIDTH 256.
 
 
 typedef struct Controller Controller;
@@ -23,9 +26,10 @@ struct Controller {
     NALabel* label;
     NATextField* textField;
     NASlider* slider;
+    NAButton* button;
   } inputs[PARAMS_COUNT];
   
-  double params[PARAMS_COUNT];
+  Param* params[PARAMS_COUNT];
   double zoom;
 };
 
@@ -33,10 +37,10 @@ void updateController(const Controller* con);
 
 
 
-double evaluate(double t, const double* params) {
+double evaluate(double t, const double* p) {
   //return 10. * params[0] * sin(t) / t;
   //return params[0] * 10. * sin(t);
-  return params[0] * t*t*t + params[1] * t*t + params[2] * t + params[3];
+  return p[0] * t*t*t + p[1] * t*t + p[2] * t + p[3];
 }
 
 
@@ -44,12 +48,19 @@ double evaluate(double t, const double* params) {
 void drawFunction(const Controller* con) {
   NARect viewRect = naGetUIElementRect(con->openGLSpace);
 
+  double* params = naMalloc(sizeof(double) * PARAMS_COUNT);
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    params[i] = getParamValue(con->params[i]);
+  }
+  
   glBegin(GL_LINE_STRIP);
     for(size_t i = 0; i < viewRect.size.width; ++i) {
       double t = ((double)i - viewRect.size.width * .5) / con->zoom;
-      glVertex2d(t, evaluate(t, con->params));
+      glVertex2d(t, evaluate(t, params));
     }
   glEnd();
+  
+  naFree(params);
 }
 
 
@@ -120,10 +131,10 @@ void paramChanged(NAReaction reaction) {
   
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
     if(reaction.uiElement == con->inputs[i].slider) {
-      con->params[i] = naGetSliderValue(con->inputs[i].slider);
+      setParamValue(con->params[i], naGetSliderValue(con->inputs[i].slider));
       break;
     }else if(reaction.uiElement == con->inputs[i].textField) {
-      con->params[i] = naGetTextFieldDouble(con->inputs[i].textField);
+      setParamValue(con->params[i], naGetTextFieldDouble(con->inputs[i].textField));
       break;
     }
   }
@@ -133,10 +144,34 @@ void paramChanged(NAReaction reaction) {
 
 
 
+void paramButtonPressed(NAReaction reaction) {
+  Controller* con = reaction.controller; 
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    if(reaction.uiElement == con->inputs[i].button) {
+    
+      ParamEditorController* paramCon = allocParamEditorController();
+      setParamEditorControllerModel(paramCon, con->params[i]);
+      showParamEditorController(paramCon);
+      
+      // We wait till the modal window closes.
+      
+      deallocParamEditorController(paramCon);
+      updateController(con);
+    }
+  }
+}
+
+
+
 void updateController(const Controller* con) {
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    naSetTextFieldText(con->inputs[i].textField, naAllocSprintf(NA_TRUE, "%f", con->params[i]));
-    naSetSliderValue(con->inputs[i].slider, con->params[i]);
+    naSetTextFieldText(con->inputs[i].textField, naAllocSprintf(NA_TRUE, "%f", getParamValue(con->params[i])));
+    naSetSliderRange(
+      con->inputs[i].slider,
+      getParamMin(con->params[i]),
+      getParamMax(con->params[i]),
+      0);
+    naSetSliderValue(con->inputs[i].slider, getParamValue(con->params[i]));
   }
   
   naRefreshUIElement(con->openGLSpace, 0.);
@@ -164,10 +199,19 @@ void postStartup(void* arg) {
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
     con->inputs[i].label = naNewLabel(naAllocSprintf(NA_TRUE, "%c", 'a' + i), 20.);
     naSetLabelFont(con->inputs[i].label, con->mathFont);
-    con->inputs[i].textField = naNewTextField(100.);
+    con->inputs[i].textField = naNewTextField(TEXTFIELD_WIDTH);
+    
     con->inputs[i].slider = naNewSlider(SIDEBAR_WIDTH - 2. * MARGIN);
+    naSetSliderRange(
+      con->inputs[i].slider,
+      getParamMin(con->params[i]),
+      getParamMax(con->params[i]),
+      0);
+    
+    con->inputs[i].button = naNewTextPushButton("...", 30);
     naAddUIReaction(con->inputs[i].textField, NA_UI_COMMAND_EDIT_FINISHED, paramChanged, con);
     naAddUIReaction(con->inputs[i].slider, NA_UI_COMMAND_EDITED, paramChanged, con);
+    naAddUIReaction(con->inputs[i].button, NA_UI_COMMAND_PRESSED, paramButtonPressed, con);
   }
 
   // Add the drawing region.
@@ -191,6 +235,10 @@ void postStartup(void* arg) {
       naMakePos(MARGIN + 20., yOffset - (2 * i + 0) * 25));
     naAddSpaceChild(
       contentSpace,
+      con->inputs[i].button,
+      naMakePos(SIDEBAR_WIDTH - MARGIN - 30., yOffset - (2 * i + 0) * 25));
+    naAddSpaceChild(
+      contentSpace,
       con->inputs[i].slider,
       naMakePos(MARGIN, yOffset - (2 * i + 1) * 25));
   }
@@ -210,7 +258,7 @@ void initController(Controller* con) {
   con->openGLSpace = NA_NULL;
   con->zoom = 15.;
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    con->params[i] = 0.;
+    con->params[i] = allocParam();
   }
 }
 
@@ -218,6 +266,11 @@ void initController(Controller* con) {
 
 void cleanup(void* arg) {
   Controller* con = arg;
+
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    deallocParam(con->params[i]);
+  }
+
   naRelease(con->mathFont);
 }
 
