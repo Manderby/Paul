@@ -4,6 +4,5 @@
 
 
 
-
 void plottyUserStartup(void);
 void plottyUserShutdown(void);

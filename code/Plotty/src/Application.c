@@ -1,7 +1,7 @@
 
 #include "Application.h"
 
-#include "FunctionDefinition.h"
+#include "Function.h"
 #include "Param.h"
 #include "PlottyUser.h"
 #include "WindowController.h"
@@ -11,7 +11,7 @@
 
 
 struct Application {
-  FunctionDefinition* fun;
+  Function* fun;
 
   NAFont* mathFont;
   WindowController* windowController;
@@ -24,7 +24,7 @@ Application* _app = NA_NULL;
 Application* allocApplication(void) {
   Application* app = naAlloc(Application);
 
-  app->fun = allocFunctionDefinition();
+  app->fun = allocFunction();
 
   app->mathFont = NA_NULL;
   app->windowController = NA_NULL;
@@ -42,13 +42,9 @@ void startupApplicationGUI(Application* app) {
 
 
 void deallocApplication(Application* app) {
-  deallocFunctionDefinition(app->fun);
+  deallocFunction(app->fun);
   deallocWindowController(app->windowController);
   naRelease(app->mathFont);
-
-//  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-//    deallocParam(app->params[i]);
-//  }
   
   naFree(app);
 }
@@ -71,16 +67,12 @@ void shutdownApplication(void* arg) {
 
 
 
-FunctionDefinition* getGlobalFunctionDefinition() {
+Function* getGlobalFunction() {
   return _app->fun;
 }
 
 NAFont* getGlobalMathFont() {
   return _app->mathFont;
-}
-
-Param* getGlobalParam(size_t index) {
-  return getFunctionDefinitionParameter(_app->fun, index);
 }
 
 void drawGlobalScene() {

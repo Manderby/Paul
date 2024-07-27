@@ -3,8 +3,6 @@
 
 #define PLOTTY_PROTOTYPE(type) typedef struct type type
 
-#define PARAMS_COUNT 4
-
 // Layout:
 #define UI_ELEMENT_HEIGHT 25.
 #define MARGIN 20.

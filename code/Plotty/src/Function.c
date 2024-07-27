@@ -1,28 +1,30 @@
 
 #include "NAUtility/NAMemory.h"
 #include "NAStruct/NAStack.h"
-#include "FunctionDefinition.h"
+#include "Function.h"
 #include "Param.h"
 
 
 
-struct FunctionDefinition {
+struct Function {
   size_t paramCount;
   Param** params;
+  EvaluateFunction eval;
 };
 
 
 
-FunctionDefinition* allocFunctionDefinition(void) {
-  FunctionDefinition* fun = naAlloc(FunctionDefinition);
+Function* allocFunction(void) {
+  Function* fun = naAlloc(Function);
 
   fun->paramCount = 0;
   fun->params = NA_NULL;
+  fun->eval = NA_NULL;
 
   return fun;
 }
 
-void deallocFunctionDefinition(FunctionDefinition* fun) {
+void deallocFunction(Function* fun) {
   for(size_t i = 0; i < fun->paramCount; ++i) {
     deallocParam(fun->params[i]);
   }
@@ -33,7 +35,16 @@ void deallocFunctionDefinition(FunctionDefinition* fun) {
 
 
 
-size_t addFunctionDefinitionParameter(FunctionDefinition* fun, double min, double max, double value) {
+void setFunctionEvaluateFunction(
+  Function* fun,
+  EvaluateFunction eval)
+{
+  fun->eval = eval;
+}
+
+
+
+size_t addFunctionParameter(Function* fun, double min, double max, double value) {
   fun->paramCount++;
   
   Param** newParams = naMalloc(sizeof(Param*) * fun->paramCount);
@@ -55,6 +66,20 @@ size_t addFunctionDefinitionParameter(FunctionDefinition* fun, double min, doubl
 
 
 
-Param* getFunctionDefinitionParameter(FunctionDefinition* fun, size_t index) {
+double evaluateFunction(
+  const Function* fun,
+  double t,
+  double* params)
+{
+  return fun->eval(t, params);
+}
+
+
+
+size_t getFunctionParamCount(Function* fun) {
+  return fun->paramCount;
+}
+
+Param* getFunctionParameter(Function* fun, size_t index) {
   return fun->params[index];
 }

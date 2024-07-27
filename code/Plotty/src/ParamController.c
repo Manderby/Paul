@@ -24,14 +24,10 @@ void udpateParamController(ParamController* con);
 void paramChanged(NAReaction reaction) {
   ParamController* con = reaction.controller; 
   
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    if(reaction.uiElement == con->slider) {
-      setParamValue(con->param, naGetSliderValue(con->slider));
-      break;
-    }else if(reaction.uiElement == con->textField) {
-      setParamValue(con->param, naGetTextFieldDouble(con->textField));
-      break;
-    }
+  if(reaction.uiElement == con->slider) {
+    setParamValue(con->param, naGetSliderValue(con->slider));
+  }else if(reaction.uiElement == con->textField) {
+    setParamValue(con->param, naGetTextFieldDouble(con->textField));
   }
   
   updateParamController(con);

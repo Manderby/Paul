@@ -36,8 +36,8 @@ endif()
 set(sourceFiles
   src/Application.c
   src/Application.h
-  src/FunctionDefinition.c
-  src/FunctionDefinition.h
+  src/Function.c
+  src/Function.h
   src/main.c
   src/main.h
   src/Param.c

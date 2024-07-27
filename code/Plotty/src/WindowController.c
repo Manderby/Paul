@@ -2,6 +2,7 @@
 #include "WindowController.h"
 
 #include "Application.h"
+#include "Function.h"
 #include "Param.h"
 #include "ParamController.h"
 
@@ -15,31 +16,26 @@ struct WindowController {
 
   NAWindow* win;
   NAOpenGLSpace* openGLSpace;
-  ParamController* paramControllers[PARAMS_COUNT];
+  ParamController** paramControllers;
 };
-
-
-
-double evaluate(double t, const double* p) {
-  //return 10. * params[0] * sin(t) / t;
-  //return params[0] * 10. * sin(t);
-  return p[0] * t*t*t + p[1] * t*t + p[2] * t + p[3];
-}
 
 
 
 void drawFunction(const WindowController* con) {
   NARect viewRect = naGetUIElementRect(con->openGLSpace);
 
-  double* params = naMalloc(sizeof(double) * PARAMS_COUNT);
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    params[i] = getParamValue(getGlobalParam(i));
+  Function* fun = getGlobalFunction();
+  size_t paramCount = getFunctionParamCount(fun);
+
+  double* params = naMalloc(sizeof(double) * paramCount);
+  for(size_t i = 0; i < paramCount; ++i) {
+    params[i] = getParamValue(getFunctionParameter(fun, i));
   }
   
   glBegin(GL_LINE_STRIP);
     for(size_t i = 0; i < viewRect.size.width; ++i) {
       double t = ((double)i - viewRect.size.width * .5) / con->zoom;
-      glVertex2d(t, evaluate(t, params));
+      glVertex2d(t, evaluateFunction(fun, t, params));
     }
   glEnd();
   
@@ -49,9 +45,12 @@ void drawFunction(const WindowController* con) {
 
 
 void repositionParameters(const WindowController* con) {
+  Function* fun = getGlobalFunction();
+  size_t paramCount = getFunctionParamCount(fun);
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
+
   double yOffset = naGetUIElementRect(contentSpace).size.height - MARGIN;
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+  for(size_t i = 0; i < paramCount; ++i) {
     NASpace* space = getParamControllerSpace(con->paramControllers[i]);
     NARect spaceRect = naGetUIElementRect(space);
     yOffset -= spaceRect.size.height;
@@ -129,10 +128,16 @@ void updateWindowControllerScene(const WindowController* con) {
   naRefreshUIElement(con->openGLSpace, 0.);
 }
 
+
+
 void updateWindowController(const WindowController* con) {
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+  Function* fun = getGlobalFunction();
+  size_t paramCount = getFunctionParamCount(fun);
+
+  for(size_t i = 0; i < paramCount; ++i) {
     updateParamController(con->paramControllers[i]);
   }
+  
   updateWindowControllerScene(con);
 }
 
@@ -154,9 +159,13 @@ WindowController* allocWindowController(void) {
     0);
   naAddUIReaction(con->win, NA_UI_COMMAND_RESHAPE, reshapeWindow, con);
 
+  Function* fun = getGlobalFunction();
+  size_t paramCount = getFunctionParamCount(fun);
+  con->paramControllers = naMalloc(sizeof(ParamController*) * paramCount);
+
   // Add parameters
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    con->paramControllers[i] = allocParamController(getGlobalParam(i), i);
+  for(size_t i = 0; i < paramCount; ++i) {
+    con->paramControllers[i] = allocParamController(getFunctionParameter(fun, i), i);
   }
   repositionParameters(con);
 
@@ -185,9 +194,13 @@ WindowController* allocWindowController(void) {
 
 
 void deallocWindowController(WindowController* con) {
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+  Function* fun = getGlobalFunction();
+  size_t paramCount = getFunctionParamCount(fun);
+
+  for(size_t i = 0; i < paramCount; ++i) {
     deallocParamController(con->paramControllers[i]);
   }
+  naFree(con->paramControllers);
   
   naFree(con);
 }
