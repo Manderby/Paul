@@ -58,7 +58,6 @@ ParamEditorController* allocParamEditorController() {
   naAddUIReaction(con->minTextField, NA_UI_COMMAND_EDIT_FINISHED, editProperty, con);
     
   con->button = naNewTextPushButton("Close", 100);
-  naSetButtonSubmit(con->button, pressClose, con);
   naAddUIReaction(con->button, NA_UI_COMMAND_PRESSED, pressClose, con);
   
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
@@ -68,6 +67,8 @@ ParamEditorController* allocParamEditorController() {
   naAddSpaceChild(contentSpace, con->maxTextField, naMakePos(MARGIN + TEXTFIELD_WIDTH + HSPACER, 75));
   naAddSpaceChild(contentSpace, con->button, naMakePos(SIDEBAR_WIDTH * .5 - 50, MARGIN));
   
+    naSetButtonSubmit(con->button, pressClose, con);
+
   return con;
 }
 

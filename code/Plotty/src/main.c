@@ -7,11 +7,7 @@
 #include "NAMath/NAVectorAlgebra.h"
 
 #include "Param.h"
-#include "ParamEditorController.h"
-
-
-
-#define PARAMS_COUNT 4
+#include "ParamController.h"
 
 
 
@@ -22,18 +18,14 @@ struct Controller {
   NAWindow* win;
   NAOpenGLSpace* openGLSpace;
   
-  struct {
-    NALabel* label;
-    NATextField* textField;
-    NASlider* slider;
-    NAButton* button;
-  } inputs[PARAMS_COUNT];
+  ParamController* paramControllers[PARAMS_COUNT];
   
   Param* params[PARAMS_COUNT];
   double zoom;
 };
 
 void updateController(const Controller* con);
+void updateScene(const Controller* con);
 
 
 
@@ -126,54 +118,14 @@ void reshapeWindow(NAReaction reaction) {
 
 
 
-void paramChanged(NAReaction reaction) {
-  Controller* con = reaction.controller; 
-  
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    if(reaction.uiElement == con->inputs[i].slider) {
-      setParamValue(con->params[i], naGetSliderValue(con->inputs[i].slider));
-      break;
-    }else if(reaction.uiElement == con->inputs[i].textField) {
-      setParamValue(con->params[i], naGetTextFieldDouble(con->inputs[i].textField));
-      break;
-    }
-  }
-  
-  updateController(con);
-}
-
-
-
-void paramButtonPressed(NAReaction reaction) {
-  Controller* con = reaction.controller; 
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    if(reaction.uiElement == con->inputs[i].button) {
-    
-      ParamEditorController* paramCon = allocParamEditorController();
-      setParamEditorControllerModel(paramCon, con->params[i]);
-      showParamEditorController(paramCon);
-      
-      // We wait till the modal window closes.
-      
-      deallocParamEditorController(paramCon);
-      updateController(con);
-    }
-  }
-}
-
-
-
 void updateController(const Controller* con) {
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    naSetTextFieldText(con->inputs[i].textField, naAllocSprintf(NA_TRUE, "%f", getParamValue(con->params[i])));
-    naSetSliderRange(
-      con->inputs[i].slider,
-      getParamMin(con->params[i]),
-      getParamMax(con->params[i]),
-      0);
-    naSetSliderValue(con->inputs[i].slider, getParamValue(con->params[i]));
+    updateParamController(con->paramControllers[i]);
   }
-  
+  updateScene(con);
+}
+
+void updateScene(const Controller* con) {
   naRefreshUIElement(con->openGLSpace, 0.);
 }
 
@@ -197,21 +149,7 @@ void postStartup(void* arg) {
 
   // Add parameters
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    con->inputs[i].label = naNewLabel(naAllocSprintf(NA_TRUE, "%c", 'a' + i), 20.);
-    naSetLabelFont(con->inputs[i].label, con->mathFont);
-    con->inputs[i].textField = naNewTextField(TEXTFIELD_WIDTH);
-    
-    con->inputs[i].slider = naNewSlider(SIDEBAR_WIDTH - 2. * MARGIN);
-    naSetSliderRange(
-      con->inputs[i].slider,
-      getParamMin(con->params[i]),
-      getParamMax(con->params[i]),
-      0);
-    
-    con->inputs[i].button = naNewTextPushButton("...", 30);
-    naAddUIReaction(con->inputs[i].textField, NA_UI_COMMAND_EDIT_FINISHED, paramChanged, con);
-    naAddUIReaction(con->inputs[i].slider, NA_UI_COMMAND_EDITED, paramChanged, con);
-    naAddUIReaction(con->inputs[i].button, NA_UI_COMMAND_PRESSED, paramButtonPressed, con);
+    con->paramControllers[i] = allocParamController(con->params[i], i);
   }
 
   // Add the drawing region.
@@ -222,25 +160,15 @@ void postStartup(void* arg) {
   naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_REDRAW, drawScene, con);
   
   // Setup the UI.
-  double yOffset = 200;
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
+  double yOffset = 200.;
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    NASpace* space = getParamControllerSpace(con->paramControllers[i]);
+    NARect spaceRect = naGetUIElementRect(space);
     naAddSpaceChild(
       contentSpace,
-      con->inputs[i].label,
-      naMakePos(MARGIN, yOffset - (2 * i + 0) * 25));
-    naAddSpaceChild(
-      contentSpace,
-      con->inputs[i].textField,
-      naMakePos(MARGIN + 20., yOffset - (2 * i + 0) * 25));
-    naAddSpaceChild(
-      contentSpace,
-      con->inputs[i].button,
-      naMakePos(SIDEBAR_WIDTH - MARGIN - 30., yOffset - (2 * i + 0) * 25));
-    naAddSpaceChild(
-      contentSpace,
-      con->inputs[i].slider,
-      naMakePos(MARGIN, yOffset - (2 * i + 1) * 25));
+      space,
+      naMakePos(0, (PARAMS_COUNT - 1) * spaceRect.size.height - i * spaceRect.size.height));
   }
   naAddSpaceChild(
     contentSpace,
@@ -276,13 +204,25 @@ void cleanup(void* arg) {
 
 
 
+Controller globalController;
+
 int main(int argc, const char * argv[]) {
   // Create global controller and initialize it.
-  static Controller globalController;
+  //static Controller globalController;
   initController(&globalController);
   
   naStartRuntime();
   naStartApplication(NA_NULL, postStartup, cleanup, &globalController);
   naStopRuntime();
   return 0;
+}
+
+
+
+Controller* getGlobalController() {
+  return &globalController;
+}
+
+void drawGlobalScene(void) {
+  updateScene(&globalController);
 }
