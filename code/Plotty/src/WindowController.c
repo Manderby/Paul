@@ -48,6 +48,20 @@ void drawFunction(const WindowController* con) {
 
 
 
+void repositionParameters(const WindowController* con) {
+  NASpace* contentSpace = naGetWindowContentSpace(con->win);
+  double yOffset = naGetUIElementRect(contentSpace).size.height - MARGIN;
+  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
+    NASpace* space = getParamControllerSpace(con->paramControllers[i]);
+    NARect spaceRect = naGetUIElementRect(space);
+    yOffset -= spaceRect.size.height;
+    naAddSpaceChild(
+      contentSpace,
+      space,
+      naMakePos(0, yOffset));
+  }
+}
+
 void reshapeWindow(NAReaction reaction) {
   const WindowController* con = reaction.controller; 
 
@@ -57,6 +71,7 @@ void reshapeWindow(NAReaction reaction) {
   rect.size.width -= SIDEBAR_WIDTH;
   NARect oldRect = naGetUIElementRect(con->openGLSpace);
   if(!naEqualRect(oldRect, rect)) {
+    repositionParameters(con);
     naSetUIElementRect(con->openGLSpace, rect);
     naRefreshUIElement(con->openGLSpace, 0.);
   }
@@ -143,6 +158,7 @@ WindowController* allocWindowController(void) {
   for(size_t i = 0; i < PARAMS_COUNT; ++i) {
     con->paramControllers[i] = allocParamController(getGlobalParam(i), i);
   }
+  repositionParameters(con);
 
   // Add the drawing region.
   con->openGLSpace = naNewOpenGLSpace(
@@ -153,15 +169,7 @@ WindowController* allocWindowController(void) {
   
   // Setup the UI.
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
-  double yOffset = 200.;
-  for(size_t i = 0; i < PARAMS_COUNT; ++i) {
-    NASpace* space = getParamControllerSpace(con->paramControllers[i]);
-    NARect spaceRect = naGetUIElementRect(space);
-    naAddSpaceChild(
-      contentSpace,
-      space,
-      naMakePos(0, (PARAMS_COUNT - 1) * spaceRect.size.height - i * spaceRect.size.height));
-  }
+  
   naAddSpaceChild(
     contentSpace,
     con->openGLSpace,

@@ -34,7 +34,7 @@ void editProperty(NAReaction reaction) {
 }
 
 
-void pressClose(NAReaction reaction) {
+void closeEditor(NAReaction reaction) {
   ParamEditorController* con = reaction.controller;
   
   naCloseWindowModal(con->win);
@@ -48,7 +48,8 @@ ParamEditorController* allocParamEditorController() {
   con->param = NA_NULL;
   
   con->win = naNewWindow("Edit Parameter", naMakeRectS(200, 200, SIDEBAR_WIDTH, 200), 0, 0);
-  
+  naAddUIReaction(con->win, NA_UI_COMMAND_CLOSES, closeEditor, con);
+
   con->minLabel = naNewLabel("Min:", LABEL_WIDTH);
   con->maxLabel = naNewLabel("Max:", LABEL_WIDTH);
 
@@ -58,7 +59,7 @@ ParamEditorController* allocParamEditorController() {
   naAddUIReaction(con->minTextField, NA_UI_COMMAND_EDIT_FINISHED, editProperty, con);
     
   con->button = naNewTextPushButton("Close", 100);
-  naAddUIReaction(con->button, NA_UI_COMMAND_PRESSED, pressClose, con);
+  naAddUIReaction(con->button, NA_UI_COMMAND_PRESSED, closeEditor, con);
   
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
   naAddSpaceChild(contentSpace, con->minLabel, naMakePos(MARGIN, 100));
@@ -67,7 +68,7 @@ ParamEditorController* allocParamEditorController() {
   naAddSpaceChild(contentSpace, con->maxTextField, naMakePos(MARGIN + LABEL_WIDTH + HSPACER, 75));
   naAddSpaceChild(contentSpace, con->button, naMakePos(SIDEBAR_WIDTH * .5 - 50, MARGIN));
   
-    naSetButtonSubmit(con->button, pressClose, con);
+  naSetButtonSubmit(con->button, closeEditor, con);
 
   return con;
 }

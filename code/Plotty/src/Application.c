@@ -62,6 +62,10 @@ void shutdownApplication(void* arg) {
 
 
 
+NAFont* getGlobalMathFont() {
+  return _app->mathFont;
+}
+
 Param* getGlobalParam(size_t index) {
   return _app->params[index];
 }
