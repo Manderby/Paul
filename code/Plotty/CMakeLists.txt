@@ -34,7 +34,18 @@ endif()
 # ######### Sources ################
 
 set(sourceFiles
+  src/Application.c
+  src/Application.h
   src/main.c
+  src/main.h
+  src/Param.c
+  src/Param.h
+  src/ParamController.c
+  src/ParamController.h
+  src/ParamEditorController.c
+  src/ParamEditorController.h
+  src/WindowController.c
+  src/WindowController.h
 )
 
 source_group("src" FILES ${sourceFiles})

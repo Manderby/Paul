@@ -46,7 +46,7 @@ void paramButtonPressed(NAReaction reaction) {
   
     ParamEditorController* paramCon = allocParamEditorController();
     setParamEditorControllerModel(paramCon, con->param);
-    showParamEditorController(paramCon);
+    showParamEditorController(paramCon, naGetUIElementWindow(con->space));
     
     // We wait till the modal window closes.
     

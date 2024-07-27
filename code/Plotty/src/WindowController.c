@@ -67,12 +67,13 @@ void reshapeWindow(NAReaction reaction) {
 void drawScene(NAReaction reaction) {
   const WindowController* con = reaction.controller; 
 
+  double uiScale = naGetUIElementResolutionScale(con->win);
   NARect viewRect = naGetUIElementRect(con->openGLSpace);
   glViewport(
     (GLint)0,
     (GLint)0,
-    (GLsizei)viewRect.size.width,
-    (GLsizei)viewRect.size.height);
+    (GLsizei)(viewRect.size.width * uiScale),
+    (GLsizei)(viewRect.size.height * uiScale));
 
   // Setup projection and modelview
   glMatrixMode(GL_PROJECTION);

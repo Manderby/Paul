@@ -62,9 +62,9 @@ ParamEditorController* allocParamEditorController() {
   
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
   naAddSpaceChild(contentSpace, con->minLabel, naMakePos(MARGIN, 100));
-  naAddSpaceChild(contentSpace, con->minTextField, naMakePos(MARGIN + TEXTFIELD_WIDTH + HSPACER, 100));
+  naAddSpaceChild(contentSpace, con->minTextField, naMakePos(MARGIN + LABEL_WIDTH + HSPACER, 100));
   naAddSpaceChild(contentSpace, con->maxLabel, naMakePos(MARGIN, 75));
-  naAddSpaceChild(contentSpace, con->maxTextField, naMakePos(MARGIN + TEXTFIELD_WIDTH + HSPACER, 75));
+  naAddSpaceChild(contentSpace, con->maxTextField, naMakePos(MARGIN + LABEL_WIDTH + HSPACER, 75));
   naAddSpaceChild(contentSpace, con->button, naMakePos(SIDEBAR_WIDTH * .5 - 50, MARGIN));
   
     naSetButtonSubmit(con->button, pressClose, con);
@@ -76,9 +76,9 @@ void deallocParamEditorController(ParamEditorController* con) {
   // do nothing
 }
 
-void showParamEditorController(ParamEditorController* con) {
+void showParamEditorController(ParamEditorController* con, NAWindow* parentWindow) {
   udpateParamEditorController(con);
-  naShowWindowModal(con->win);
+  naShowWindowModal(con->win, parentWindow);
 }
 
 
