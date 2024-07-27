@@ -17,7 +17,6 @@ double evaluate(double t, const double* p) {
 // Define Functions, Parameters, Settings you'd like to see in the application.
 // This function will be called automatically upon application startup.
 void plUserStartup(void) {
-  
   PLFunction* func = plGetGlobalFunction();
   
   plSetFunctionEvaluator(func, evaluate);

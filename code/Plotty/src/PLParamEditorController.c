@@ -66,7 +66,7 @@ PLParamEditorController* plAllocParamEditorController() {
   naAddUIReaction(con->minTextField, NA_UI_COMMAND_EDIT_FINISHED, pl_EditProperty, con);
   naAddUIReaction(con->minTextField, NA_UI_COMMAND_EDIT_FINISHED, pl_EditProperty, con);
     
-  con->button = naNewTextPushButton("Close", 100);
+  con->button = naNewTextPushButton("Close", BUTTON_WIDTH);
   naAddUIReaction(con->button, NA_UI_COMMAND_PRESSED, pl_closeEditor, con);
   
   NASpace* contentSpace = naGetWindowContentSpace(con->win);

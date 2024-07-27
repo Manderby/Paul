@@ -17,6 +17,7 @@ struct PLWindowController {
   NAWindow* win;
   NAOpenGLSpace* openGLSpace;
   PLParamController** paramControllers;
+  NAButton* quitButton;
 };
 
 
@@ -44,7 +45,7 @@ void pl_DrawFunction(const PLWindowController* con) {
 
 
 
-void pl_repositionParameters(const PLWindowController* con) {
+void pl_repositionParameters(const PLWindowController* con, NABool addControllers) {
   PLFunction* func = plGetGlobalFunction();
   size_t paramCount = plGetFunctionParamCount(func);
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
@@ -54,10 +55,17 @@ void pl_repositionParameters(const PLWindowController* con) {
     NASpace* space = plGetParamControllerSpace(con->paramControllers[i]);
     NARect spaceRect = naGetUIElementRect(space);
     yOffset -= spaceRect.size.height;
-    naAddSpaceChild(
-      contentSpace,
+    if(addControllers) {
+      naAddSpaceChild(
+        contentSpace,
+        space,
+        naMakePos(0, yOffset));
+    } else {
+      spaceRect.pos = naMakePos(0, yOffset);
+      naSetUIElementRect(
       space,
-      naMakePos(0, yOffset));
+      spaceRect);
+    }
   }
 }
 
@@ -72,7 +80,7 @@ void pl_reshapeWindow(NAReaction reaction) {
   rect.size.width -= SIDEBAR_WIDTH;
   NARect oldRect = naGetUIElementRect(con->openGLSpace);
   if(!naEqualRect(oldRect, rect)) {
-    pl_repositionParameters(con);
+    pl_repositionParameters(con, /*addControllers*/ NA_FALSE);
     naSetUIElementRect(con->openGLSpace, rect);
     naRefreshUIElement(con->openGLSpace, 0.);
   }
@@ -126,6 +134,13 @@ void pl_drawScene(NAReaction reaction) {
 
 
 
+void pl_exitApplication(NAReaction reaction) {
+  NA_UNUSED(reaction);
+  naStopApplication();
+}
+
+
+
 void plUpdateWindowControllerScene(const PLWindowController* con) {
   naRefreshUIElement(con->openGLSpace, 0.);
 }
@@ -169,7 +184,7 @@ PLWindowController* plAllocWindowController(void) {
   for(size_t i = 0; i < paramCount; ++i) {
     con->paramControllers[i] = plAllocParamController(plGetFunctionParameter(func, i), i);
   }
-  pl_repositionParameters(con);
+  pl_repositionParameters(con, /*addControllers*/ NA_TRUE);
 
   // Add the drawing region.
   con->openGLSpace = naNewOpenGLSpace(
@@ -178,6 +193,9 @@ PLWindowController* plAllocWindowController(void) {
     NA_NULL);  
   naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_REDRAW, pl_drawScene, con);
   
+  con->quitButton = naNewTextPushButton("Quit", BUTTON_WIDTH);
+  naAddUIReaction(con->quitButton, NA_UI_COMMAND_PRESSED, pl_exitApplication, con);
+  
   // Setup the UI.
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
   
@@ -185,6 +203,11 @@ PLWindowController* plAllocWindowController(void) {
     contentSpace,
     con->openGLSpace,
     naMakePos(SIDEBAR_WIDTH, 0));
+
+  naAddSpaceChild(
+    contentSpace,
+    con->quitButton,
+    naMakePos((SIDEBAR_WIDTH - BUTTON_WIDTH) * .5, MARGIN));
 
   // Put the window onscreen.
   naShowWindow(con->win);
