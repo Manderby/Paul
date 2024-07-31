@@ -86,7 +86,7 @@ size_t plAddFunctionParameter(PLFunction* func, double min, double max, double v
 
   func->params[func->paramCount - 1] = param;
 
-  return index;
+  return func->paramCount - 1;
 }
 
 
