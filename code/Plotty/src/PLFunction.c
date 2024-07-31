@@ -3,12 +3,14 @@
 
 #include "PLParam.h"
 
+#include "NAUtility/NAString.h"
 #include "NAUtility/NAMemory.h"
 #include "NAStruct/NAStack.h"
 
 
 
 struct PLFunction {
+  NAUTF8Char* name;
   size_t paramCount;
   PLParam** params;
   PLEvaluator eval;
@@ -19,6 +21,7 @@ struct PLFunction {
 PLFunction* plAllocFunction(void) {
   PLFunction* func = naAlloc(PLFunction);
 
+  func->name = NA_NULL;
   func->paramCount = 0;
   func->params = NA_NULL;
   func->eval = NA_NULL;
@@ -43,6 +46,26 @@ void plSetFunctionEvaluator(
 {
   func->eval = eval;
 }
+
+
+
+void plSetFunctionName(PLFunction* func, const NAUTF8Char* name) {
+  if(func->name) {
+    naFree(func->name);
+    func->name = NA_NULL;
+  }
+  if(name) {
+    func->name = naAllocSprintf(NA_FALSE, "%s", name);
+  }
+}
+
+
+
+
+const NAUTF8Char* plGetFunctionName(const PLFunction* func) {
+  return func->name;
+}
+
 
 
 

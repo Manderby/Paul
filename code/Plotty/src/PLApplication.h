@@ -11,8 +11,12 @@ void plStartupApplication(void* arg);
 void plStartupGUI(void* arg);
 void plShutdownApplication(void* arg);
 
+void plRegisterFunction(PLFunction* func);
+
+size_t plGetFunctionCount();
+PLFunction* plGetFunction(size_t index);
+
 // Function called by main
-PLFunction* plGetGlobalFunction(void);
 NAFont* plGetGlobalMathFont(void);
 void plDrawGlobalScene(void);
 

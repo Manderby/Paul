@@ -18,6 +18,13 @@ void plSetFunctionEvaluator(
   PLFunction* func,
   PLEvaluator eval);
 
+// Gets and sets the function name. Setting the name copies the string.
+const NAUTF8Char* plGetFunctionName(
+  const PLFunction* func);
+void plSetFunctionName(
+  PLFunction* func,
+  const NAUTF8Char* name);
+  
 // Add a parameter
 size_t plAddFunctionParameter(
   PLFunction* func,
