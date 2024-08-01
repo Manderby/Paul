@@ -228,6 +228,8 @@ PLWindowController* plAllocWindowController(void) {
   con->zoom = 15.;
   con->functionIndex = 0;
 
+  naInitArray(&con->paramControllers);
+
   NASize spaceSize = naMakeSize(600, 400);
 
   con->win = naNewWindow(
@@ -248,6 +250,7 @@ PLWindowController* plAllocWindowController(void) {
   }
 
   con->paramSpace = naNewSpace(naMakeSize(SIDEBAR_WIDTH, 500));
+  naSetSpaceAlternateBackground(con->paramSpace, NA_TRUE);
 
   con->quitButton = naNewTextPushButton("Quit", BUTTON_WIDTH);
   naAddUIReaction(con->quitButton, NA_UI_COMMAND_PRESSED, pl_exitApplication, con);
@@ -273,11 +276,6 @@ PLWindowController* plAllocWindowController(void) {
     naMakePos(0, 0));
 
   pl_repositionUIElements(con, /*recreate*/ NA_TRUE);
-
-  naAddSpaceChild(
-    contentSpace,
-    con->quitButton,
-    naMakePos((SIDEBAR_WIDTH - BUTTON_WIDTH) * .5, MARGIN));
 
   naAddSpaceChild(
     contentSpace,
