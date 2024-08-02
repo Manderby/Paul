@@ -72,7 +72,7 @@ PLParamController* plAllocParamController(PLParam* param, size_t index) {
   con->textField = naNewTextField(TEXTFIELD_WIDTH);
   naSetTextFieldTextAlignment(con->textField, NA_TEXT_ALIGNMENT_RIGHT);
   
-  double sliderWidth = SIDEBAR_WIDTH - 2 * MARGIN - PARAM_NAME_WIDTH - HSPACER - TEXTFIELD_WIDTH - PREF_BUTTON_WIDTH - 2 * HSPACER;
+  double sliderWidth = SIDEBAR_WIDTH - 2 * MARGIN - PARAM_NAME_WIDTH - HSPACER - TEXTFIELD_WIDTH - SMALL_BUTTON_WIDTH - 2 * HSPACER;
   
   con->slider = naNewSlider(sliderWidth);
   naSetSliderRange(
@@ -81,7 +81,7 @@ PLParamController* plAllocParamController(PLParam* param, size_t index) {
     plGetParamMax(con->param),
     0);
   
-  con->button = naNewTextPushButton("...", PREF_BUTTON_WIDTH);
+  con->button = naNewTextPushButton("...", SMALL_BUTTON_WIDTH);
   naAddUIReaction(con->textField, NA_UI_COMMAND_EDIT_FINISHED, pl_ParamChanged, con);
   naAddUIReaction(con->slider, NA_UI_COMMAND_EDITED, pl_ParamChanged, con);
   naAddUIReaction(con->button, NA_UI_COMMAND_PRESSED, pl_ParamButtonPressed, con);

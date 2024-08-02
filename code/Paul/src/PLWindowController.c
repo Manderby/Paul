@@ -17,9 +17,15 @@ struct PLWindowController {
   size_t functionIndex;
 
   NAWindow* win;
+
   NASelect* functionSelect;
   NASpace* paramSpace;
   NAArray paramControllers;
+
+  NAButton* zoomOutButton;
+  NALabel* zoomLabel;
+  NAButton* zoomInButton;
+  
   NAButton* quitButton;
   NAOpenGLSpace* openGLSpace;
 };
@@ -40,7 +46,16 @@ void pl_exitApplication(NAReaction reaction);
 
 void pl_FreeParamControllers(PLWindowController* con) {
   if(naGetArrayCount(&con->paramControllers)) {
-    naForeachArraypMutable(&con->paramControllers, (NAMutator)plDeallocParamController);
+
+    NAArrayIterator iter = naMakeArrayMutator(&con->paramControllers);
+    while(naIterateArray(&iter, 1)) {
+      PLParamController** paramCon = naGetArrayCurMutable(&iter);
+      NASpace* space = plGetParamControllerSpace(*paramCon);
+      naRemoveSpaceChild(con->paramSpace, space);
+      naDelete(space);
+      plDeallocParamController(*paramCon);
+    }
+    naClearArrayIterator(&iter);
     naClearArray(&con->paramControllers);
   }
 }
@@ -74,7 +89,6 @@ void pl_recreateParameters(PLWindowController* con) {
   PLFunction* func = plGetFunction(con->functionIndex);
   size_t paramCount = plGetFunctionParamCount(func);
 
-  naRemoveAllSpaceChilds(con->paramSpace);
   pl_FreeParamControllers(con);
 
   // Add parameters
@@ -127,6 +141,8 @@ void pl_UpdateWindowController(PLWindowController* con) {
   for(size_t i = 0; i < paramCount; ++i) {
     plUpdateParamController(*(PLParamController**)naGetArrayElementMutable(&con->paramControllers, i));
   }
+  
+  naSetLabelText(con->zoomLabel, naAllocSprintf(NA_TRUE, "%g", con->zoom));
   
   plUpdateWindowControllerScene(con);
 }
@@ -209,6 +225,20 @@ void pl_drawScene(NAReaction reaction) {
 
 
 
+void pl_zoomScene(NAReaction reaction) {
+  PLWindowController* con = reaction.controller; 
+
+  if(reaction.uiElement == con->zoomInButton) {
+    con->zoom *= 2.;
+  } else if(reaction.uiElement == con->zoomOutButton) {
+    con->zoom /= 2.;
+  }
+  
+  pl_UpdateWindowController(con);
+}
+
+
+
 void pl_exitApplication(NAReaction reaction) {
   NA_UNUSED(reaction);
   naStopApplication();
@@ -250,7 +280,13 @@ PLWindowController* plAllocWindowController(void) {
   }
 
   con->paramSpace = naNewSpace(naMakeSize(SIDEBAR_WIDTH, 500));
-//  naSetSpaceAlternateBackground(con->paramSpace, NA_TRUE);
+
+  con->zoomOutButton = naNewTextPushButton("-", SMALL_BUTTON_WIDTH);
+  con->zoomLabel = naNewLabel("", BUTTON_WIDTH);
+  naSetLabelTextAlignment(con->zoomLabel, NA_TEXT_ALIGNMENT_CENTER);
+  con->zoomInButton = naNewTextPushButton("+", SMALL_BUTTON_WIDTH);
+  naAddUIReaction(con->zoomOutButton, NA_UI_COMMAND_PRESSED, pl_zoomScene, con);
+  naAddUIReaction(con->zoomInButton, NA_UI_COMMAND_PRESSED, pl_zoomScene, con);
 
   con->quitButton = naNewTextPushButton("Quit", BUTTON_WIDTH);
   naAddUIReaction(con->quitButton, NA_UI_COMMAND_PRESSED, pl_exitApplication, con);
@@ -276,6 +312,19 @@ PLWindowController* plAllocWindowController(void) {
     naMakePos(0, 0));
 
   pl_repositionUIElements(con, /*recreate*/ NA_TRUE);
+
+  naAddSpaceChild(
+    contentSpace,
+    con->zoomOutButton,
+    naMakePos(MARGIN, MARGIN + 2 * UI_ELEMENT_HEIGHT));
+  naAddSpaceChild(
+    contentSpace,
+    con->zoomLabel,
+    naMakePos(MARGIN + SMALL_BUTTON_WIDTH + HSPACER, MARGIN + 2 * UI_ELEMENT_HEIGHT));
+  naAddSpaceChild(
+    contentSpace,
+    con->zoomInButton,
+    naMakePos(MARGIN + SMALL_BUTTON_WIDTH + BUTTON_WIDTH + 2 * HSPACER, MARGIN + 2 * UI_ELEMENT_HEIGHT));
 
   naAddSpaceChild(
     contentSpace,
