@@ -23,10 +23,10 @@ void plUserStartup(void) {
   
   plSetFunctionName(func, "Cubic function");
   plSetFunctionEvaluator(func, evaluate);
-  plAddFunctionParameter(func, -1., 1., -3.);
-  plAddFunctionParameter(func, -1., 1., 0.);
-  plAddFunctionParameter(func, -1., 1., 2.);
-  plAddFunctionParameter(func, -1., 1., 0.);
+  plAddFunctionParameter(func, "a", -1., 1., -3.);
+  plAddFunctionParameter(func, "b", -1., 1., 0.);
+  plAddFunctionParameter(func, "c", -1., 1., 2.);
+  plAddFunctionParameter(func, "d", -1., 1., 0.);
   
   plRegisterFunction(func);
 
@@ -35,7 +35,7 @@ void plUserStartup(void) {
 
   plSetFunctionName(func2, "Sinc Function");
   plSetFunctionEvaluator(func2, evaluate2);
-  plAddFunctionParameter(func2, -10., 10., 1.);
+  plAddFunctionParameter(func2, "A", -10., 10., 1.);
   
   plRegisterFunction(func2);
 }

@@ -60,12 +60,19 @@ PLParamController* plAllocParamController(PLParam* param, size_t index) {
   
   con->space = naNewSpace(naMakeSize(SIDEBAR_WIDTH, UI_ELEMENT_HEIGHT));
   
-  con->label = naNewLabel(naAllocSprintf(NA_TRUE, "%c", 'a' + index), PARAM_NAME_WIDTH);
+  const NAUTF8Char* paramName = plGetParamName(param);
+  NAUTF8Char* displayName = paramName
+    ? naAllocSprintf(NA_TRUE, "%s", paramName)
+    : naAllocSprintf(NA_TRUE, "p%d", (int)index);
+  con->label = naNewLabel(displayName, PARAM_NAME_WIDTH);
+  naSetLabelTextAlignment(con->label, NA_TEXT_ALIGNMENT_RIGHT);
   naSetLabelFont(con->label, plGetGlobalMathFont());
+  naSetLabelHeight(con->label, 20);
+  
   con->textField = naNewTextField(TEXTFIELD_WIDTH);
   naSetTextFieldTextAlignment(con->textField, NA_TEXT_ALIGNMENT_RIGHT);
   
-  double sliderWidth = SIDEBAR_WIDTH - 2 * MARGIN - PARAM_NAME_WIDTH - TEXTFIELD_WIDTH - PREF_BUTTON_WIDTH - 2 * HSPACER;
+  double sliderWidth = SIDEBAR_WIDTH - 2 * MARGIN - PARAM_NAME_WIDTH - HSPACER - TEXTFIELD_WIDTH - PREF_BUTTON_WIDTH - 2 * HSPACER;
   
   con->slider = naNewSlider(sliderWidth);
   naSetSliderRange(
@@ -82,19 +89,19 @@ PLParamController* plAllocParamController(PLParam* param, size_t index) {
   naAddSpaceChild(
     con->space,
     con->label,
-    naMakePos(MARGIN, 0));
+    naMakePos(MARGIN - PARAM_NAME_OVERSHOOT, -2));
   naAddSpaceChild(
     con->space,
     con->textField,
-    naMakePos(MARGIN + PARAM_NAME_WIDTH, 0));
+    naMakePos(MARGIN + PARAM_NAME_WIDTH - PARAM_NAME_OVERSHOOT + HSPACER, 0));
   naAddSpaceChild(
     con->space,
     con->slider,
-    naMakePos(MARGIN + PARAM_NAME_WIDTH + TEXTFIELD_WIDTH + 1 * HSPACER, 0));
+    naMakePos(MARGIN + PARAM_NAME_WIDTH - PARAM_NAME_OVERSHOOT + HSPACER + TEXTFIELD_WIDTH + 1 * HSPACER, 0));
   naAddSpaceChild(
     con->space,
     con->button,
-    naMakePos(MARGIN + PARAM_NAME_WIDTH + TEXTFIELD_WIDTH + sliderWidth + 2 * HSPACER, 0));
+    naMakePos(MARGIN + PARAM_NAME_WIDTH - PARAM_NAME_OVERSHOOT + HSPACER + TEXTFIELD_WIDTH + sliderWidth + 2 * HSPACER, 0));
 
   return con;
 }

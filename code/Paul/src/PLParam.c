@@ -1,10 +1,12 @@
 
 #include "NAUtility/NAMemory.h"
+#include "NAUtility/NAString.h"
 #include "PLParam.h"
 
 
 
 struct PLParam {
+  NAUTF8Char* name;
   double value;
   double min;
   double max;
@@ -15,6 +17,7 @@ struct PLParam {
 PLParam* plAllocParam(void) {
   PLParam* param = naAlloc(PLParam);
   
+  param->name = NA_NULL;
   param->value = 0.;
   param->min = -1.;
   param->max = +1.;
@@ -26,6 +29,21 @@ PLParam* plAllocParam(void) {
 
 void plDeallocParam(PLParam* param) {
   naFree(param);
+}
+
+
+
+const NAUTF8Char* plGetParamName(const PLParam* param) {
+  return param->name;
+}
+void plSetParamName(PLParam* param, const NAUTF8Char* name) {
+  if(param->name) {
+    naFree(param->name);
+    param->name = NA_NULL;
+  }
+  if(name) {
+    param->name = naAllocSprintf(NA_FALSE, "%s", name);
+  }
 }
 
 

@@ -250,7 +250,7 @@ PLWindowController* plAllocWindowController(void) {
   }
 
   con->paramSpace = naNewSpace(naMakeSize(SIDEBAR_WIDTH, 500));
-  naSetSpaceAlternateBackground(con->paramSpace, NA_TRUE);
+//  naSetSpaceAlternateBackground(con->paramSpace, NA_TRUE);
 
   con->quitButton = naNewTextPushButton("Quit", BUTTON_WIDTH);
   naAddUIReaction(con->quitButton, NA_UI_COMMAND_PRESSED, pl_exitApplication, con);

@@ -28,6 +28,7 @@ void plSetFunctionName(
 // Add a parameter
 size_t plAddFunctionParameter(
   PLFunction* func,
+  const NAUTF8Char* name,
   double min,
   double max,
   double value);

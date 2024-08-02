@@ -10,6 +10,9 @@ PLParam* plAllocParam(void);
 void plDeallocParam(PLParam* param);
 
 // Getter and Setter
+const NAUTF8Char* plGetParamName(const PLParam* param);
+void plSetParamName(PLParam* param, const NAUTF8Char* name);
+
 double plGetParamValue(const PLParam* param);
 void plSetParamValue(PLParam* param, double value);
 

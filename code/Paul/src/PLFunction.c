@@ -69,7 +69,7 @@ const NAUTF8Char* plGetFunctionName(const PLFunction* func) {
 
 
 
-size_t plAddFunctionParameter(PLFunction* func, double min, double max, double value) {
+size_t plAddFunctionParameter(PLFunction* func, const NAUTF8Char* name, double min, double max, double value) {
   func->paramCount++;
   
   PLParam** newParams = naMalloc(sizeof(PLParam*) * func->paramCount);
@@ -80,6 +80,7 @@ size_t plAddFunctionParameter(PLFunction* func, double min, double max, double v
   func->params = newParams;
   
   PLParam* param = plAllocParam();
+  plSetParamName(param, name);
   plSetParamMin(param, min);
   plSetParamMax(param, max);
   plSetParamValue(param, value);
