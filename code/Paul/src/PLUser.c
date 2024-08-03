@@ -23,19 +23,21 @@ void plUserStartup(void) {
   
   plSetFunctionName(func, "Cubic function");
   plSetFunctionEvaluator(func, evaluate);
-  plAddFunctionParameter(func, "a", -1., 1., -3.);
-  plAddFunctionParameter(func, "b", -1., 1., 0.);
-  plAddFunctionParameter(func, "c", -1., 1., 2.);
-  plAddFunctionParameter(func, "d", -1., 1., 0.);
+  plAddFunctionParameter(func, "a", -1., 1., -3., NA_FALSE);
+  plAddFunctionParameter(func, "b", -1., 1., 0., NA_FALSE);
+  plAddFunctionParameter(func, "c", -1., 1., 2., NA_FALSE);
+  plAddFunctionParameter(func, "d", -1., 1., 0., NA_FALSE);
   
   plRegisterFunction(func);
 
 
   PLFunction* func2 = plAllocFunction();
+  plSetFunctionBounds(func2, 0., 10.);
+  plSetFunctionIntegerOnly(func2, NA_TRUE);
 
   plSetFunctionName(func2, "Sinc Function");
   plSetFunctionEvaluator(func2, evaluate2);
-  plAddFunctionParameter(func2, "A", -10., 10., 1.);
+  plAddFunctionParameter(func2, "A", -10., 10., 1., NA_TRUE);
   
   plRegisterFunction(func2);
 }

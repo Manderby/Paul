@@ -24,12 +24,20 @@ struct PLParamController {
 void pl_ParamChanged(NAReaction reaction) {
   PLParamController* con = reaction.controller; 
   
+  double value = plGetParamValue(con->param);
+  
   if(reaction.uiElement == con->slider) {
-    plSetParamValue(con->param, naGetSliderValue(con->slider));
+    value = naGetSliderValue(con->slider);
   }else if(reaction.uiElement == con->textField) {
-    plSetParamValue(con->param, naGetTextFieldDouble(con->textField));
+    value = naGetTextFieldDouble(con->textField);
   }
   
+  if(plGetParamIntegerOnly(con->param)) {
+    value = naFloor(value);
+  }
+  
+  plSetParamValue(con->param, value);
+
   plUpdateParamController(con);
   plDrawGlobalScene();
 }

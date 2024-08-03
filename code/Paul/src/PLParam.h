@@ -21,3 +21,7 @@ void plSetParamMin(PLParam* param, double min);
 
 double plGetParamMax(const PLParam* param);
 void plSetParamMax(PLParam* param, double max);
+
+NABool plGetParamIntegerOnly(const PLParam* param);
+void plSetParamIntegerOnly(PLParam* param, NABool integerOnly);
+

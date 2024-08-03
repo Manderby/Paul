@@ -76,13 +76,32 @@ void pl_DrawFunction(const PLWindowController* con) {
     params[i] = plGetParamValue(plGetFunctionParameter(func, i));
   }
 
-  glBegin(GL_LINE_STRIP);
-    for(size_t i = 0; i < viewRect.size.width; ++i) {
-      double t = con->center.x - viewRect.size.width * .5 / con->zoom;
-      t += ((double)i / (double)viewRect.size.width) * viewRect.size.width / con->zoom;
-      glVertex2d(t, plEvaluateFunction(func, t, params));
-    }
-  glEnd();
+    
+  if(plGetFunctionIntegerOnly(func)) {
+    glPointSize(5);
+    glBegin(GL_POINTS);
+      glColor3ub(255, 255, 255);
+      double left = con->center.x - viewRect.size.width * .5 / con->zoom;
+      double right = con->center.x + viewRect.size.width * .5 / con->zoom;
+
+      for(double x = left; x < right; x += 1.) {
+        double t = naFloor(x);
+        double result = plEvaluateFunction(func, t, params);
+        glVertex2d(t, result);
+      }
+    glEnd();
+  }else{
+    glBegin(GL_LINE_STRIP);
+      glColor3ub(255, 255, 255);
+      for(size_t i = 0; i < viewRect.size.width; ++i) {
+        double t = con->center.x - viewRect.size.width * .5 / con->zoom;
+        t += ((double)i / (double)viewRect.size.width) * viewRect.size.width / con->zoom;
+        if(t >= plGetFunctionMinBound(func) && t <= plGetFunctionMaxBound(func)) {
+          glVertex2d(t, plEvaluateFunction(func, t, params));
+        }
+      }
+    glEnd();
+  }
   
   naFree(params);
 }
@@ -194,16 +213,21 @@ void pl_drawScene(NAReaction reaction) {
     (GLsizei)(viewRect.size.width * uiScale),
     (GLsizei)(viewRect.size.height * uiScale));
 
+  double left = con->center.x - viewRect.size.width * .5 / con->zoom;
+  double right = con->center.x + viewRect.size.width * .5 / con->zoom;
+  double bottom = con->center.y - viewRect.size.height * .5 / con->zoom;
+  double top = con->center.y + viewRect.size.height * .5 / con->zoom;
+
   // Setup projection and modelview
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   NAMat44d ortho;
   naFillMatrixOrtho(
     ortho,
-    con->center.x - viewRect.size.width * .5 / con->zoom,
-    con->center.x + viewRect.size.width * .5 / con->zoom,
-    con->center.y - viewRect.size.height * .5 / con->zoom,
-    con->center.y + viewRect.size.height * .5 / con->zoom,
+    left,
+    right,
+    bottom,
+    top,
     -1, 1);
   glMultMatrixd(ortho);
   
@@ -213,13 +237,23 @@ void pl_drawScene(NAReaction reaction) {
   // Clear the scene with the background color.
   glClearColor(0., 0., 0., 1.);
   glClear(GL_COLOR_BUFFER_BIT);
-  
+    
   // Draw coordinate system
   glBegin(GL_LINES);
-    glVertex2d(-100., 0.);
-    glVertex2d(+100., 0.);
-    glVertex2d(0., -100.);
-    glVertex2d(0., +100.);
+    glColor3ub(196, 196, 196);
+    glVertex2d(left, 0.);
+    glVertex2d(right, 0.);
+    glVertex2d(0., bottom);
+    glVertex2d(0., top);
+  glEnd();
+
+  // Draw vertical integer lines
+  glBegin(GL_LINES);
+    glColor3ub(64, 64, 64);
+    for(size_t i = 1; i < 100; i++) {
+      glVertex2d((double)i, bottom);
+      glVertex2d((double)i, top);
+    }
   glEnd();
   
   pl_DrawFunction(con);

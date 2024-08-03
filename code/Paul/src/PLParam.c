@@ -10,6 +10,7 @@ struct PLParam {
   double value;
   double min;
   double max;
+  NABool integerOnly;
 };
 
 
@@ -21,6 +22,7 @@ PLParam* plAllocParam(void) {
   param->value = 0.;
   param->min = -1.;
   param->max = +1.;
+  param->integerOnly = NA_FALSE;
 
   return param;
 }
@@ -73,3 +75,11 @@ void plSetParamMax(PLParam* param, double max) {
   param->max = max;
 }
 
+
+
+NABool plGetParamIntegerOnly(const PLParam* param) {
+  return param->integerOnly;
+}
+void plSetParamIntegerOnly(PLParam* param, NABool integerOnly) {
+  param->integerOnly = integerOnly;
+}

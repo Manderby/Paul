@@ -14,6 +14,9 @@ struct PLFunction {
   size_t paramCount;
   PLParam** params;
   PLEvaluator eval;
+  NABool integerOnly;
+  double minBound;
+  double maxBound;
 };
 
 
@@ -25,6 +28,9 @@ PLFunction* plAllocFunction(void) {
   func->paramCount = 0;
   func->params = NA_NULL;
   func->eval = NA_NULL;
+  func->integerOnly = NA_FALSE;
+  func->minBound = -NA_INFINITY;
+  func->maxBound = +NA_INFINITY;
 
   return func;
 }
@@ -61,6 +67,31 @@ void plSetFunctionName(PLFunction* func, const NAUTF8Char* name) {
 
 
 
+NABool plGetFunctionIntegerOnly(const PLFunction* func) {
+  return func->integerOnly;
+}
+void plSetFunctionIntegerOnly(PLFunction* func, NABool integerOnly) {
+  func->integerOnly = integerOnly;
+}
+
+
+
+double plGetFunctionMinBound(const PLFunction* func) {
+  return func->minBound;
+}
+double plGetFunctionMaxBound(const PLFunction* func) {
+  return func->maxBound;
+}
+void plSetFunctionBounds(
+  PLFunction* func,
+  double min,
+  double max)
+{
+  func->minBound = min;
+  func->maxBound = max;
+}
+
+
 
 const NAUTF8Char* plGetFunctionName(const PLFunction* func) {
   return func->name;
@@ -69,7 +100,7 @@ const NAUTF8Char* plGetFunctionName(const PLFunction* func) {
 
 
 
-size_t plAddFunctionParameter(PLFunction* func, const NAUTF8Char* name, double min, double max, double value) {
+size_t plAddFunctionParameter(PLFunction* func, const NAUTF8Char* name, double min, double max, double value, NABool integerOnly) {
   func->paramCount++;
   
   PLParam** newParams = naMalloc(sizeof(PLParam*) * func->paramCount);
@@ -84,6 +115,7 @@ size_t plAddFunctionParameter(PLFunction* func, const NAUTF8Char* name, double m
   plSetParamMin(param, min);
   plSetParamMax(param, max);
   plSetParamValue(param, value);
+  plSetParamIntegerOnly(param, integerOnly);
 
   func->params[func->paramCount - 1] = param;
 

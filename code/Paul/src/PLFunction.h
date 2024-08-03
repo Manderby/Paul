@@ -25,13 +25,24 @@ void plSetFunctionName(
   PLFunction* func,
   const NAUTF8Char* name);
   
+NABool plGetFunctionIntegerOnly(const PLFunction* func);
+void plSetFunctionIntegerOnly(PLFunction* func, NABool integerOnly);
+
+double plGetFunctionMinBound(const PLFunction* func);
+double plGetFunctionMaxBound(const PLFunction* func);
+void plSetFunctionBounds(
+  PLFunction* func,
+  double min,
+  double max);
+  
 // Add a parameter
 size_t plAddFunctionParameter(
   PLFunction* func,
   const NAUTF8Char* name,
   double min,
   double max,
-  double value);
+  double value,
+  NABool integerOnly);
 
 // Getter
 size_t plGetFunctionParamCount(
