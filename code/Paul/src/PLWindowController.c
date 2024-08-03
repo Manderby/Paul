@@ -11,8 +11,11 @@
 #include "NAVisual/NA3DHelper.h"
 
 
+#define PL_SCROLL_SPEED 5.
+
 
 struct PLWindowController {
+  NAPos center;
   double zoom;
   size_t functionIndex;
 
@@ -72,10 +75,11 @@ void pl_DrawFunction(const PLWindowController* con) {
   for(size_t i = 0; i < paramCount; ++i) {
     params[i] = plGetParamValue(plGetFunctionParameter(func, i));
   }
-  
+
   glBegin(GL_LINE_STRIP);
     for(size_t i = 0; i < viewRect.size.width; ++i) {
-      double t = ((double)i - viewRect.size.width * .5) / con->zoom;
+      double t = con->center.x - viewRect.size.width * .5 / con->zoom;
+      t += ((double)i / (double)viewRect.size.width) * viewRect.size.width / con->zoom;
       glVertex2d(t, plEvaluateFunction(func, t, params));
     }
   glEnd();
@@ -196,10 +200,10 @@ void pl_drawScene(NAReaction reaction) {
   NAMat44d ortho;
   naFillMatrixOrtho(
     ortho,
-    -viewRect.size.width * .5 / con->zoom,
-    +viewRect.size.width * .5 / con->zoom,
-    -viewRect.size.height * .5 / con->zoom,
-    +viewRect.size.height * .5 / con->zoom,
+    con->center.x - viewRect.size.width * .5 / con->zoom,
+    con->center.x + viewRect.size.width * .5 / con->zoom,
+    con->center.y - viewRect.size.height * .5 / con->zoom,
+    con->center.y + viewRect.size.height * .5 / con->zoom,
     -1, 1);
   glMultMatrixd(ortho);
   
@@ -221,6 +225,56 @@ void pl_drawScene(NAReaction reaction) {
   pl_DrawFunction(con);
   
   naSwapOpenGLSpaceBuffer(con->openGLSpace);
+}
+
+
+
+void pl_panScene(NAReaction reaction) {
+  PLWindowController* con = reaction.controller; 
+
+  const NAMouseStatus* mouseStatus = naGetMouseStatus();
+  if(naGetMouseButtonPressed(mouseStatus, NA_MOUSE_BUTTON_MIDDLE)) {
+    NAPos delta = naGetMouseDelta(mouseStatus);
+    con->center.x -= delta.x / con->zoom;
+    con->center.y -= delta.y / con->zoom;
+    plUpdateWindowControllerScene(con);
+  }
+}
+
+
+
+void pl_transformScene(NAReaction reaction) {
+  PLWindowController* con = reaction.controller; 
+ 
+  NAKeyStroke keyStroke = naGetCurrentKeyStroke();
+  NABool optionPressed  = naGetFlagu32(keyStroke.modifiers, NA_MODIFIER_FLAG_OPTION);
+ 
+  const double* transformation = naGetOpenGLSpaceTransformation(con->openGLSpace);
+  NAPos translation = naGetMat33dTranslation(transformation);
+  double magnification = naGetMat33dMagnification(transformation);
+ 
+  if(optionPressed) {
+    const NAMouseStatus* mouseStatus = naGetMouseStatus();
+    NAPos mousePos = naGetMousePos(mouseStatus);
+    NARect sceneRect = naGetUIElementRectAbsolute(con->openGLSpace);
+
+    NAPos mouseCoords = naMakePos(
+      con->center.x - sceneRect.size.width * .5 / con->zoom + (mousePos.x - sceneRect.pos.x) / con->zoom,
+      con->center.y - sceneRect.size.height * .5 / con->zoom + (mousePos.y - sceneRect.pos.y) / con->zoom);
+
+    double zoomFactor = naPow(1.05, translation.y);
+
+    con->center = naMakePos(
+      con->center.x + (con->center.x - mouseCoords.x) * (1. - zoomFactor),
+      con->center.y + (con->center.y - mouseCoords.y) * (1. - zoomFactor));
+
+    con->zoom *= zoomFactor;
+  }else{
+    con->center.x -= PL_SCROLL_SPEED * translation.x / con->zoom;
+    con->center.y -= PL_SCROLL_SPEED * translation.y / con->zoom;
+  }
+  
+  plUpdateWindowControllerScene(con);
 }
 
 
@@ -255,6 +309,7 @@ void plUpdateWindowControllerScene(const PLWindowController* con) {
 PLWindowController* plAllocWindowController(void) {
   PLWindowController* con = naAlloc(PLWindowController);
 
+  con->center = naMakePosZero();
   con->zoom = 15.;
   con->functionIndex = 0;
 
@@ -297,6 +352,8 @@ PLWindowController* plAllocWindowController(void) {
     NA_NULL,
     NA_NULL);  
   naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_REDRAW, pl_drawScene, con);
+  naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_TRANSFORMED, pl_transformScene, con);
+  naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_MOUSE_MOVED, pl_panScene, con);
     
   // Setup the UI.
   NASpace* contentSpace = naGetWindowContentSpace(con->win);
