@@ -77,7 +77,7 @@ void pl_DrawFunction(const PLWindowController* con) {
   }
 
     
-  if(plGetFunctionIntegerOnly(func)) {
+//  if(plGetFunctionIntegerOnly(func)) {
     glPointSize(8);
     glBegin(GL_POINTS);
       glColor3ub(255, 255, 255);
@@ -92,7 +92,7 @@ void pl_DrawFunction(const PLWindowController* con) {
         }
       }
     glEnd();
-  }else{
+//  }else{
     glBegin(GL_LINE_STRIP);
       glColor3ub(150, 150, 150);
       for(size_t i = 0; i < viewRect.size.width; ++i) {
@@ -104,7 +104,7 @@ void pl_DrawFunction(const PLWindowController* con) {
         }
       }
     glEnd();
-  }
+//  }
   
   naFree(params);
 }
