@@ -78,26 +78,29 @@ void pl_DrawFunction(const PLWindowController* con) {
 
     
   if(plGetFunctionIntegerOnly(func)) {
-    glPointSize(5);
+    glPointSize(8);
     glBegin(GL_POINTS);
       glColor3ub(255, 255, 255);
       double left = con->center.x - viewRect.size.width * .5 / con->zoom;
       double right = con->center.x + viewRect.size.width * .5 / con->zoom;
 
-      for(double x = left; x < right; x += 1.) {
+      for(double x = left - 1.; x < right + 1.; x += 1.) {
         double t = naFloor(x);
-        double result = plEvaluateFunction(func, t, params);
-        glVertex2d(t, result);
+        if(t >= plGetFunctionMinBound(func) && t <= plGetFunctionMaxBound(func)) {
+          double result = plEvaluateFunction(func, t, params);
+          glVertex2d(t, result);
+        }
       }
     glEnd();
   }else{
     glBegin(GL_LINE_STRIP);
-      glColor3ub(255, 255, 255);
+      glColor3ub(150, 150, 150);
       for(size_t i = 0; i < viewRect.size.width; ++i) {
         double t = con->center.x - viewRect.size.width * .5 / con->zoom;
         t += ((double)i / (double)viewRect.size.width) * viewRect.size.width / con->zoom;
         if(t >= plGetFunctionMinBound(func) && t <= plGetFunctionMaxBound(func)) {
-          glVertex2d(t, plEvaluateFunction(func, t, params));
+          double result = plEvaluateFunction(func, t, params);
+          glVertex2d(t, result);
         }
       }
     glEnd();
@@ -160,6 +163,8 @@ void pl_repositionUIElements(PLWindowController* con, NABool recreate) {
 void pl_UpdateWindowController(PLWindowController* con) {
   PLFunction* func = plGetFunction(con->functionIndex);
   size_t paramCount = plGetFunctionParamCount(func);
+
+  naSetWindowTitle(con->win, plGetFunctionName(func));
 
   for(size_t i = 0; i < paramCount; ++i) {
     plUpdateParamController(*(PLParamController**)naGetArrayElementMutable(&con->paramControllers, i));
@@ -240,19 +245,47 @@ void pl_drawScene(NAReaction reaction) {
     
   // Draw coordinate system
   glBegin(GL_LINES);
-    glColor3ub(196, 196, 196);
+    glColor3ub(128, 128, 128);
     glVertex2d(left, 0.);
     glVertex2d(right, 0.);
     glVertex2d(0., bottom);
     glVertex2d(0., top);
   glEnd();
 
+  glBegin(GL_QUADS);
+    glColor3ub(32, 32, 32);
+    glVertex2d(left, bottom);
+    glVertex2d(left, top);
+    glVertex2d(0., top);
+    glVertex2d(0., bottom);
+    glVertex2d(left, bottom);
+    glVertex2d(left, 0.);
+    glVertex2d(right, 0.);
+    glVertex2d(right, bottom);
+  glEnd();
+
   // Draw vertical integer lines
   glBegin(GL_LINES);
-    glColor3ub(64, 64, 64);
-    for(size_t i = 1; i < 100; i++) {
+    for(size_t i = 0; i < 10000; i++) {
+      if(i % 10){
+        glColor3ub(64, 64, 64);
+      }else
+      {
+        glColor3ub(128, 128, 128);
+      }
       glVertex2d((double)i, bottom);
       glVertex2d((double)i, top);
+    }
+
+    for(size_t i = 0; i < 1000; i++) {
+      if(i % 10){
+        glColor3ub(64, 64, 64);
+      }else
+      {
+        glColor3ub(196, 196, 196);
+      }
+      glVertex2d(left, (double)i);
+      glVertex2d(right, (double)i);
     }
   glEnd();
   
@@ -343,18 +376,18 @@ void plUpdateWindowControllerScene(const PLWindowController* con) {
 PLWindowController* plAllocWindowController(void) {
   PLWindowController* con = naAlloc(PLWindowController);
 
-  con->center = naMakePosZero();
-  con->zoom = 15.;
+  con->center = naMakePos(13., 5.);
+  con->zoom = 50.;
   con->functionIndex = 0;
 
   naInitArray(&con->paramControllers);
 
-  NASize spaceSize = naMakeSize(600, 400);
+  NASize spaceSize = naMakeSize(1400, 600);
 
   con->win = naNewWindow(
     "Paul",
     naMakeRect(
-      naMakePos(100, 100),
+      naMakePos(100, 500),
       naMakeSize(spaceSize.width + SIDEBAR_WIDTH, spaceSize.height)),
     NA_WINDOW_RESIZEABLE,
     0);

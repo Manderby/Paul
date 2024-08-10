@@ -64,7 +64,7 @@ PLParamEditorController* plAllocParamEditorController() {
   con->minTextField = naNewTextField(TEXTFIELD_WIDTH);
   con->maxTextField = naNewTextField(TEXTFIELD_WIDTH);
   naAddUIReaction(con->minTextField, NA_UI_COMMAND_EDIT_FINISHED, pl_EditProperty, con);
-  naAddUIReaction(con->minTextField, NA_UI_COMMAND_EDIT_FINISHED, pl_EditProperty, con);
+  naAddUIReaction(con->maxTextField, NA_UI_COMMAND_EDIT_FINISHED, pl_EditProperty, con);
     
   con->button = naNewTextPushButton("Close", BUTTON_WIDTH);
   naAddUIReaction(con->button, NA_UI_COMMAND_PRESSED, pl_closeEditor, con);
