@@ -54,7 +54,9 @@ void pl_ParamButtonPressed(NAReaction reaction) {
     
     // We wait till the modal window closes.
     
-    plDeallocParamEditorController(paramCon);
+    #if NA_OS == NA_OS_MACOS
+      plDeallocParamEditorController(paramCon);
+    #endif
     plUpdateParamController(con);
   }
 }

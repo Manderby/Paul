@@ -77,7 +77,7 @@ void pl_DrawFunction(const PLWindowController* con) {
   }
 
     
-//  if(plGetFunctionIntegerOnly(func)) {
+  if(plGetFunctionIntegerOnly(func)) {
     glPointSize(8);
     glBegin(GL_POINTS);
       glColor3ub(255, 255, 255);
@@ -92,7 +92,7 @@ void pl_DrawFunction(const PLWindowController* con) {
         }
       }
     glEnd();
-//  }else{
+  }else{
     glBegin(GL_LINE_STRIP);
       glColor3ub(150, 150, 150);
       for(size_t i = 0; i < viewRect.size.width; ++i) {
@@ -104,7 +104,7 @@ void pl_DrawFunction(const PLWindowController* con) {
         }
       }
     glEnd();
-//  }
+  }
   
   naFree(params);
 }
@@ -376,18 +376,18 @@ void plUpdateWindowControllerScene(const PLWindowController* con) {
 PLWindowController* plAllocWindowController(void) {
   PLWindowController* con = naAlloc(PLWindowController);
 
-  con->center = naMakePos(13., 5.);
+  con->center = naMakePos(19., 0.);
   con->zoom = 50.;
   con->functionIndex = 0;
 
   naInitArray(&con->paramControllers);
 
-  NASize spaceSize = naMakeSize(1400, 600);
+  NASize spaceSize = naMakeSize(1200, 600);
 
   con->win = naNewWindow(
     "Paul",
     naMakeRect(
-      naMakePos(100, 500),
+      naMakePos(100, 200),
       naMakeSize(spaceSize.width + SIDEBAR_WIDTH, spaceSize.height)),
     NA_WINDOW_RESIZEABLE,
     0);

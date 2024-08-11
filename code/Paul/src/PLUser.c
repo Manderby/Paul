@@ -26,7 +26,7 @@ double evaluate2(double t, const double* params) {
 
   for(size_t i = 1; i < MAX_TONE; i += 1) {
     //if(i == 7 || i == 11) // Alphorn
-    if(i == 3 || i == 5 || i == 6) // 5th, 4th, 3rd      // 12 TET 1.998294 -> error 0.093562
+    if(i == 2 || i == 3 || i == 5 || i == 6) // 5th, 4th, 3rd      // 12 TET 1.998294 -> error 0.093562
                                                          // 19 TET 2.003962 -> error 0.011330
     //if(i == 3 || i == 5 || i == 6 || i == 9 || i == 15)  // 12 TET 1.998624 -> error 0.097749
                                                          // 19 TET 2.004320 -> error 0.015086
