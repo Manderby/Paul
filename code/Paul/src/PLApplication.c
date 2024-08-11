@@ -106,6 +106,7 @@ void plStartupApplication(void* arg) {
 void plStartupGUI(void* arg) {
   plUserStartup();
   plStartupApplicationGUI(_app);
+  naSetDefaultWindowSystemKeyHandling(NA_FALSE);
 }
 
 

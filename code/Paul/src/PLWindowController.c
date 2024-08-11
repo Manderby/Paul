@@ -417,7 +417,8 @@ PLWindowController* plAllocWindowController(void) {
   con->openGLSpace = naNewOpenGLSpace(
     spaceSize,
     NA_NULL,
-    NA_NULL);  
+    NA_NULL);
+
   naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_REDRAW, pl_drawScene, con);
   naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_TRANSFORMED, pl_transformScene, con);
   naAddUIReaction(con->openGLSpace, NA_UI_COMMAND_MOUSE_MOVED, pl_panScene, con);
