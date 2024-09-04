@@ -32,7 +32,7 @@ double evaluate2(double t, const double* params) {
                                                          // 19 TET 2.004320 -> error 0.015086
     {
       double errorWeight = 1. / i;
-      totalError += errorWeight * evaluate(i, t, params);
+      totalError += errorWeight * evaluate((double)i, t, params);
       totalErrorWeight += errorWeight;
     }
   }

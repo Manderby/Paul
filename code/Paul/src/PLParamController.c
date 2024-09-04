@@ -6,6 +6,8 @@
 #include "PLParamEditorController.h"
 
 #include "NAApp/NAApp.h"
+#include "NAUtility/NAMemory.h"
+#include "NAUtility/NAString.h"
 
 
 

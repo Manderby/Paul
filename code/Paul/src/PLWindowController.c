@@ -299,7 +299,7 @@ void pl_drawScene(NAReaction reaction) {
 void pl_panScene(NAReaction reaction) {
   PLWindowController* con = reaction.controller; 
 
-  const NAMouseStatus* mouseStatus = naGetMouseStatus();
+  const NAMouseStatus* mouseStatus = naGetCurrentMouseStatus();
   if(naGetMouseButtonPressed(mouseStatus, NA_MOUSE_BUTTON_MIDDLE)) {
     NAPos delta = naGetMouseDelta(mouseStatus);
     con->center.x -= delta.x / con->zoom;
@@ -313,15 +313,15 @@ void pl_panScene(NAReaction reaction) {
 void pl_transformScene(NAReaction reaction) {
   PLWindowController* con = reaction.controller; 
  
-  NAKeyStroke keyStroke = naGetCurrentKeyStroke();
-  NABool optionPressed  = naGetFlagu32(keyStroke.modifiers, NA_MODIFIER_FLAG_OPTION);
+  const NAKeyStroke* keyStroke = naGetCurrentKeyStroke();
+  NABool optionPressed  = naGetKeyStrokeModifierPressed(keyStroke, NA_KEY_MODIFIER_OPTION);
  
   const double* transformation = naGetOpenGLSpaceTransformation(con->openGLSpace);
   NAPos translation = naGetMat33dTranslation(transformation);
   double magnification = naGetMat33dMagnification(transformation);
  
   if(optionPressed) {
-    const NAMouseStatus* mouseStatus = naGetMouseStatus();
+    const NAMouseStatus* mouseStatus = naGetCurrentMouseStatus();
     NAPos mousePos = naGetMousePos(mouseStatus);
     NARect sceneRect = naGetUIElementRectAbsolute(con->openGLSpace);
 

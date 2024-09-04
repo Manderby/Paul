@@ -1,6 +1,7 @@
 #include "main.h"
 
 #include "NAApp/NAApp.h"
+#include "NAUtility/NAMemory.h"
 #include "PLApplication.h"
 
 
